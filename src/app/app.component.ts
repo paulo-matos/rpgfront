@@ -12,5 +12,5 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
-  title = 'RPG Mestre';
+  title = 'Escudo do Mestre';
 }

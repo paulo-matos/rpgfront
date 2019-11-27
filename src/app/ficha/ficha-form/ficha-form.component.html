@@ -1,1 +1,74 @@
-<p>ficha-form works!</p>
+<h1>{{ title }}</h1>
+
+<form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
+    <mat-form-field>
+        <input matInput placeholder="Nome do personagem" required [(ngModel)]="ficha.nome" name="nome">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Nome do jogador" required [(ngModel)]="ficha.jogador" name="jogador">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Espécie. Ex: Vampiro" [(ngModel)]="ficha.especie" name="especie">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Nome da Crônica" required [(ngModel)]="ficha.cronica" name="cronica">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Natureza do personagem" [(ngModel)]="ficha.natureza" name="natureza"
+            alt="Esta é a verdadeira personalidade do seu personagem — quem ele realmente é">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Comportamento do personagem" [(ngModel)]="ficha.comportamento" name="comportamento"
+            alt="Esta é a personalidade que o personagem
+        apresenta ao mundo">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Clã. Ex: Brujah" required [(ngModel)]="ficha.cla" name="cla">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Geração. Ex: 13" [(ngModel)]="ficha.geracao" name="geracao" type="number" step="1"
+            mask="09">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Senhor" [(ngModel)]="ficha.senhor" name="senhor"
+            alt="Nome do vampiro que te abraçou">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Conceito. Ex: Justiceiro Maluco" [(ngModel)]="ficha.conceito" name="conceito"
+            alt="Um esboço de uma ou duas palavras sobre o que o personagem era antes de ser abraçado">
+    </mat-form-field>
+
+    <mat-form-field>
+        <textarea matInput placeholder="Atributo (id)" [(ngModel)]="ficha.atributo" rows="4" name="atributo"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+        <textarea matInput placeholder="Habilidades (id)" [(ngModel)]="ficha.habilidade" rows="4"
+            name="habilidade"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+        <textarea matInput placeholder="Detalhes (id)" [(ngModel)]="ficha.detalhe" rows="4" name="detalhe"></textarea>
+    </mat-form-field>
+
+    <mat-toolbar class="form-buttons">
+        <mat-toolbar-row>
+            <button mat-raised-button type="submit" color="accent">
+                Salvar
+            </button>
+            <button mat-raised-button type="button" (click)="voltar(f)">
+                Voltar
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+</form>

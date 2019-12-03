@@ -36,6 +36,16 @@ import { FichaListComponent } from './ficha/ficha-list/ficha-list.component';
 import { FichaFormComponent } from './ficha/ficha-form/ficha-form.component';
 import { AtributoListComponent } from './atributo/atributo-list/atributo-list.component';
 import { AtributoFormComponent } from './atributo/atributo-form/atributo-form.component';
+import { ConhecimentoListComponent } from './conhecimento/conhecimento-list/conhecimento-list.component';
+import { ConhecimentoFormComponent } from './conhecimento/conhecimento-form/conhecimento-form.component';
+import { DetalheListComponent } from './detalhe/detalhe-list/detalhe-list.component';
+import { DetalheFormComponent } from './detalhe/detalhe-form/detalhe-form.component';
+import { HabilidadeListComponent } from './habilidade/habilidade-list/habilidade-list.component';
+import { HabilidadeFormComponent } from './habilidade/habilidade-form/habilidade-form.component';
+import { PericiaListComponent } from './pericia/pericia-list/pericia-list.component';
+import { PericiaFormComponent } from './pericia/pericia-form/pericia-form.component';
+import { TalentoListComponent } from './talento/talento-list/talento-list.component';
+import { TalentoFormComponent } from './talento/talento-form/talento-form.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +61,17 @@ import { AtributoFormComponent } from './atributo/atributo-form/atributo-form.co
     FichaListComponent,
     FichaFormComponent,
     AtributoListComponent,
-    AtributoFormComponent
+    AtributoFormComponent,
+    ConhecimentoListComponent,
+    ConhecimentoFormComponent,
+    DetalheListComponent,
+    DetalheFormComponent,
+    HabilidadeListComponent,
+    HabilidadeFormComponent,
+    PericiaListComponent,
+    PericiaFormComponent,
+    TalentoListComponent,
+    TalentoFormComponent
   ],
   imports: [
     HttpClientModule,

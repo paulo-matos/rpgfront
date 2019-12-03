@@ -1,0 +1,59 @@
+<h1>{{ title }}</h1>
+
+<form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
+    <mat-form-field>
+        <input matInput placeholder="ID das perícias" [(ngModel)]="pericia._id" name="_id" readonly>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Empatia com Animais" required [(ngModel)]="pericia.empatia_animais" name="empatia_animais" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Ofícios" required [(ngModel)]="pericia.oficios" name="oficios" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Condução" required [(ngModel)]="pericia.conducao" name="conducao" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Etiqueta" required [(ngModel)]="pericia.etiqueta" name="etiqueta" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Arma de Fogo" required [(ngModel)]="pericia.arma_fogo" name="arma_fogo" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Arma Branca" required [(ngModel)]="pericia.arma_branca" name="arma_branca" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Performance" required [(ngModel)]="pericia.performance" name="performance" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Segurança" required [(ngModel)]="pericia.seguranca" name="seguranca" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Furtividade" required [(ngModel)]="pericia.furtividade" name="furtividade" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Sobrevivencia" required [(ngModel)]="pericia.sobrevivencia" name="sobrevivencia" type="number" step="1">
+    </mat-form-field>
+
+    <mat-toolbar class="form-buttons">
+        <mat-toolbar-row>
+            <button mat-raised-button type="submit" color="accent">
+                Salvar
+            </button>
+            <button mat-raised-button type="button" (click)="voltar(f)">
+                Voltar
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+</form>

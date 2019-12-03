@@ -1,0 +1,67 @@
+<h1>{{ title }}</h1>
+
+<form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
+    <mat-form-field>
+        <input matInput placeholder="ID detalhes" [(ngModel)]="detalhe._id" name="_id" readonly>
+    </mat-form-field>
+
+    <mat-form-field>
+        <textarea matInput placeholder="Qualidades" [(ngModel)]="detalhe.qualidades" rows="3" name="qualidades"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+        <textarea matInput placeholder="Defeitos" [(ngModel)]="detalhe.defeitos" rows="3" name="defeitos"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Trilha" required [(ngModel)]="detalhe.trilha" name="trilha">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Pontos da trilha" required [(ngModel)]="detalhe.trilha_pts" name="trilha_pts" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Força de Vontade (nível)" required [(ngModel)]="detalhe.forca_vontade_nivel" name="forca_vontade_nivel" alt="Nível máximo da força de vontade do personagem" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Força de Vontade (atual)" [(ngModel)]="detalhe.forca_vontade_atual" name="forca_vontade_atual" alt="Nível atual da força de vontade do personagem" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Pontos de Sangue (nível)" required [(ngModel)]="detalhe.pontos_sangue_total" name="pontos_sangue_total" alt="Nível máximo dos pontos de sangue" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Pontos de Sangue (atual)" [(ngModel)]="detalhe.pontos_sangue_atual" name="pontos_sangue_atual" alt="Nível atual dos pontos de sangue" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Pontos de Vida (nível)" required [(ngModel)]="detalhe.pontos_vida_total" name="pontos_vida_total" alt="Nível máximo dos pontos de vida" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Pontos de Vida (atual)" required [(ngModel)]="detalhe.pontos_vida_atual" name="pontos_vida_atual" alt="Nível atual dos pontos de vida" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <textarea matInput placeholder="Fraqueza" [(ngModel)]="detalhe.fraqueza" name="fraqueza" rows="2"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Pontos de Experiência obtidos" [(ngModel)]="detalhe.pontos_experiencia" name="pontos_experiencia" type="number" step="1">
+    </mat-form-field>
+
+    <mat-toolbar class="form-buttons">
+        <mat-toolbar-row>
+            <button mat-raised-button type="submit" color="accent">
+                Salvar
+            </button>
+            <button mat-raised-button type="button" (click)="voltar(f)">
+                Voltar
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+</form>

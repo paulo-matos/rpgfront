@@ -28,6 +28,9 @@ export class FichaFormComponent implements OnInit {
 
   title: string = 'Nova ficha';
   ficha: any = {};
+  atributos: any = [];
+  habilidades: any = [];
+  detalhes: any = [];
 
   async ngOnInit() {
     let params = this.actRoute.snapshot.params;
@@ -40,6 +43,16 @@ export class FichaFormComponent implements OnInit {
       catch (error) {
         console.log(error);
       }
+    }
+
+    // Entidades relacionadas
+    try{
+      this.atributos = await this.atributoSrv.listar();
+      this.habilidades = await this.habilidadeSrv.listar();
+      this.detalhes = await this.detalheSrv.listar();
+    }
+    catch(error) {
+      console.log(error);
     }
   }
 

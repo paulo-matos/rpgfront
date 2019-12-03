@@ -13,12 +13,12 @@
 
     <ng-container matColumnDef="talentos">
         <th mat-header-cell *matHeaderCellDef> ID Talentos </th>
-        <td mat-cell *matCellDef="let habilidade"> {{habilidade.talentos}} </td>
+        <td mat-cell *matCellDef="let habilidade"> {{habilidade.talentos?.identificador}} </td>
     </ng-container>
 
     <ng-container matColumnDef="pericias">
         <th mat-header-cell *matHeaderCellDef> ID Perícias </th>
-        <td mat-cell *matCellDef="let habilidade"> {{habilidade.pericias}} </td>
+        <td mat-cell *matCellDef="let habilidade"> {{habilidade.pericias?.identificador}} </td>
     </ng-container>
 
     <ng-container matColumnDef="identificador" sticky>
@@ -28,7 +28,7 @@
 
     <ng-container matColumnDef="conhecimentos">
         <th mat-header-cell *matHeaderCellDef> ID Conhecimentos </th>
-        <td mat-cell *matCellDef="let habilidade"> {{habilidade.conhecimentos}} </td>
+        <td mat-cell *matCellDef="let habilidade"> {{habilidade.conhecimentos?.identificador}} </td>
     </ng-container>
 
     <!-- Editar/Visualizar Column -->

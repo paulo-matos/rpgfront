@@ -18,7 +18,7 @@ export class ConhecimentoListComponent implements OnInit {
   ) { }
 
   conhecimentos: any = []; // Vetor vazio
-  displayedColumns: string[] = ['_id', 'academicos', 'computador', 'investigacao', 'ocultismo', 'editar', 'excluir'];
+  displayedColumns: string[] = ['identificador', 'academicos', 'computador', 'investigacao', 'ocultismo', 'editar', 'excluir'];
 
   async ngOnInit() {
     try {

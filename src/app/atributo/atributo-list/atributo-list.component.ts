@@ -18,7 +18,7 @@ export class AtributoListComponent implements OnInit {
   ) { }
 
   atributos: any = []; // Vetor vazio
-  displayedColumns: string[] = ['_id', 'fis_forca', 'fis_destreza', 'soc_aparencia', 'men_percepcao', 'men_raciocinio' ,'editar', 'excluir'];
+  displayedColumns: string[] = ['identificador', 'fis_forca', 'fis_destreza', 'soc_aparencia', 'men_percepcao', 'men_raciocinio' ,'editar', 'excluir'];
 
   async ngOnInit() {
     try {

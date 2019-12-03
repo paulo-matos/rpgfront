@@ -18,7 +18,7 @@ export class TalentoListComponent implements OnInit {
   ) { }
 
   talentos: any = []; // Vetor vazio
-  displayedColumns: string[] = ['_id', 'prontidao', 'briga', 'esquiva', 'intimidacao', 'editar', 'excluir'];
+  displayedColumns: string[] = ['identificador', 'prontidao', 'briga', 'esquiva', 'intimidacao', 'editar', 'excluir'];
 
   async ngOnInit() {
     try {

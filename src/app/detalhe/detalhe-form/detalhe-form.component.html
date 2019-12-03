@@ -2,7 +2,7 @@
 
 <form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
     <mat-form-field>
-        <input matInput placeholder="ID detalhes" [(ngModel)]="detalhe._id" name="_id" readonly>
+        <input matInput placeholder="Identificador" [(ngModel)]="detalhe.identificador" name="identificador">
     </mat-form-field>
 
     <mat-form-field>

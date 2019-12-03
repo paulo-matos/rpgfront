@@ -18,7 +18,7 @@ export class HabilidadeListComponent implements OnInit {
   ) { }
 
   habilidades: any = []; // Vetor vazio
-  displayedColumns: string[] = ['_id', 'talentos', 'pericias', 'conhecimentos', 'editar', 'excluir'];
+  displayedColumns: string[] = ['identificador', 'talentos', 'pericias', 'conhecimentos', 'editar', 'excluir'];
 
   async ngOnInit() {
     try {

@@ -2,7 +2,7 @@
 
 <form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
     <mat-form-field>
-        <input matInput placeholder="ID dos atributos" [(ngModel)]="atributo._id" name="nome" readonly>
+        <input matInput placeholder="Identificador" [(ngModel)]="atributo.identificador" name="identificador">
     </mat-form-field>
 
     <mat-form-field>

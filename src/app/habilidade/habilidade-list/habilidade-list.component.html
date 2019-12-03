@@ -21,9 +21,9 @@
         <td mat-cell *matCellDef="let habilidade"> {{habilidade.pericias}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="_id" sticky>
-        <th mat-header-cell *matHeaderCellDef> ID Habilidades </th>
-        <td mat-cell *matCellDef="let habilidade"> {{habilidade._id}} </td>
+    <ng-container matColumnDef="identificador" sticky>
+        <th mat-header-cell *matHeaderCellDef> Identificador </th>
+        <td mat-cell *matCellDef="let habilidade"> {{habilidade.identificador}} </td>
     </ng-container>
 
     <ng-container matColumnDef="conhecimentos">

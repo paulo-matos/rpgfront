@@ -2,19 +2,40 @@
 
 <form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
     <mat-form-field>
-        <input matInput placeholder="ID Habilidades" [(ngModel)]="habilidade._id" name="_id" readonly>
+        <input matInput placeholder="Identificador" [(ngModel)]="habilidade.identificador" name="identificador">
     </mat-form-field>
 
-    <mat-form-field>
+    <!-- <mat-form-field>
         <textarea matInput placeholder="Talentos (id)" [(ngModel)]="habilidade.talentos" rows="3" name="talentos"></textarea>
+    </mat-form-field> -->
+    <mat-form-field>
+        <mat-select placeholder="Talentos" [(ngModel)]="habilidade.talento" name="talento">
+            <mat-option *ngFor="let talento of talentos" [value]="talento._id">
+                {{ talento.identificador }}
+            </mat-option>
+        </mat-select>
     </mat-form-field>
 
-    <mat-form-field>
+    <!-- <mat-form-field>
         <textarea matInput placeholder="Pericias (id)" [(ngModel)]="habilidade.pericias" rows="3" name="pericias"></textarea>
+    </mat-form-field> -->
+    <mat-form-field>
+        <mat-select placeholder="Pericias" [(ngModel)]="habilidade.pericia" name="pericia">
+            <mat-option *ngFor="let pericia of pericias" [value]="pericia._id">
+                {{ pericia.identificador }}
+            </mat-option>
+        </mat-select>
     </mat-form-field>
 
-    <mat-form-field>
+    <!-- <mat-form-field>
         <textarea matInput placeholder="Conhecimentos (id)" [(ngModel)]="habilidade.conhecimentos" rows="3" name="conhecimentos"></textarea>
+    </mat-form-field> -->
+    <mat-form-field>
+        <mat-select placeholder="Conhecimentos" [(ngModel)]="habilidade.conhecimento" name="conhecimento">
+            <mat-option *ngFor="let conhecimento of conhecimentos" [value]="conhecimento._id">
+                {{ conhecimento.identificador }}
+            </mat-option>
+        </mat-select>
     </mat-form-field>
 
     <mat-toolbar class="form-buttons">

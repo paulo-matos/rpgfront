@@ -4,6 +4,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { ConfirmDlgComponent } from '../../ui/confirm-dlg/confirm-dlg.component';
 import { FichaService } from '../ficha.service';
+import { AtributoService } from '../../atributo/atributo.service';
+import { HabilidadeService } from '../../habilidade/habilidade.service';
+import { DetalheService } from '../../detalhe/detalhe.service';
 
 @Component({
   selector: 'app-ficha-form',
@@ -14,6 +17,9 @@ export class FichaFormComponent implements OnInit {
 
   constructor(
     private fichaSrv: FichaService,
+    private atributoSrv: AtributoService,
+    private habilidadeSrv: HabilidadeService,
+    private detalheSrv: DetalheService,
     private router: Router,
     private actRoute: ActivatedRoute,
     private dialog: MatDialog,

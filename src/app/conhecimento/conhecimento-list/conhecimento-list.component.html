@@ -21,9 +21,9 @@
         <td mat-cell *matCellDef="let conhecimento"> {{conhecimento.computador}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="_id" sticky>
-        <th mat-header-cell *matHeaderCellDef> ID </th>
-        <td mat-cell *matCellDef="let conhecimento"> {{conhecimento._id}} </td>
+    <ng-container matColumnDef="identificador" sticky>
+        <th mat-header-cell *matHeaderCellDef> Identificador </th>
+        <td mat-cell *matCellDef="let conhecimento"> {{conhecimento.identificador}} </td>
     </ng-container>
 
     <ng-container matColumnDef="investigacao">

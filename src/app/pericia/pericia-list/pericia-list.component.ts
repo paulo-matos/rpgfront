@@ -18,7 +18,7 @@ export class PericiaListComponent implements OnInit {
   ) { }
 
   pericias: any = []; // Vetor vazio
-  displayedColumns: string[] = ['_id', 'conducao', 'arma_fogo', 'arma_branca', 'furtividade', 'editar', 'excluir'];
+  displayedColumns: string[] = ['identificador', 'conducao', 'arma_fogo', 'arma_branca', 'furtividade', 'editar', 'excluir'];
 
   async ngOnInit() {
     try {

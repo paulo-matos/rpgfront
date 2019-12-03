@@ -4,6 +4,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { ConfirmDlgComponent } from '../../ui/confirm-dlg/confirm-dlg.component';
 import { HabilidadeService } from '../habilidade.service';
+import { TalentoService } from '../../talento/talento.service';
+import { PericiaService } from '../../pericia/pericia.service';
+import { ConhecimentoService } from '../../conhecimento/conhecimento.service';
 
 @Component({
   selector: 'app-habilidade-form',
@@ -14,6 +17,9 @@ export class HabilidadeFormComponent implements OnInit {
 
   constructor(
     private habilidadeSrv: HabilidadeService,
+    private talentoSrv: TalentoService,
+    private periciaSrv: PericiaService,
+    private conhecimentoSrv: ConhecimentoService,
     private router: Router,
     private actRoute: ActivatedRoute,
     private dialog: MatDialog,
@@ -22,6 +28,9 @@ export class HabilidadeFormComponent implements OnInit {
 
   title: string = 'Novas habilidades';
   habilidade: any = {};
+  talentos: any = [];
+  pericias: any = [];
+  conhecimentos: any = [];
 
   async ngOnInit() {
     let params = this.actRoute.snapshot.params;
@@ -34,6 +43,16 @@ export class HabilidadeFormComponent implements OnInit {
       catch (error) {
         console.log(error);
       }
+    }
+
+    // Entidades relacionadas
+    try{
+      this.talentos = await this.talentoSrv.listar();
+      this.pericias = await this.periciaSrv.listar();
+      this.conhecimentos = await this.conhecimentoSrv.listar();
+    }
+    catch(error) {
+      console.log(error);
     }
   }
 

@@ -18,7 +18,7 @@ export class DetalheListComponent implements OnInit {
   ) { }
 
   detalhes: any = []; // Vetor vazio
-  displayedColumns: string[] = ['_id', 'trilha_pts', 'forca_vontade_atual', 'pontos_sangue_atual', 'pontos_vida_atual', 'editar', 'excluir'];
+  displayedColumns: string[] = ['identificador', 'trilha_pts', 'forca_vontade_atual', 'pontos_sangue_atual', 'pontos_vida_atual', 'editar', 'excluir'];
 
   async ngOnInit() {
     try {

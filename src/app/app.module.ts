@@ -25,13 +25,9 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './ui/header/header.component';
 import { MainMenuComponent } from './ui/main-menu/main-menu.component';
 import { FooterComponent } from './ui/footer/footer.component';
-import { ProfessorListComponent } from './professor/professor-list/professor-list.component';
 import { ConfirmDlgComponent } from './ui/confirm-dlg/confirm-dlg.component';
 import { MatDialogModule } from '@angular/material';
-import { ProfessorFormComponent } from './professor/professor-form/professor-form.component'
 import { NgxMaskModule } from 'ngx-mask';
-import { TurmaListComponent } from './turma/turma-list/turma-list.component';
-import { TurmaFormComponent } from './turma/turma-form/turma-form.component';
 import { FichaListComponent } from './ficha/ficha-list/ficha-list.component';
 import { FichaFormComponent } from './ficha/ficha-form/ficha-form.component';
 import { AtributoListComponent } from './atributo/atributo-list/atributo-list.component';
@@ -53,11 +49,7 @@ import { TalentoFormComponent } from './talento/talento-form/talento-form.compon
     HeaderComponent,
     MainMenuComponent,
     FooterComponent,
-    ProfessorListComponent,
     ConfirmDlgComponent,
-    ProfessorFormComponent,
-    TurmaListComponent,
-    TurmaFormComponent,
     FichaListComponent,
     FichaFormComponent,
     AtributoListComponent,

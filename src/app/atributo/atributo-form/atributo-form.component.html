@@ -1,0 +1,55 @@
+<h1>{{ title }}</h1>
+
+<form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
+    <mat-form-field>
+        <input matInput placeholder="ID dos atributos" [(ngModel)]="atributo._id" name="nome" readonly>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Força Física" required [(ngModel)]="atributo.fis_forca" name="fis_forca" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Destreza" required [(ngModel)]="atributo.fis_destreza" name="fis_destreza" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Vigor" required [(ngModel)]="atributo.fis_vigor" name="fis_vigor" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Carisma" required [(ngModel)]="atributo.soc_carisma" name="soc_carisma" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Manipulação" required [(ngModel)]="atributo.soc_manipulacao" name="soc_manipulacao" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Aparência" required [(ngModel)]="atributo.soc_aparencia" name="soc_aparencia" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Percepção" required [(ngModel)]="atributo.men_percepcao" name="men_percepcao" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Inteligência" required [(ngModel)]="atributo.men_inteligencia" name="men_inteligencia" type="number" step="1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Raciocínio" required [(ngModel)]="atributo.men_raciocinio" name="men_raciocinio" type="number" step="1">
+    </mat-form-field>
+
+    <mat-toolbar class="form-buttons">
+        <mat-toolbar-row>
+            <button mat-raised-button type="submit" color="accent">
+                Salvar
+            </button>
+            <button mat-raised-button type="button" (click)="voltar(f)">
+                Voltar
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+</form>

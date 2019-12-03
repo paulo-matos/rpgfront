@@ -34,6 +34,8 @@ import { TurmaListComponent } from './turma/turma-list/turma-list.component';
 import { TurmaFormComponent } from './turma/turma-form/turma-form.component';
 import { FichaListComponent } from './ficha/ficha-list/ficha-list.component';
 import { FichaFormComponent } from './ficha/ficha-form/ficha-form.component';
+import { AtributoListComponent } from './atributo/atributo-list/atributo-list.component';
+import { AtributoFormComponent } from './atributo/atributo-form/atributo-form.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { FichaFormComponent } from './ficha/ficha-form/ficha-form.component';
     TurmaListComponent,
     TurmaFormComponent,
     FichaListComponent,
-    FichaFormComponent
+    FichaFormComponent,
+    AtributoListComponent,
+    AtributoFormComponent
   ],
   imports: [
     HttpClientModule,

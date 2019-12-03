@@ -6,6 +6,8 @@ import { TurmaListComponent } from './turma/turma-list/turma-list.component';
 import { TurmaFormComponent } from './turma/turma-form/turma-form.component';
 import { FichaListComponent } from './ficha/ficha-list/ficha-list.component';
 import { FichaFormComponent } from './ficha/ficha-form/ficha-form.component';
+import { AtributoListComponent } from './atributo/atributo-list/atributo-list.component';
+import { AtributoFormComponent } from './atributo/atributo-form/atributo-form.component';
 
 const routes: Routes = [
   { path: 'professor', component: ProfessorListComponent },
@@ -18,7 +20,11 @@ const routes: Routes = [
 
   { path: 'ficha', component: FichaListComponent },
   { path: 'ficha/novo', component: FichaFormComponent },
-  { path: 'ficha/:id', component: FichaFormComponent }  
+  { path: 'ficha/:id', component: FichaFormComponent },
+
+  { path: 'atributo', component: AtributoListComponent },
+  { path: 'atributo/novo', component: AtributoFormComponent },
+  { path: 'atributo/:id', component: AtributoFormComponent } 
 ];
 
 @NgModule({

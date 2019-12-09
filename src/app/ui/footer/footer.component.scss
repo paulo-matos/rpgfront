@@ -2,6 +2,7 @@ mat-toolbar {
    position: fixed; /* Posição fixa */
    bottom: 0; /* Colado no fundo da página */
    min-height: 48px; /* Diminui a altura mínima */
+   background-color: #b71c1c;
 }
 
 mat-toolbar-row {
@@ -11,8 +12,10 @@ mat-toolbar-row {
 span {
    margin: 0 auto; /* Centraliza o elemento */
    font-size: 85%; /* Diminui a fonte */
+   color: lightgray;
 }
 
 a{
-   color: #e9e9e9;
+   color: #ffc107;
+   text-decoration: none;
 }

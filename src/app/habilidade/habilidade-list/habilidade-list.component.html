@@ -1,4 +1,4 @@
-<h1>LISTA DE HABILIDADES</h1>
+<!-- <h1>LISTA DE HABILIDADES</h1>
 
 <mat-toolbar class="add-new-toolbar">
     <mat-toolbar-row>
@@ -31,7 +31,7 @@
         <td mat-cell *matCellDef="let habilidade"> {{habilidade.conhecimentos?.identificador}} </td>
     </ng-container>
 
-    <!-- Editar/Visualizar Column -->
+
     <ng-container matColumnDef="editar">
         <th mat-header-cell *matHeaderCellDef> Abrir Habilidades </th>
         <td mat-cell *matCellDef="let habilidade">
@@ -41,7 +41,7 @@
         </td>
     </ng-container>
 
-    <!-- Excluir Column -->
+
     <ng-container matColumnDef="excluir">
         <th mat-header-cell *matHeaderCellDef> Excluir </th>
         <td mat-cell *matCellDef="let habilidade">
@@ -54,4 +54,27 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+</div> -->
+<div style="text-align: center;">
+    <h1>Editar Marcadores</h1>
+    <br>
+    <form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
+        <mat-form-field>
+            <input matInput placeholder="Título">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Descricao">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Localização">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Ícone">
+        </mat-form-field>
+    </form>
+    <br>
+    <div style="display: inline-flex;">
+        <div style="padding: 10px;"><a href="https://rpgmestre-backend.herokuapp.com/mapa" target="_blank"><h1>Abrir mapa</h1></a></div>
+        <div style="padding: 10px;"><a href="https://tabletopaudio.com/" target="_blank"><h1>Abrir Player</h1></a></div>
+    </div>
 </div>

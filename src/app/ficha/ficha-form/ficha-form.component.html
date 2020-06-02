@@ -1,6 +1,6 @@
 <h1>{{ title }}</h1>
 
-<form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
+<!-- <form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
     <mat-form-field>
         <input matInput placeholder="Nome do personagem" required [(ngModel)]="ficha.nome" name="nome">
     </mat-form-field>
@@ -45,22 +45,22 @@
     <mat-form-field>
         <input matInput placeholder="Conceito. Ex: Justiceiro Maluco" [(ngModel)]="ficha.conceito" name="conceito"
             alt="Um esboço de uma ou duas palavras sobre o que o personagem era antes de ser abraçado">
-    </mat-form-field>
+    </mat-form-field> -->
 
-    <!-- <mat-form-field>
+<!-- <mat-form-field>
         <textarea matInput placeholder="Atributo (id)" [(ngModel)]="ficha.atributo" rows="4" name="atributo"></textarea>
     </mat-form-field> -->
 
-    <mat-form-field>
-        <!--
+<!-- <mat-form-field> -->
+<!--
            O <mat-select> lista os dados de uma entidade para que seja possível
            associar um deles relacionado a outra entidade.
            No cabeçalho do <mat-select> colocamos a entidade que é o DESTINO
            do relacionamento (a entidade à qual pertencem os dados do formulário).
         -->
-        <mat-select placeholder="Atributo" [(ngModel)]="ficha.atributo" name="atributo">
+<!-- <mat-select placeholder="Atributo" [(ngModel)]="ficha.atributo" name="atributo"> -->
 
-            <!--
+<!--
               No <mat-option> colocamos a entidade relacionada (aquela cujos dados
               serão listados).
               No atributo [value], será colocado sempre o _id da entidade relacionada.
@@ -68,30 +68,30 @@
               Quando o usuário fizer a seleção, o _id da entidade relacionada será
               atribuído ao atributo indicado no ngModel da entidade de destino.
            -->
-            <mat-option *ngFor="let atributo of atributos" [value]="atributo._id">
+<!-- <mat-option *ngFor="let atributo of atributos" [value]="atributo._id">
                 {{ atributo.identificador }}
             </mat-option>
         </mat-select>
-    </mat-form-field>
+    </mat-form-field> -->
 
-    <!-- <mat-form-field>
+<!-- <mat-form-field>
         <textarea matInput placeholder="Habilidades (id)" [(ngModel)]="ficha.habilidade" rows="4"
             name="habilidade"></textarea>
     </mat-form-field> -->
 
-    <mat-form-field>
+<!-- <mat-form-field>
         <mat-select placeholder="Habilidade" [(ngModel)]="ficha.habilidade" name="habilidade">
             <mat-option *ngFor="let habilidade of habilidades" [value]="habilidade._id">
                 {{ habilidade.identificador }}
             </mat-option>
         </mat-select>
-    </mat-form-field>
+    </mat-form-field> -->
 
-    <!-- <mat-form-field>
+<!-- <mat-form-field>
         <textarea matInput placeholder="Detalhes (id)" [(ngModel)]="ficha.detalhe" rows="4" name="detalhe"></textarea>
     </mat-form-field> -->
 
-    <mat-form-field>
+<!-- <mat-form-field>
         <mat-select placeholder="Detalhes" [(ngModel)]="ficha.detalhe" name="detalhe">
             <mat-option *ngFor="let detalhe of detalhes" [value]="detalhe._id">
                 {{ detalhe.identificador }}
@@ -110,1869 +110,594 @@
         </mat-toolbar-row>
     </mat-toolbar>
 
-</form>
+</form> -->
 
-<div class="ficha">
-    <p class="decoration">
-        <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/CWOD-Vampire/Vampirethemasquerade-logo.png"
-            style="max-height: 100px;" />
-    </p>
 
-    <div class="section">
-        <div class="column">
-            <div>
-                <label>Nome:</label><input type="text" name="attr_name" />
+<div class="containerFicha">
+    <!-- Menu de Abas -->
+    <ul class="abas">
+        <li class="aba" id="aba-1">
+            <button class="btnAba" onclick="abaClick('aba1','conteudoAba1')" id="aba1"
+                style="background: white;">Principal</button>
+        </li>
+        <li class="aba" id="aba-2">
+            <button class="btnAba" onclick="abaClick('aba2','conteudoAba2')" id="aba2">Atributos</button>
+        </li>
+        <li class="aba" id="aba-3">
+            <button class="btnAba" onclick="abaClick('aba3','conteudoAba3')" id="aba3">Habilidades</button>
+        </li>
+        <li class="aba" id="aba-4">
+            <button class="btnAba" onclick="abaClick('aba4','conteudoAba4')" id="aba4">Vantagens</button>
+        </li>
+        <li class="aba" id="aba-5">
+            <button class="btnAba" onclick="abaClick('aba5','conteudoAba5')" id="aba5">Extra</button>
+        </li>
+    </ul>
+
+    <form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
+        <div class="conteudoAbas" id="conteudoAba1">
+            <div class="column" style="text-align: left;">
+                <div>
+                    <label>Nome:</label>
+                    <input matInput required [(ngModel)]="ficha.nome" name="nome">
+                </div>
+                <div>
+                    <label>Jogador:</label>
+                    <input matInput required [(ngModel)]="ficha.jogador" name="jogador">
+                </div>
+                <div>
+                    <label>Crônica:</label>
+                    <input matInput required [(ngModel)]="ficha.cronica" name="cronica">
+                </div>
+                <div>
+                    <label>Espécie:</label>
+                    <input matInput placeholder="Ex: Vampiro" [(ngModel)]="ficha.especie" name="especie">
+                </div>
             </div>
-            <label>Jogador:</label><input type="text" name="attr_player" />
-            <br>
-            <label>Crônica:</label><input type="text" name="attr_Chronicle" />
-        </div>
-        <div class="column">
-            <label>Natureza:</label><input type="text" name="attr_Nature" />
-            <label>Comportamento:</label><input type="text" name="attr_Demeanor" />
-            <label>Clã:</label><input type="text" name="attr_Concept" />
-        </div>
-        <div class="column">
-            <label>Geração:</label><input type="text" name="attr_Generation" />
-            <label>Senhor:</label><input type="text" name="attr_Clan" />
-            <label>Conceito:</label><input type="text" name="attr_Sire" />
-        </div>
-    </div>
+            <div class="column" style="text-align: center;">
+                <div>
+                    <label>Natureza:</label>
+                    <input matInput [(ngModel)]="ficha.natureza" name="natureza"
+                        alt="Esta é a verdadeira personalidade do seu personagem — quem ele realmente é">
+                </div>
 
-    <hr />
-
-    <h1>Atributos</h1>
-
-    <div class="section">
-        <div class="column">
-            <h3>Físicos</h3>
-        </div>
-        <div class="column">
-            <h3>Sociais</h3>
-        </div>
-        <div class="column">
-            <h3>Mentais</h3>
-        </div>
-    </div>
-    <div class="section">
-        <div class="column" style="width:120px">
-            <h4>Força</h4>
-            <h4>Destreza</h4>
-            <h4>Vigor</h4>
-        </div>
-        <div class="column" style="width:150px">
-            <input type="radio" name="attr_Strength" value="1" checked="checked" />
-            <span></span> <input type="radio" name="attr_Strength" value="2" />
-            <span></span> <input type="radio" name="attr_Strength" value="3" />
-            <span></span> <input type="radio" name="attr_Strength" value="4" />
-            <span></span> <input type="radio" name="attr_Strength" value="5" />
-            <span></span> <input type="radio" name="attr_Strength" value="6" />
-            <span></span> <input type="radio" name="attr_Strength" value="7" />
-            <span></span> <input type="radio" name="attr_Strength" value="8" />
-            <span></span>
-            <div class="sheet-row">
-                <input type="radio" name="attr_Dexterity" value="1" checked="checked" />
-                <span></span> <input type="radio" name="attr_Dexterity" value="2" />
-                <span></span> <input type="radio" name="attr_Dexterity" value="3" />
-                <span></span> <input type="radio" name="attr_Dexterity" value="4" />
-                <span></span> <input type="radio" name="attr_Dexterity" value="5" />
-                <span></span> <input type="radio" name="attr_Dexterity" value="6" />
-                <span></span> <input type="radio" name="attr_Dexterity" value="7" />
-                <span></span> <input type="radio" name="attr_Dexterity" value="8" />
-                <span></span>
+                <div><label>Comportamento:</label>
+                    <input matInput [(ngModel)]="ficha.comportamento" name="comportamento"
+                        alt="Esta é a personalidade que o personagem apresenta ao mundo">
+                </div>
+                <div>
+                    <label>Clã:</label>
+                    <input matInput placeholder="Ex: Brujah" required [(ngModel)]="ficha.cla" name="cla">
+                </div>
             </div>
-            <div class="sheet-row">
-                <input type="radio" name="attr_Stamina" value="1" checked="checked" />
-                <span></span> <input type="radio" name="attr_Stamina" value="2" />
-                <span></span> <input type="radio" name="attr_Stamina" value="3" />
-                <span></span> <input type="radio" name="attr_Stamina" value="4" />
-                <span></span> <input type="radio" name="attr_Stamina" value="5" />
-                <span></span> <input type="radio" name="attr_Stamina" value="6" />
-                <span></span> <input type="radio" name="attr_Stamina" value="7" />
-                <span></span> <input type="radio" name="attr_Stamina" value="8" />
-                <span></span>
-            </div>
-        </div>
-        <div class="column" style="width:105px">
-            <h4>Carisma</h4>
-            <h4>Manipulação</h4>
-            <h4>Aparência</h4>
-        </div>
-        <div class="column" style="width:160px" align="right">
-            <input type="radio" name="attr_Charisma" value="1" checked="checked" />
-            <span></span> <input type="radio" name="attr_Charisma" value="2" />
-            <span></span> <input type="radio" name="attr_Charisma" value="3" />
-            <span></span> <input type="radio" name="attr_Charisma" value="4" />
-            <span></span> <input type="radio" name="attr_Charisma" value="5" />
-            <span></span> <input type="radio" name="attr_Charisma" value="6" />
-            <span></span> <input type="radio" name="attr_Charisma" value="7" />
-            <span></span> <input type="radio" name="attr_Charisma" value="8" />
-            <span></span>
-            <div class="sheet-row">
-                <input type="radio" name="attr_Manipulation" value="1" checked="checked" />
-                <span></span> <input type="radio" name="attr_Manipulation" value="2" />
-                <span></span> <input type="radio" name="attr_Manipulation" value="3" />
-                <span></span> <input type="radio" name="attr_Manipulation" value="4" />
-                <span></span> <input type="radio" name="attr_Manipulation" value="5" />
-                <span></span> <input type="radio" name="attr_Manipulation" value="6" />
-                <span></span> <input type="radio" name="attr_Manipulation" value="7" />
-                <span></span> <input type="radio" name="attr_Manipulation" value="8" />
-                <span></span>
-            </div>
-            <div class="sheet-row">
-                <input type="radio" name="attr_Appearance" value="0" class=" zero" />
-                <span></span>
-                <input type="radio" name="attr_Appearance" value="1" checked="checked" />
-                <span></span> <input type="radio" name="attr_Appearance" value="2" />
-                <span></span> <input type="radio" name="attr_Appearance" value="3" />
-                <span></span> <input type="radio" name="attr_Appearance" value="4" />
-                <span></span> <input type="radio" name="attr_Appearance" value="5" />
-                <span></span> <input type="radio" name="attr_Appearance" value="6" />
-                <span></span> <input type="radio" name="attr_Appearance" value="7" />
-                <span></span> <input type="radio" name="attr_Appearance" value="8" />
-                <span></span>
-            </div>
-        </div>
-        <div class="column" style="width:5px">
-        </div>
-        <div class="column" style="width:115px">
-            <h4>Percepção</h4>
-            <h4>Inteligência</h4>
-            <h4>Raciocínio</h4>
-        </div>
-        <div class="column" style="width:150px">
-            <div class="sheet-row">
-                <input type="radio" name="attr_Perception" value="1" checked="checked" />
-                <span></span> <input type="radio" name="attr_Perception" value="2" />
-                <span></span> <input type="radio" name="attr_Perception" value="3" />
-                <span></span> <input type="radio" name="attr_Perception" value="4" />
-                <span></span> <input type="radio" name="attr_Perception" value="5" />
-                <span></span> <input type="radio" name="attr_Perception" value="6" />
-                <span></span> <input type="radio" name="attr_Perception" value="7" />
-                <span></span> <input type="radio" name="attr_Perception" value="8" />
-                <span></span>
-            </div>
-            <input type="radio" name="attr_Intelligence" value="1" checked="checked" />
-            <span></span> <input type="radio" name="attr_Intelligence" value="2" />
-            <span></span> <input type="radio" name="attr_Intelligence" value="3" />
-            <span></span> <input type="radio" name="attr_Intelligence" value="4" />
-            <span></span> <input type="radio" name="attr_Intelligence" value="5" />
-            <span></span> <input type="radio" name="attr_Intelligence" value="6" />
-            <span></span> <input type="radio" name="attr_Intelligence" value="7" />
-            <span></span> <input type="radio" name="attr_Intelligence" value="8" />
-            <span></span>
-            <div class="sheet-row">
-                <input type="radio" name="attr_Wits" value="1" checked="checked" />
-                <span></span> <input type="radio" name="attr_Wits" value="2" />
-                <span></span> <input type="radio" name="attr_Wits" value="3" />
-                <span></span> <input type="radio" name="attr_Wits" value="4" />
-                <span></span> <input type="radio" name="attr_Wits" value="5" />
-                <span></span> <input type="radio" name="attr_Wits" value="6" />
-                <span></span> <input type="radio" name="attr_Wits" value="7" />
-                <span></span> <input type="radio" name="attr_Wits" value="8" />
-                <span></span>
-            </div>
-        </div>
-    </div>
-
-    <hr />
-
-    <h1>Habilidades</h1>
-    <div class="section">
-        <div class="column">
-            <h3 style="text-align: center">Talentos</h3>
-        </div>
-        <div class="column">
-            <h3 style="text-align: center">Perícia</h3>
-        </div>
-        <div class="column">
-            <h3 style="text-align: center">Conhecimento</h3>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="column" style="width:100px">
-            <h4>Prontidão</h4>
-            <h4>Esportes</h4>
-            <h4>Briga</h4>
-            <h4>Esquiva</h4>
-            <h4>Empatia</h4>
-            <h4>Expressão</h4>
-            <h4>Intimidação</h4>
-            <h4>Liderança</h4>
-            <h4>Manha</h4>
-            <h4>Lábia</h4>
-        </div>
-        <div class="column" style="width:170px">
-            <input type="radio" name="attr_Alertness" value="0" class=" zero" checked /><span></span>
-            <input type="radio" name="attr_Alertness" value="1" /><span></span>
-            <input type="radio" name="attr_Alertness" value="2" /><span></span>
-            <input type="radio" name="attr_Alertness" value="3" /><span></span>
-            <input type="radio" name="attr_Alertness" value="4" /><span></span>
-            <input type="radio" name="attr_Alertness" value="5" /><span></span>
-            <input type="radio" name="attr_Alertness" value="6" /><span></span>
-            <input type="radio" name="attr_Alertness" value="7" /><span></span>
-            <input type="radio" name="attr_Alertness" value="8" /><span></span>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Athletics" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Athletics" value="1" />
-                <span></span> <input type="radio" name="attr_Athletics" value="2" />
-                <span></span> <input type="radio" name="attr_Athletics" value="3" />
-                <span></span> <input type="radio" name="attr_Athletics" value="4" />
-                <span></span> <input type="radio" name="attr_Athletics" value="5" />
-                <span></span> <input type="radio" name="attr_Athletics" value="6" />
-                <span></span> <input type="radio" name="attr_Athletics" value="7" />
-                <span></span> <input type="radio" name="attr_Athletics" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Brawl" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Brawl" value="1" />
-                <span></span> <input type="radio" name="attr_Brawl" value="2" />
-                <span></span> <input type="radio" name="attr_Brawl" value="3" />
-                <span></span> <input type="radio" name="attr_Brawl" value="4" />
-                <span></span> <input type="radio" name="attr_Brawl" value="5" />
-                <span></span> <input type="radio" name="attr_Brawl" value="6" />
-                <span></span> <input type="radio" name="attr_Brawl" value="7" />
-                <span></span> <input type="radio" name="attr_Brawl" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Dodge" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Dodge" value="1" />
-                <span></span> <input type="radio" name="attr_Dodge" value="2" />
-                <span></span> <input type="radio" name="attr_Dodge" value="3" />
-                <span></span> <input type="radio" name="attr_Dodge" value="4" />
-                <span></span> <input type="radio" name="attr_Dodge" value="5" />
-                <span></span> <input type="radio" name="attr_Dodge" value="6" />
-                <span></span> <input type="radio" name="attr_Dodge" value="7" />
-                <span></span> <input type="radio" name="attr_Dodge" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Empathy" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Empathy" value="1" />
-                <span></span> <input type="radio" name="attr_Empathy" value="2" />
-                <span></span> <input type="radio" name="attr_Empathy" value="3" />
-                <span></span> <input type="radio" name="attr_Empathy" value="4" />
-                <span></span> <input type="radio" name="attr_Empathy" value="5" />
-                <span></span> <input type="radio" name="attr_Empathy" value="6" />
-                <span></span> <input type="radio" name="attr_Empathy" value="7" />
-                <span></span> <input type="radio" name="attr_Empathy" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Expression" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Expression" value="1" />
-                <span></span> <input type="radio" name="attr_Expression" value="2" />
-                <span></span> <input type="radio" name="attr_Expression" value="3" />
-                <span></span> <input type="radio" name="attr_Expression" value="4" />
-                <span></span> <input type="radio" name="attr_Expression" value="5" />
-                <span></span> <input type="radio" name="attr_Expression" value="6" />
-                <span></span> <input type="radio" name="attr_Expression" value="7" />
-                <span></span> <input type="radio" name="attr_Expression" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Intimidation" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Intimidation" value="1" />
-                <span></span> <input type="radio" name="attr_Intimidation" value="2" />
-                <span></span> <input type="radio" name="attr_Intimidation" value="3" />
-                <span></span> <input type="radio" name="attr_Intimidation" value="4" />
-                <span></span> <input type="radio" name="attr_Intimidation" value="5" />
-                <span></span> <input type="radio" name="attr_Intimidation" value="6" />
-                <span></span> <input type="radio" name="attr_Intimidation" value="7" />
-                <span></span> <input type="radio" name="attr_Intimidation" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Leadership" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Leadership" value="1" />
-                <span></span> <input type="radio" name="attr_Leadership" value="2" />
-                <span></span> <input type="radio" name="attr_Leadership" value="3" />
-                <span></span> <input type="radio" name="attr_Leadership" value="4" />
-                <span></span> <input type="radio" name="attr_Leadership" value="5" />
-                <span></span> <input type="radio" name="attr_Leadership" value="6" />
-                <span></span> <input type="radio" name="attr_Leadership" value="7" />
-                <span></span> <input type="radio" name="attr_Leadership" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Streetwise" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Streetwise" value="1" />
-                <span></span> <input type="radio" name="attr_Streetwise" value="2" />
-                <span></span> <input type="radio" name="attr_Streetwise" value="3" />
-                <span></span> <input type="radio" name="attr_Streetwise" value="4" />
-                <span></span> <input type="radio" name="attr_Streetwise" value="5" />
-                <span></span> <input type="radio" name="attr_Streetwise" value="6" />
-                <span></span> <input type="radio" name="attr_Streetwise" value="7" />
-                <span></span> <input type="radio" name="attr_Streetwise" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Subterfuge" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Subterfuge" value="1" />
-                <span></span> <input type="radio" name="attr_Subterfuge" value="2" />
-                <span></span> <input type="radio" name="attr_Subterfuge" value="3" />
-                <span></span> <input type="radio" name="attr_Subterfuge" value="4" />
-                <span></span> <input type="radio" name="attr_Subterfuge" value="5" />
-                <span></span> <input type="radio" name="attr_Subterfuge" value="6" />
-                <span></span> <input type="radio" name="attr_Subterfuge" value="7" />
-                <span></span> <input type="radio" name="attr_Subterfuge" value="8" />
-                <span></span>
-            </div>
-
-        </div>
-        <div class="column" style="width:105px">
-            <h4>Empatia c/ Animais</h4>
-            <h4>Ofícios</h4>
-            <h4>Condução</h4>
-            <h4>Etiqueta</h4>
-            <h4>Armas de Fogo</h4>
-            <h4>Armas Brancas</h4>
-            <h4>Performance</h4>
-            <h4>Segurança</h4>
-            <h4>Furtividade</h4>
-            <h4>Sobrevivência</h4>
-        </div>
-
-        <div class="column" style="width:160px" align="right">
-            <input type="radio" name="attr_Animal_Ken" value="0" class=" zero" checked />
-            <span></span> <input type="radio" name="attr_Animal_Ken" value="1" />
-            <span></span> <input type="radio" name="attr_Animal_Ken" value="2" />
-            <span></span> <input type="radio" name="attr_Animal_Ken" value="3" />
-            <span></span> <input type="radio" name="attr_Animal_Ken" value="4" />
-            <span></span> <input type="radio" name="attr_Animal_Ken" value="5" />
-            <span></span> <input type="radio" name="attr_Animal_Ken" value="6" />
-            <span></span> <input type="radio" name="attr_Animal_Ken" value="7" />
-            <span></span> <input type="radio" name="attr_Animal_Ken" value="8" />
-            <span></span>
-
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Craft" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Craft" value="1" />
-                <span></span> <input type="radio" name="attr_Craft" value="2" />
-                <span></span> <input type="radio" name="attr_Craft" value="3" />
-                <span></span> <input type="radio" name="attr_Craft" value="4" />
-                <span></span> <input type="radio" name="attr_Craft" value="5" />
-                <span></span> <input type="radio" name="attr_Craft" value="6" />
-                <span></span> <input type="radio" name="attr_Craft" value="7" />
-                <span></span> <input type="radio" name="attr_Craft" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Drive" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Drive" value="1" />
-                <span></span> <input type="radio" name="attr_Drive" value="2" />
-                <span></span> <input type="radio" name="attr_Drive" value="3" />
-                <span></span> <input type="radio" name="attr_Drive" value="4" />
-                <span></span> <input type="radio" name="attr_Drive" value="5" />
-                <span></span> <input type="radio" name="attr_Drive" value="6" />
-                <span></span> <input type="radio" name="attr_Drive" value="7" />
-                <span></span> <input type="radio" name="attr_Drive" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Etiquette" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Etiquette" value="1" />
-                <span></span> <input type="radio" name="attr_Etiquette" value="2" />
-                <span></span> <input type="radio" name="attr_Etiquette" value="3" />
-                <span></span> <input type="radio" name="attr_Etiquette" value="4" />
-                <span></span> <input type="radio" name="attr_Etiquette" value="5" />
-                <span></span> <input type="radio" name="attr_Etiquette" value="6" />
-                <span></span> <input type="radio" name="attr_Etiquette" value="7" />
-                <span></span> <input type="radio" name="attr_Etiquette" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Firearms" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Firearms" value="1" />
-                <span></span> <input type="radio" name="attr_Firearms" value="2" />
-                <span></span> <input type="radio" name="attr_Firearms" value="3" />
-                <span></span> <input type="radio" name="attr_Firearms" value="4" />
-                <span></span> <input type="radio" name="attr_Firearms" value="5" />
-                <span></span> <input type="radio" name="attr_Firearms" value="6" />
-                <span></span> <input type="radio" name="attr_Firearms" value="7" />
-                <span></span> <input type="radio" name="attr_Firearms" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Melee" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Melee" value="1" />
-                <span></span> <input type="radio" name="attr_Melee" value="2" />
-                <span></span> <input type="radio" name="attr_Melee" value="3" />
-                <span></span> <input type="radio" name="attr_Melee" value="4" />
-                <span></span> <input type="radio" name="attr_Melee" value="5" />
-                <span></span> <input type="radio" name="attr_Melee" value="6" />
-                <span></span> <input type="radio" name="attr_Melee" value="7" />
-                <span></span> <input type="radio" name="attr_Melee" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Performance" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Performance" value="1" />
-                <span></span> <input type="radio" name="attr_Performance" value="2" />
-                <span></span> <input type="radio" name="attr_Performance" value="3" />
-                <span></span> <input type="radio" name="attr_Performance" value="4" />
-                <span></span> <input type="radio" name="attr_Performance" value="5" />
-                <span></span> <input type="radio" name="attr_Performance" value="6" />
-                <span></span> <input type="radio" name="attr_Performance" value="7" />
-                <span></span> <input type="radio" name="attr_Performance" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Security" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Security" value="1" />
-                <span></span> <input type="radio" name="attr_Security" value="2" />
-                <span></span> <input type="radio" name="attr_Security" value="3" />
-                <span></span> <input type="radio" name="attr_Security" value="4" />
-                <span></span> <input type="radio" name="attr_Security" value="5" />
-                <span></span> <input type="radio" name="attr_Security" value="6" />
-                <span></span> <input type="radio" name="attr_Security" value="7" />
-                <span></span> <input type="radio" name="attr_Security" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Stealth" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Stealth" value="1" />
-                <span></span> <input type="radio" name="attr_Stealth" value="2" />
-                <span></span> <input type="radio" name="attr_Stealth" value="3" />
-                <span></span> <input type="radio" name="attr_Stealth" value="4" />
-                <span></span> <input type="radio" name="attr_Stealth" value="5" />
-                <span></span> <input type="radio" name="attr_Stealth" value="6" />
-                <span></span> <input type="radio" name="attr_Stealth" value="7" />
-                <span></span> <input type="radio" name="attr_Stealth" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Survival" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Survival" value="1" />
-                <span></span> <input type="radio" name="attr_Survival" value="2" />
-                <span></span> <input type="radio" name="attr_Survival" value="3" />
-                <span></span> <input type="radio" name="attr_Survival" value="4" />
-                <span></span> <input type="radio" name="attr_Survival" value="5" />
-                <span></span> <input type="radio" name="attr_Survival" value="6" />
-                <span></span> <input type="radio" name="attr_Survival" value="7" />
-                <span></span> <input type="radio" name="attr_Survival" value="8" />
-                <span></span>
-            </div>
-
-        </div>
-        <div class="column" style="width:5px">
-        </div>
-        <div class="column" style="width:105px">
-            <h4>Acadêmicos</h4>
-            <h4>Computador</h4>
-            <h4>Finanças</h4>
-            <h4>Investigação</h4>
-            <h4>Lei</h4>
-            <h4>Linguística</h4>
-            <h4>Medicina</h4>
-            <h4>Ocultismo</h4>
-            <h4>Política</h4>
-            <h4>Ciência</h4>
-        </div>
-
-        <div class="column" style="width:160px">
-            <div class="sheet-row">
-                <input type="radio" name="attr_Academics" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Academics" value="1" />
-                <span></span> <input type="radio" name="attr_Academics" value="2" />
-                <span></span> <input type="radio" name="attr_Academics" value="3" />
-                <span></span> <input type="radio" name="attr_Academics" value="4" />
-                <span></span> <input type="radio" name="attr_Academics" value="5" />
-                <span></span> <input type="radio" name="attr_Academics" value="6" />
-                <span></span> <input type="radio" name="attr_Academics" value="7" />
-                <span></span> <input type="radio" name="attr_Academics" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Computer" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Computer" value="1" />
-                <span></span> <input type="radio" name="attr_Computer" value="2" />
-                <span></span> <input type="radio" name="attr_Computer" value="3" />
-                <span></span> <input type="radio" name="attr_Computer" value="4" />
-                <span></span> <input type="radio" name="attr_Computer" value="5" />
-                <span></span> <input type="radio" name="attr_Computer" value="6" />
-                <span></span> <input type="radio" name="attr_Computer" value="7" />
-                <span></span> <input type="radio" name="attr_Computer" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Finance" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Finance" value="1" />
-                <span></span> <input type="radio" name="attr_Finance" value="2" />
-                <span></span> <input type="radio" name="attr_Finance" value="3" />
-                <span></span> <input type="radio" name="attr_Finance" value="4" />
-                <span></span> <input type="radio" name="attr_Finance" value="5" />
-                <span></span> <input type="radio" name="attr_Finance" value="6" />
-                <span></span> <input type="radio" name="attr_Finance" value="7" />
-                <span></span> <input type="radio" name="attr_Finance" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Investigation" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Investigation" value="1" />
-                <span></span> <input type="radio" name="attr_Investigation" value="2" />
-                <span></span> <input type="radio" name="attr_Investigation" value="3" />
-                <span></span> <input type="radio" name="attr_Investigation" value="4" />
-                <span></span> <input type="radio" name="attr_Investigation" value="5" />
-                <span></span> <input type="radio" name="attr_Investigation" value="6" />
-                <span></span> <input type="radio" name="attr_Investigation" value="7" />
-                <span></span> <input type="radio" name="attr_Investigation" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Law" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Law" value="1" />
-                <span></span> <input type="radio" name="attr_Law" value="2" />
-                <span></span> <input type="radio" name="attr_Law" value="3" />
-                <span></span> <input type="radio" name="attr_Law" value="4" />
-                <span></span> <input type="radio" name="attr_Law" value="5" />
-                <span></span> <input type="radio" name="attr_Law" value="6" />
-                <span></span> <input type="radio" name="attr_Law" value="7" />
-                <span></span> <input type="radio" name="attr_Law" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Linguistics" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Linguistics" value="1" />
-                <span></span> <input type="radio" name="attr_Linguistics" value="2" />
-                <span></span> <input type="radio" name="attr_Linguistics" value="3" />
-                <span></span> <input type="radio" name="attr_Linguistics" value="4" />
-                <span></span> <input type="radio" name="attr_Linguistics" value="5" />
-                <span></span> <input type="radio" name="attr_Linguistics" value="6" />
-                <span></span> <input type="radio" name="attr_Linguistics" value="7" />
-                <span></span> <input type="radio" name="attr_Linguistics" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Medicine" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Medicine" value="1" />
-                <span></span> <input type="radio" name="attr_Medicine" value="2" />
-                <span></span> <input type="radio" name="attr_Medicine" value="3" />
-                <span></span> <input type="radio" name="attr_Medicine" value="4" />
-                <span></span> <input type="radio" name="attr_Medicine" value="5" />
-                <span></span> <input type="radio" name="attr_Medicine" value="6" />
-                <span></span> <input type="radio" name="attr_Medicine" value="7" />
-                <span></span> <input type="radio" name="attr_Medicine" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Occult" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Occult" value="1" />
-                <span></span> <input type="radio" name="attr_Occult" value="2" />
-                <span></span> <input type="radio" name="attr_Occult" value="3" />
-                <span></span> <input type="radio" name="attr_Occult" value="4" />
-                <span></span> <input type="radio" name="attr_Occult" value="5" />
-                <span></span> <input type="radio" name="attr_Occult" value="6" />
-                <span></span> <input type="radio" name="attr_Occult" value="7" />
-                <span></span> <input type="radio" name="attr_Occult" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Politics" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Politics" value="1" />
-                <span></span> <input type="radio" name="attr_Politics" value="2" />
-                <span></span> <input type="radio" name="attr_Politics" value="3" />
-                <span></span> <input type="radio" name="attr_Politics" value="4" />
-                <span></span> <input type="radio" name="attr_Politics" value="5" />
-                <span></span> <input type="radio" name="attr_Politics" value="6" />
-                <span></span> <input type="radio" name="attr_Politics" value="7" />
-                <span></span> <input type="radio" name="attr_Politics" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Science" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Science" value="1" />
-                <span></span> <input type="radio" name="attr_Science" value="2" />
-                <span></span> <input type="radio" name="attr_Science" value="3" />
-                <span></span> <input type="radio" name="attr_Science" value="4" />
-                <span></span> <input type="radio" name="attr_Science" value="5" />
-                <span></span> <input type="radio" name="attr_Science" value="6" />
-                <span></span> <input type="radio" name="attr_Science" value="7" />
-                <span></span> <input type="radio" name="attr_Science" value="8" />
-                <span></span>
-            </div>
-        </div>
-    </div>
-
-    <hr />
-
-    <h1>Vantagens</h1>
-
-    <div class="sheet-3colrow">
-        <div class="column">
-            <h3>Antecedentes</h3>
-        </div>
-        <div class="column">
-            <h3>Disciplinas</h3>
-        </div>
-        <div class="column">
-            <h3>Virtudes</h3>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="column" style="width:105px">
-            <input type="text" name="attr_Back1name" style="width:105px" />
-            <input type="text" name="attr_Back2name" style="width:105px" />
-            <input type="text" name="attr_Back3name" style="width:105px" />
-            <input type="text" name="attr_Back4name" style="width:105px" />
-            <input type="text" name="attr_Back5name" style="width:105px" />
-            <input type="text" name="attr_Back6name" style="width:105px" />
-        </div>
-
-        <div class="column" style="width:162px; line-height:28px" align="right">
-            <input type="radio" name="attr_Back1" value="0" class=" zero" checked />
-            <span></span> <input type="radio" name="attr_Back1" value="1" />
-            <span></span> <input type="radio" name="attr_Back1" value="2" />
-            <span></span> <input type="radio" name="attr_Back1" value="3" />
-            <span></span> <input type="radio" name="attr_Back1" value="4" />
-            <span></span> <input type="radio" name="attr_Back1" value="5" />
-            <span></span> <input type="radio" name="attr_Back1" value="6" />
-            <span></span> <input type="radio" name="attr_Back1" value="7" />
-            <span></span> <input type="radio" name="attr_Back1" value="8" />
-            <span></span>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Back2" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Back2" value="1" />
-                <span></span> <input type="radio" name="attr_Back2" value="2" />
-                <span></span> <input type="radio" name="attr_Back2" value="3" />
-                <span></span> <input type="radio" name="attr_Back2" value="4" />
-                <span></span> <input type="radio" name="attr_Back2" value="5" />
-                <span></span> <input type="radio" name="attr_Back2" value="6" />
-                <span></span> <input type="radio" name="attr_Back2" value="7" />
-                <span></span> <input type="radio" name="attr_Back2" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Back3" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Back3" value="1" />
-                <span></span> <input type="radio" name="attr_Back3" value="2" />
-                <span></span> <input type="radio" name="attr_Back3" value="3" />
-                <span></span> <input type="radio" name="attr_Back3" value="4" />
-                <span></span> <input type="radio" name="attr_Back3" value="5" />
-                <span></span> <input type="radio" name="attr_Back3" value="6" />
-                <span></span> <input type="radio" name="attr_Back3" value="7" />
-                <span></span> <input type="radio" name="attr_Back3" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Back4" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Back4" value="1" />
-                <span></span> <input type="radio" name="attr_Back4" value="2" />
-                <span></span> <input type="radio" name="attr_Back4" value="3" />
-                <span></span> <input type="radio" name="attr_Back4" value="4" />
-                <span></span> <input type="radio" name="attr_Back4" value="5" />
-                <span></span> <input type="radio" name="attr_Back4" value="6" />
-                <span></span> <input type="radio" name="attr_Back4" value="7" />
-                <span></span> <input type="radio" name="attr_Back4" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Back5" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Back5" value="1" />
-                <span></span> <input type="radio" name="attr_Back5" value="2" />
-                <span></span> <input type="radio" name="attr_Back5" value="3" />
-                <span></span> <input type="radio" name="attr_Back5" value="4" />
-                <span></span> <input type="radio" name="attr_Back5" value="5" />
-                <span></span> <input type="radio" name="attr_Back5" value="6" />
-                <span></span> <input type="radio" name="attr_Back5" value="7" />
-                <span></span> <input type="radio" name="attr_Back5" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Back6" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Back6" value="1" />
-                <span></span> <input type="radio" name="attr_Back6" value="2" />
-                <span></span> <input type="radio" name="attr_Back6" value="3" />
-                <span></span> <input type="radio" name="attr_Back6" value="4" />
-                <span></span> <input type="radio" name="attr_Back6" value="5" />
-                <span></span> <input type="radio" name="attr_Back6" value="6" />
-                <span></span> <input type="radio" name="attr_Back6" value="7" />
-                <span></span> <input type="radio" name="attr_Back6" value="8" />
-                <span></span>
-            </div>
-        </div>
-
-        <div class="column" style="width:105px">
-            <input type="text" name="attr_Dicipline1name" style="width:105px" />
-            <input type="text" name="attr_Dicipline2name" style="width:105px" />
-            <input type="text" name="attr_Dicipline3name" style="width:105px" />
-            <input type="text" name="attr_Dicipline4name" style="width:105px" />
-            <input type="text" name="attr_Dicipline5name" style="width:105px" />
-            <input type="text" name="attr_Dicipline6name" style="width:105px" />
-        </div>
-
-        <div class="column" style="width:170x; line-height:28px">
-            <input type="radio" name="attr_Dicipline1" value="0" class=" zero" checked />
-            <span></span> <input type="radio" name="attr_Dicipline1" value="1" />
-            <span></span> <input type="radio" name="attr_Dicipline1" value="2" />
-            <span></span> <input type="radio" name="attr_Dicipline1" value="3" />
-            <span></span> <input type="radio" name="attr_Dicipline1" value="4" />
-            <span></span> <input type="radio" name="attr_Dicipline1" value="5" />
-            <span></span> <input type="radio" name="attr_Dicipline1" value="6" />
-            <span></span> <input type="radio" name="attr_Dicipline1" value="7" />
-            <span></span> <input type="radio" name="attr_Dicipline1" value="8" />
-            <span></span>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Dicipline2" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Dicipline2" value="1" />
-                <span></span> <input type="radio" name="attr_Dicipline2" value="2" />
-                <span></span> <input type="radio" name="attr_Dicipline2" value="3" />
-                <span></span> <input type="radio" name="attr_Dicipline2" value="4" />
-                <span></span> <input type="radio" name="attr_Dicipline2" value="5" />
-                <span></span> <input type="radio" name="attr_Dicipline2" value="6" />
-                <span></span> <input type="radio" name="attr_Dicipline2" value="7" />
-                <span></span> <input type="radio" name="attr_Dicipline2" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Dicipline3" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Dicipline3" value="1" />
-                <span></span> <input type="radio" name="attr_Dicipline3" value="2" />
-                <span></span> <input type="radio" name="attr_Dicipline3" value="3" />
-                <span></span> <input type="radio" name="attr_Dicipline3" value="4" />
-                <span></span> <input type="radio" name="attr_Dicipline3" value="5" />
-                <span></span> <input type="radio" name="attr_Dicipline3" value="6" />
-                <span></span> <input type="radio" name="attr_Dicipline3" value="7" />
-                <span></span> <input type="radio" name="attr_Dicipline3" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Dicipline4" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Dicipline4" value="1" />
-                <span></span> <input type="radio" name="attr_Dicipline4" value="2" />
-                <span></span> <input type="radio" name="attr_Dicipline4" value="3" />
-                <span></span> <input type="radio" name="attr_Dicipline4" value="4" />
-                <span></span> <input type="radio" name="attr_Dicipline4" value="5" />
-                <span></span> <input type="radio" name="attr_Dicipline4" value="6" />
-                <span></span> <input type="radio" name="attr_Dicipline4" value="7" />
-                <span></span> <input type="radio" name="attr_Dicipline4" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Dicipline5" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Dicipline5" value="1" />
-                <span></span> <input type="radio" name="attr_Dicipline5" value="2" />
-                <span></span> <input type="radio" name="attr_Dicipline5" value="3" />
-                <span></span> <input type="radio" name="attr_Dicipline5" value="4" />
-                <span></span> <input type="radio" name="attr_Dicipline5" value="5" />
-                <span></span> <input type="radio" name="attr_Dicipline5" value="6" />
-                <span></span> <input type="radio" name="attr_Dicipline5" value="7" />
-                <span></span> <input type="radio" name="attr_Dicipline5" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Dicipline6" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Dicipline6" value="1" />
-                <span></span> <input type="radio" name="attr_Dicipline6" value="2" />
-                <span></span> <input type="radio" name="attr_Dicipline6" value="3" />
-                <span></span> <input type="radio" name="attr_Dicipline6" value="4" />
-                <span></span> <input type="radio" name="attr_Dicipline6" value="5" />
-                <span></span> <input type="radio" name="attr_Dicipline6" value="6" />
-                <span></span> <input type="radio" name="attr_Dicipline6" value="7" />
-                <span></span> <input type="radio" name="attr_Dicipline6" value="8" />
-                <span></span>
+            <div class="column" style="text-align: right;">
+                <div>
+                    <label>Geração:</label>
+                    <input matInput placeholder="Ex: 13" [(ngModel)]="ficha.geracao" name="geracao" type="number"
+                        step="1">
+                </div>
+                <div>
+                    <label>Senhor:</label>
+                    <input matInput [(ngModel)]="ficha.senhor" name="senhor" alt="Nome do vampiro que te abraçou">
+                </div>
+                <div>
+                    <label>Conceito:</label>
+                    <input matInput placeholder="Ex: Justiceiro Maluco" [(ngModel)]="ficha.conceito" name="conceito"
+                        alt="Um esboço de uma ou duas palavras sobre o que o personagem era antes de ser abraçado">
+                </div>
             </div>
         </div>
 
 
-        <div class="column" style="width:140px; line-height:17px">
-            <br>
-            <input type="radio" name="attr_CorC" value="Conscience" class=" CorC1" />
-            <h4 class=" CorC1">Consciência</h4>
-            <input type="radio" name="attr_CorC" value="Conviction" class=" CorC2" checked />
-            <h4 class=" CorC2">Convicção</h4><br><br>
-            <input type="radio" name="attr_SCorI" value="Self-Control" class=" SCorI1" />
-            <h4 class=" SCorI1">Autocontrole</h4>
-            <input type="radio" name="attr_SCorI" value="Instinct" class=" SCorI2" checked />
-            <h4 class=" SCorI2">Instinto</h4><br><br>
-            <h4>Coragem</h4>
-        </div>
-
-        <div class="column" style="width:88px; line-height:17px">
-            <br>
-            <div class="sheet-row">
-                <input type="radio" name="attr_C_C" value="1" checked />
-                <span></span> <input type="radio" name="attr_C_C" value="2" />
-                <span></span> <input type="radio" name="attr_C_C" value="3" />
-                <span></span> <input type="radio" name="attr_C_C" value="4" />
-                <span></span> <input type="radio" name="attr_C_C" value="5" />
-                <span></span>
+        <div class="conteudoAbas" id="conteudoAba2">
+            <div class="column" style="text-align: left;">
+                <div style="width: 100%;">
+                    <h3>Físicos</h3>
+                </div>
+                <div>
+                    <label>Força</label>
+                    <input matInput placeholder="0" [(ngModel)]="atributos.fis_forca" name="fis_forca" type="number"
+                        step="1">
+                </div>
+                <div>
+                    <label>Destreza</label>
+                    <input matInput placeholder="0" [(ngModel)]="atributos.fis_destreza" name="fis_destreza"
+                        type="number" step="1">
+                </div>
+                <div>
+                    <label>Vigor</label>
+                    <input matInput placeholder="0" [(ngModel)]="atributos.fis_vigor" name="fis_vigor" type="number"
+                        step="1">
+                </div>
             </div>
-
-            <br><br>
-            <div class="sheet-row">
-                <input type="radio" name="attr_S_I" value="1" checked />
-                <span></span> <input type="radio" name="attr_S_I" value="2" />
-                <span></span> <input type="radio" name="attr_S_I" value="3" />
-                <span></span> <input type="radio" name="attr_S_I" value="4" />
-                <span></span> <input type="radio" name="attr_S_I" value="5" />
-                <span></span>
+            <div class="column" style="text-align: center;">
+                <div style="width: 100%;">
+                    <h3>Sociais</h3>
+                </div>
+                <div>
+                    <label>Carisma</label>
+                    <input matInput placeholder="0" [(ngModel)]="atributos.soc_carisma" name="soc_carisma" type="number"
+                        step="1">
+                </div>
+                <div>
+                    <label>Manipulação</label>
+                    <input matInput placeholder="0" [(ngModel)]="atributos.soc_manipulacao" name="soc_manipulacao"
+                        type="number" step="1">
+                </div>
+                <div>
+                    <label>Aparência</label>
+                    <input matInput placeholder="0" [(ngModel)]="atributos.soc_aparencia" name="soc_aparencia"
+                        type="number" step="1">
+                </div>
             </div>
-
-            <br><br>
-            <div class="sheet-row">
-                <input type="radio" name="attr_Courage" value="1" checked />
-                <span></span> <input type="radio" name="attr_Courage" value="2" />
-                <span></span> <input type="radio" name="attr_Courage" value="3" />
-                <span></span> <input type="radio" name="attr_Courage" value="4" />
-                <span></span> <input type="radio" name="attr_Courage" value="5" />
-                <span></span>
-            </div>
-        </div>
-    </div>
-    <hr>
-
-    <div class="column" style="width:270px; ">
-        <h3 align="center">Other Traits</h3>
-        <div class="column" style="width:105px">
-            <input type="text" name="attr_Other1name" style="width:105px" />
-            <input type="text" name="attr_Other2name" style="width:105px" />
-            <input type="text" name="attr_Other3name" style="width:105px" />
-            <input type="text" name="attr_Other4name" style="width:105px" />
-            <input type="text" name="attr_Other5name" style="width:105px" />
-            <input type="text" name="attr_Other6name" style="width:105px" />
-            <input type="text" name="attr_Other7name" style="width:105px" />
-            <input type="text" name="attr_Other8name" style="width:105px" />
-        </div>
-        <div class="column" style="width:170x; line-height:28px">
-            <input type="radio" name="attr_Other1" value="0" class=" zero" checked />
-            <span></span> <input type="radio" name="attr_Other1" value="1" />
-            <span></span> <input type="radio" name="attr_Other1" value="2" />
-            <span></span> <input type="radio" name="attr_Other1" value="3" />
-            <span></span> <input type="radio" name="attr_Other1" value="4" />
-            <span></span> <input type="radio" name="attr_Other1" value="5" />
-            <span></span> <input type="radio" name="attr_Other1" value="6" />
-            <span></span> <input type="radio" name="attr_Other1" value="7" />
-            <span></span> <input type="radio" name="attr_Other1" value="8" />
-            <span></span>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Other2" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Other2" value="1" />
-                <span></span> <input type="radio" name="attr_Other2" value="2" />
-                <span></span> <input type="radio" name="attr_Other2" value="3" />
-                <span></span> <input type="radio" name="attr_Other2" value="4" />
-                <span></span> <input type="radio" name="attr_Other2" value="5" />
-                <span></span> <input type="radio" name="attr_Other2" value="6" />
-                <span></span> <input type="radio" name="attr_Other2" value="7" />
-                <span></span> <input type="radio" name="attr_Other2" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Other3" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Other3" value="1" />
-                <span></span> <input type="radio" name="attr_Other3" value="2" />
-                <span></span> <input type="radio" name="attr_Other3" value="3" />
-                <span></span> <input type="radio" name="attr_Other3" value="4" />
-                <span></span> <input type="radio" name="attr_Other3" value="5" />
-                <span></span> <input type="radio" name="attr_Other3" value="6" />
-                <span></span> <input type="radio" name="attr_Other3" value="7" />
-                <span></span> <input type="radio" name="attr_Other3" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Other4" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Other4" value="1" />
-                <span></span> <input type="radio" name="attr_Other4" value="2" />
-                <span></span> <input type="radio" name="attr_Other4" value="3" />
-                <span></span> <input type="radio" name="attr_Other4" value="4" />
-                <span></span> <input type="radio" name="attr_Other4" value="5" />
-                <span></span> <input type="radio" name="attr_Other4" value="6" />
-                <span></span> <input type="radio" name="attr_Other4" value="7" />
-                <span></span> <input type="radio" name="attr_Other4" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Other5" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Other5" value="1" />
-                <span></span> <input type="radio" name="attr_Other5" value="2" />
-                <span></span> <input type="radio" name="attr_Other5" value="3" />
-                <span></span> <input type="radio" name="attr_Other5" value="4" />
-                <span></span> <input type="radio" name="attr_Other5" value="5" />
-                <span></span> <input type="radio" name="attr_Other5" value="6" />
-                <span></span> <input type="radio" name="attr_Other5" value="7" />
-                <span></span> <input type="radio" name="attr_Other5" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Other6" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Other6" value="1" />
-                <span></span> <input type="radio" name="attr_Other6" value="2" />
-                <span></span> <input type="radio" name="attr_Other6" value="3" />
-                <span></span> <input type="radio" name="attr_Other6" value="4" />
-                <span></span> <input type="radio" name="attr_Other6" value="5" />
-                <span></span> <input type="radio" name="attr_Other6" value="6" />
-                <span></span> <input type="radio" name="attr_Other6" value="7" />
-                <span></span> <input type="radio" name="attr_Other6" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Other7" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Other7" value="1" />
-                <span></span> <input type="radio" name="attr_Other7" value="2" />
-                <span></span> <input type="radio" name="attr_Other7" value="3" />
-                <span></span> <input type="radio" name="attr_Other7" value="4" />
-                <span></span> <input type="radio" name="attr_Other7" value="5" />
-                <span></span> <input type="radio" name="attr_Other7" value="6" />
-                <span></span> <input type="radio" name="attr_Other7" value="7" />
-                <span></span> <input type="radio" name="attr_Other7" value="8" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Other8" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Other8" value="1" />
-                <span></span> <input type="radio" name="attr_Other8" value="2" />
-                <span></span> <input type="radio" name="attr_Other8" value="3" />
-                <span></span> <input type="radio" name="attr_Other8" value="4" />
-                <span></span> <input type="radio" name="attr_Other8" value="5" />
-                <span></span> <input type="radio" name="attr_Other8" value="6" />
-                <span></span> <input type="radio" name="attr_Other8" value="7" />
-                <span></span> <input type="radio" name="attr_Other8" value="8" />
-                <span></span>
+            <div class="column" style="text-align: right;">
+                <div style="width: 100%;">
+                    <h3>Mentais</h3>
+                </div>
+                <div>
+                    <label>Percepção</label>
+                    <input matInput placeholder="0" [(ngModel)]="atributos.men_percepcao" name="men_percepcao"
+                        type="number" step="1">
+                </div>
+                <div>
+                    <label>Inteligência</label>
+                    <input matInput placeholder="0" [(ngModel)]="atributos.men_inteligencia" name="men_inteligencia"
+                        type="number" step="1">
+                </div>
+                <div>
+                    <label>Raciocínio</label>
+                    <input matInput placeholder="0" [(ngModel)]="atributos.men_raciocinio" name="men_raciocinio"
+                        type="number" step="1">
+                </div>
             </div>
         </div>
-        <br><br>
-        <hr>
-        <br><br>
-        <h3>Paths</h3>
-        <div class="column" style="width:160px">
-            <input type="text" name="attr_Path1Name" style="width:160px" />
-            <input type="text" name="attr_Path2Name" style="width:160px" />
-            <input type="text" name="attr_Path3Name" style="width:160px" />
-            <input type="text" name="attr_Path4Name" style="width:160px" />
-            <input type="text" name="attr_Path5Name" style="width:160px" />
-            <input type="text" name="attr_Path6Name" style="width:160px" />
-        </div>
 
-        <div class="column" style="width:115x; line-height:28px">
-            <input type="radio" name="attr_Path1" value="0" class=" zero" checked />
-            <span></span> <input type="radio" name="attr_Path1" value="1" />
-            <span></span> <input type="radio" name="attr_Path1" value="2" />
-            <span></span> <input type="radio" name="attr_Path1" value="3" />
-            <span></span> <input type="radio" name="attr_Path1" value="4" />
-            <span></span> <input type="radio" name="attr_Path1" value="5" />
-            <span></span>
 
-            <div class="sheet-row">
-                <input type="radio" name="attr_Path2" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Path2" value="1" />
-                <span></span> <input type="radio" name="attr_Path2" value="2" />
-                <span></span> <input type="radio" name="attr_Path2" value="3" />
-                <span></span> <input type="radio" name="attr_Path2" value="4" />
-                <span></span> <input type="radio" name="attr_Path2" value="5" />
-                <span></span>
+
+        <div class="conteudoAbas" id="conteudoAba3">
+            <div class="column" style="text-align: left;">
+                <div style="width: 100%;">
+                    <h3>Talentos</h3>
+                </div>
+                <div>
+                    <label>Prontidão</label>
+                    <input matInput name="prontidao" type="number" step="1">
+                </div>
+                <div>
+                    <label>Esportes</label>
+                    <input matInput name="esportes" type="number" step="1">
+                </div>
+                <div>
+                    <label>Briga</label>
+                    <input matInput name="briga" type="number" step="1">
+                </div>
+                <div>
+                    <label>Esquiva</label>
+                    <input matInput name="esquiva" type="number" step="1">
+                </div>
+                <div>
+                    <label>Empatia</label>
+                    <input matInput name="empatia" type="number" step="1">
+                </div>
+                <div>
+                    <label>Expressão</label>
+                    <input matInput name="expressao" type="number" step="1">
+                </div>
+                <div>
+                    <label>Intimidação</label>
+                    <input matInput name="intimidacao" type="number" step="1">
+                </div>
+                <div>
+                    <label>Liderança</label>
+                    <input matInput name="lideranca" type="number" step="1">
+                </div>
+                <div>
+                    <label>Manha</label>
+                    <input matInput name="manha" type="number" step="1">
+                </div>
+                <div>
+                    <label>Lábia</label>
+                    <input matInput name="labia" type="number" step="1">
+                </div>
             </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Path3" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Path3" value="1" />
-                <span></span> <input type="radio" name="attr_Path3" value="2" />
-                <span></span> <input type="radio" name="attr_Path3" value="3" />
-                <span></span> <input type="radio" name="attr_Path3" value="4" />
-                <span></span> <input type="radio" name="attr_Path3" value="5" />
-                <span></span>
+            <div class="column" style="text-align: center;">
+                <div style="width: 100%;">
+                    <h3>Perícia</h3>
+                </div>
+                <div>
+                    <label>Empatia c/ Animais</label>
+                    <input matInput name="empatia_animais" type="number" step="1">
+                </div>
+                <div>
+                    <label>Ofícios</label>
+                    <input matInput name="oficios" type="number" step="1">
+                </div>
+                <div>
+                    <label>Condução</label>
+                    <input matInput name="conducao" type="number" step="1">
+                </div>
+                <div>
+                    <label>Etiqueta</label>
+                    <input matInput name="etiqueta" type="number" step="1">
+                </div>
+                <div>
+                    <label>Arma de Fogo</label>
+                    <input matInput name="arma_fogo" type="number" step="1">
+                </div>
+                <div>
+                    <label>Arma Branca</label>
+                    <input matInput name="arma_branca" type="number" step="1">
+                </div>
+                <div>
+                    <label>Performance</label>
+                    <input matInput name="performance" type="number" step="1">
+                </div>
+                <div>
+                    <label>Segurança</label>
+                    <input matInput name="seguranca" type="number" step="1">
+                </div>
+                <div>
+                    <label>Furtividade</label>
+                    <input matInput name="furtividade" type="number" step="1">
+                </div>
+                <div>
+                    <label>Sobrevivência</label>
+                    <input matInput name="sobrevivencia" type="number" step="1">
+                </div>
             </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Path4" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Path4" value="1" />
-                <span></span> <input type="radio" name="attr_Path4" value="2" />
-                <span></span> <input type="radio" name="attr_Path4" value="3" />
-                <span></span> <input type="radio" name="attr_Path4" value="4" />
-                <span></span> <input type="radio" name="attr_Path4" value="5" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Path5" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Path5" value="1" />
-                <span></span> <input type="radio" name="attr_Path5" value="2" />
-                <span></span> <input type="radio" name="attr_Path5" value="3" />
-                <span></span> <input type="radio" name="attr_Path5" value="4" />
-                <span></span> <input type="radio" name="attr_Path5" value="5" />
-                <span></span>
-            </div>
-
-            <div class="sheet-row">
-                <input type="radio" name="attr_Path6" value="0" class=" zero" checked />
-                <span></span> <input type="radio" name="attr_Path6" value="1" />
-                <span></span> <input type="radio" name="attr_Path6" value="2" />
-                <span></span> <input type="radio" name="attr_Path6" value="3" />
-                <span></span> <input type="radio" name="attr_Path6" value="4" />
-                <span></span> <input type="radio" name="attr_Path6" value="5" />
-                <span></span>
-            </div>
-        </div>
-        <br><br><br>
-
-        <h3 align="center">Qualidades/Defeitos</h3>
-        <textarea name="attr_merits" style="width:260px; height:50px"></textarea>
-    </div>
-
-    <div class="column" style="width:5px">
-    </div>
-
-    <div class="column" style="width:265px" align="center">
-        <h3 style="text-align: center">Humanidade/Trilha</h3>
-
-        <div class="sheet-row">
-            <input type="text" name="attr_PathoEname" style="width:160px" />
-        </div>
-
-        <div class="sheet-row" align="left" style="margin:0px 0px 0px 28px">
-            <input type="radio" name="attr_PathoE" value="0" class=" zero" checked />
-            <span></span> <input type="radio" name="attr_PathoE" value="1" />
-            <span></span> <input type="radio" name="attr_PathoE" value="2" />
-            <span></span> <input type="radio" name="attr_PathoE" value="3" />
-            <span></span> <input type="radio" name="attr_PathoE" value="4" />
-            <span></span> <input type="radio" name="attr_PathoE" value="5" />
-            <span></span> <input type="radio" name="attr_PathoE" value="6" />
-            <span></span> <input type="radio" name="attr_PathoE" value="7" />
-            <span></span> <input type="radio" name="attr_PathoE" value="8" />
-            <span></span> <input type="radio" name="attr_PathoE" value="9" />
-            <span></span> <input type="radio" name="attr_PathoE" value="10" />
-            <span></span>
-        </div>
-
-        <br>
-        <h3>Willpower</h3>
-        <div align="left" style="margin:0px 0px 0px 46px">
-            <input type="radio" name="attr_Willpower" value="1" />
-            <span></span> <input type="radio" name="attr_Willpower" value="2" />
-            <span></span> <input type="radio" name="attr_Willpower" value="3" />
-            <span></span> <input type="radio" name="attr_Willpower" value="4" />
-            <span></span> <input type="radio" name="attr_Willpower" value="5" checked="checked" />
-            <span></span> <input type="radio" name="attr_Willpower" value="6" />
-            <span></span> <input type="radio" name="attr_Willpower" value="7" />
-            <span></span> <input type="radio" name="attr_Willpower" value="8" />
-            <span></span> <input type="radio" name="attr_Willpower" value="9" />
-            <span></span> <input type="radio" name="attr_Willpower" value="10" />
-            <span></span>
-            <button type='roll' name='roll_Willpowerroll'
-                value='/em rolls Willpower \n/r {(@{Willpower}+?{Pool Mod|0})d10s}>?{Difficulty|6}f1'></button>
-        </div>
-
-        <div align="left" style="margin:0px 0px 0px 28px">
-            <input type="radio" name="attr_Willpower_Used" value="0" class=" zero" checked />
-            <span></span> <input type="radio" name="attr_Willpower_Used" value="1" class=" used" />
-            <span></span> <input type="radio" name="attr_Willpower_Used" value="2" class=" used" />
-            <span></span> <input type="radio" name="attr_Willpower_Used" value="3" class=" used" />
-            <span></span> <input type="radio" name="attr_Willpower_Used" value="4" class=" used" />
-            <span></span> <input type="radio" name="attr_Willpower_Used" value="5" class=" used" />
-            <span></span> <input type="radio" name="attr_Willpower_Used" value="6" class=" used" />
-            <span></span> <input type="radio" name="attr_Willpower_Used" value="7" class=" used" />
-            <span></span> <input type="radio" name="attr_Willpower_Used" value="8" class=" used" />
-            <span></span> <input type="radio" name="attr_Willpower_Used" value="9" class=" used" />
-            <span></span> <input type="radio" name="attr_Willpower_Used" value="10" class=" used" />
-            <span></span>
-        </div>
-
-        <br>
-        <h3>Blood Pool</h3>
-        <div class="sheet-row" align="right" style="margin:0px 45px 0px 0px">
-            <input type="radio" name="attr_BloodPool" value="0" class=" zero" checked />
-            <span></span> <input type="radio" name="attr_BloodPool" value="1" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="2" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="3" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="4" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="5" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="6" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="7" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="8" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="9" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="10" class=" used" />
-            <span></span><br>
-
-            <input type="radio" name="attr_BloodPool" value="11" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="12" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="13" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="14" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="15" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="16" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="17" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="18" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="19" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="20" class=" used" />
-            <span></span><br>
-
-            <input type="radio" name="attr_BloodPool" value="21" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="22" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="23" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="24" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="25" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="26" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="27" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="28" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="29" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="30" class=" used" />
-            <span></span><br>
-
-            <input type="radio" name="attr_BloodPool" value="31" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="32" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="33" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="34" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="35" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="36" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="37" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="38" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="39" class=" used" />
-            <span></span> <input type="radio" name="attr_BloodPool" value="40" class=" used" />
-            <span></span>
-        </div>
-
-        <h5>Points Per Turn <input type="number" name="attr_BPPT" style="width:35px" /></h5>
-        <br>
-        <div class="sheet-row">
-            <h3 style="text-align: center">Weakness</h3>
-        </div>
-        <div class="sheet-row" align="center">
-            <input type="text" name="attr_weakness" style="width:245px" />
-        </div>
-        <br>
-
-        <h3>Dice Pools</h3>
-        <div align="left" style="margin:0px 0px 0px 40px"><b>Attribute
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ability</b></div>
-        <div align="left">
-            <input type="checkbox" name="attr_DP1Spec" class="DP1Spec" /><span></span>
-            <div class="DP1">
-                <select name="attr_DPAtt1" style="width:95px">
-                    <option value="0" selected></option>
-                    <option value="@{Strength}">Strength</option>
-                    <option value="@{Dexterity}">Dexterity</option>
-                    <option value="@{Stamina}">Stamina</option>
-                    <option value="@{Charisma}">Charisma</option>
-                    <option value="@{Manipulation}">Manipulation</option>
-                    <option value="@{Appearance}">Appearance</option>
-                    <option value="@{Intelligence}">Intelligence</option>
-                    <option value="@{Wits}">Wits</option>
-                    <option value="@{Perception}">Perception</option>
-                </select>
-
-                <select name="attr_DPAbi1" style="width:100px">
-                    <option value="0" selected></option>
-                    <option value="@{Alertness}">Alertness</option>
-                    <option value="@{Athletics}">Athletics</option>
-                    <option value="@{Brawl}">Brawl</option>
-                    <option value="@{Dodge}">Dodge</option>
-                    <option value="@{Empathy}">Empathy</option>
-                    <option value="@{Expression}">Expression</option>
-                    <option value="@{Intimidation}">Intimidation</option>
-                    <option value="@{Leadership}">Leadership</option>
-                    <option value="@{Streetwise}">Streetwise</option>
-                    <option value="@{Subterfuge}">Subterfuge</option>
-                    <option value="@{Animal_Ken}">Animal Ken</option>
-                    <option value="@{Craft}">Craft</option>
-                    <option value="@{Drive}">Drive</option>
-                    <option value="@{Etiquette}">Etiquette</option>
-                    <option value="@{Firearms}">Firearms</option>
-                    <option value="@{Melee}">Melee</option>
-                    <option value="@{Performance}">Performance</option>
-                    <option value="@{Security}">Security</option>
-                    <option value="@{Stealth}">Stealth</option>
-                    <option value="@{Survival}">Survival</option>
-                    <option value="@{Academics}">Academics</option>
-                    <option value="@{Computer}">Computer</option>
-                    <option value="@{Finance}">Finance</option>
-                    <option value="@{Investigation}">Investigation</option>
-                    <option value="@{Law}">Law</option>
-                    <option value="@{Linguistics}">Linguistics</option>
-                    <option value="@{Medicine}">Medicine</option>
-                    <option value="@{Occult}">Occult</option>
-                    <option value="@{Politics}">Politics</option>
-                    <option value="@{Science}">Science</option>
-                    <option value="@{Other1}">Other1</option>
-                    <option value="@{Other2}">Other2</option>
-                    <option value="@{Other3}">Other3</option>
-                    <option value="@{Other4}">Other4</option>
-                    <option value="@{Other5}">Other5</option>
-                    <option value="@{Other6}">Other6</option>
-                    <option value="@{Other7}">Other7</option>
-                    <option value="@{Other8}">Other8</option>
-                </select>
-
-                <button type='roll' name='roll_DP1roll'
-                    value='/em rolls Dice Pool 1\n/r {(@{DPAtt1}+@{DPAbi1}+?{Pool Mod|0})d10s}>?{Difficulty|6}f1'></button>
-            </div>
-            <div class="DP1wSpec">
-                <select name="attr_DPAtt1" style="width:95px">
-                    <option value="0" selected></option>
-                    <option value="@{Strength}">Strength</option>
-                    <option value="@{Dexterity}">Dexterity</option>
-                    <option value="@{Stamina}">Stamina</option>
-                    <option value="@{Charisma}">Charisma</option>
-                    <option value="@{Manipulation}">Manipulation</option>
-                    <option value="@{Appearance}">Appearance</option>
-                    <option value="@{Intelligence}">Intelligence</option>
-                    <option value="@{Wits}">Wits</option>
-                    <option value="@{Perception}">Perception</option>
-                </select>
-
-                <select name="attr_DPAbi1" style="width:100px">
-                    <option value="0" selected></option>
-                    <option value="@{Alertness}">Alertness</option>
-                    <option value="@{Athletics}">Athletics</option>
-                    <option value="@{Brawl}">Brawl</option>
-                    <option value="@{Dodge}">Dodge</option>
-                    <option value="@{Empathy}">Empathy</option>
-                    <option value="@{Expression}">Expression</option>
-                    <option value="@{Intimidation}">Intimidation</option>
-                    <option value="@{Leadership}">Leadership</option>
-                    <option value="@{Streetwise}">Streetwise</option>
-                    <option value="@{Subterfuge}">Subterfuge</option>
-                    <option value="@{Animal_Ken}">Animal Ken</option>
-                    <option value="@{Craft}">Craft</option>
-                    <option value="@{Drive}">Drive</option>
-                    <option value="@{Etiquette}">Etiquette</option>
-                    <option value="@{Firearms}">Firearms</option>
-                    <option value="@{Melee}">Melee</option>
-                    <option value="@{Performance}">Performance</option>
-                    <option value="@{Security}">Security</option>
-                    <option value="@{Stealth}">Stealth</option>
-                    <option value="@{Survival}">Survival</option>
-                    <option value="@{Academics}">Academics</option>
-                    <option value="@{Computer}">Computer</option>
-                    <option value="@{Finance}">Finance</option>
-                    <option value="@{Investigation}">Investigation</option>
-                    <option value="@{Law}">Law</option>
-                    <option value="@{Linguistics}">Linguistics</option>
-                    <option value="@{Medicine}">Medicine</option>
-                    <option value="@{Occult}">Occult</option>
-                    <option value="@{Politics}">Politics</option>
-                    <option value="@{Science}">Science</option>
-                    <option value="@{Other1}">Other1</option>
-                    <option value="@{Other2}">Other2</option>
-                    <option value="@{Other3}">Other3</option>
-                    <option value="@{Other4}">Other4</option>
-                    <option value="@{Other5}">Other5</option>
-                    <option value="@{Other6}">Other6</option>
-                    <option value="@{Other7}">Other7</option>
-                    <option value="@{Other8}">Other8</option>
-                </select>
-                <button type='roll' name='roll_DP1roll'
-                    value='/em rolls Dice Pool 1 w/ Specialization \n/r {(@{DPAtt1}+@{DPAbi1}+?{Pool Mod|0})d10s!}>?{Difficulty|6}f1'></button>
-            </div><br>
-
-            <input type="checkbox" name="attr_DP2Spec" class="DP2Spec" /><span></span>
-            <div class="DP2">
-                <select name="attr_DPAtt2" style="width:95px">
-                    <option value="0" selected></option>
-                    <option value="@{Strength}">Strength</option>
-                    <option value="@{Dexterity}">Dexterity</option>
-                    <option value="@{Stamina}">Stamina</option>
-                    <option value="@{Charisma}">Charisma</option>
-                    <option value="@{Manipulation}">Manipulation</option>
-                    <option value="@{Appearance}">Appearance</option>
-                    <option value="@{Intelligence}">Intelligence</option>
-                    <option value="@{Wits}">Wits</option>
-                    <option value="@{Perception}">Perception</option>
-                </select>
-
-                <select name="attr_DPAbi2" style="width:100px">
-                    <option value="0" selected></option>
-                    <option value="@{Alertness}">Alertness</option>
-                    <option value="@{Athletics}">Athletics</option>
-                    <option value="@{Brawl}">Brawl</option>
-                    <option value="@{Dodge}">Dodge</option>
-                    <option value="@{Empathy}">Empathy</option>
-                    <option value="@{Expression}">Expression</option>
-                    <option value="@{Intimidation}">Intimidation</option>
-                    <option value="@{Leadership}">Leadership</option>
-                    <option value="@{Streetwise}">Streetwise</option>
-                    <option value="@{Subterfuge}">Subterfuge</option>
-                    <option value="@{Animal_Ken}">Animal Ken</option>
-                    <option value="@{Craft}">Craft</option>
-                    <option value="@{Drive}">Drive</option>
-                    <option value="@{Etiquette}">Etiquette</option>
-                    <option value="@{Firearms}">Firearms</option>
-                    <option value="@{Melee}">Melee</option>
-                    <option value="@{Performance}">Performance</option>
-                    <option value="@{Security}">Security</option>
-                    <option value="@{Stealth}">Stealth</option>
-                    <option value="@{Survival}">Survival</option>
-                    <option value="@{Academics}">Academics</option>
-                    <option value="@{Computer}">Computer</option>
-                    <option value="@{Finance}">Finance</option>
-                    <option value="@{Investigation}">Investigation</option>
-                    <option value="@{Law}">Law</option>
-                    <option value="@{Linguistics}">Linguistics</option>
-                    <option value="@{Medicine}">Medicine</option>
-                    <option value="@{Occult}">Occult</option>
-                    <option value="@{Politics}">Politics</option>
-                    <option value="@{Science}">Science</option>
-                    <option value="@{Other1}">Other1</option>
-                    <option value="@{Other2}">Other2</option>
-                    <option value="@{Other3}">Other3</option>
-                    <option value="@{Other4}">Other4</option>
-                    <option value="@{Other5}">Other5</option>
-                    <option value="@{Other6}">Other6</option>
-                    <option value="@{Other7}">Other7</option>
-                    <option value="@{Other8}">Other8</option>
-                </select>
-
-                <button type='roll' name='roll_DP2roll'
-                    value='/em rolls Dice Pool 2\n/r {(@{DPAtt2}+@{DPAbi2}+?{Pool Mod|0})d10s}>?{Difficulty|6}f1'></button>
-            </div>
-
-            <div class="DP2wSpec">
-                <select name="attr_DPAtt2" style="width:95px">
-                    <option value="0" selected></option>
-                    <option value="@{Strength}">Strength</option>
-                    <option value="@{Dexterity}">Dexterity</option>
-                    <option value="@{Stamina}">Stamina</option>
-                    <option value="@{Charisma}">Charisma</option>
-                    <option value="@{Manipulation}">Manipulation</option>
-                    <option value="@{Appearance}">Appearance</option>
-                    <option value="@{Intelligence}">Intelligence</option>
-                    <option value="@{Wits}">Wits</option>
-                    <option value="@{Perception}">Perception</option>
-                </select>
-
-                <select name="attr_DPAbi2" style="width:100px">
-                    <option value="0" selected></option>
-                    <option value="@{Alertness}">Alertness</option>
-                    <option value="@{Athletics}">Athletics</option>
-                    <option value="@{Brawl}">Brawl</option>
-                    <option value="@{Dodge}">Dodge</option>
-                    <option value="@{Empathy}">Empathy</option>
-                    <option value="@{Expression}">Expression</option>
-                    <option value="@{Intimidation}">Intimidation</option>
-                    <option value="@{Leadership}">Leadership</option>
-                    <option value="@{Streetwise}">Streetwise</option>
-                    <option value="@{Subterfuge}">Subterfuge</option>
-                    <option value="@{Animal_Ken}">Animal Ken</option>
-                    <option value="@{Craft}">Craft</option>
-                    <option value="@{Drive}">Drive</option>
-                    <option value="@{Etiquette}">Etiquette</option>
-                    <option value="@{Firearms}">Firearms</option>
-                    <option value="@{Melee}">Melee</option>
-                    <option value="@{Performance}">Performance</option>
-                    <option value="@{Security}">Security</option>
-                    <option value="@{Stealth}">Stealth</option>
-                    <option value="@{Survival}">Survival</option>
-                    <option value="@{Academics}">Academics</option>
-                    <option value="@{Computer}">Computer</option>
-                    <option value="@{Finance}">Finance</option>
-                    <option value="@{Investigation}">Investigation</option>
-                    <option value="@{Law}">Law</option>
-                    <option value="@{Linguistics}">Linguistics</option>
-                    <option value="@{Medicine}">Medicine</option>
-                    <option value="@{Occult}">Occult</option>
-                    <option value="@{Politics}">Politics</option>
-                    <option value="@{Science}">Science</option>
-                    <option value="@{Other1}">Other1</option>
-                    <option value="@{Other2}">Other2</option>
-                    <option value="@{Other3}">Other3</option>
-                    <option value="@{Other4}">Other4</option>
-                    <option value="@{Other5}">Other5</option>
-                    <option value="@{Other6}">Other6</option>
-                    <option value="@{Other7}">Other7</option>
-                    <option value="@{Other8}">Other8</option>
-                </select>
-                <button type='roll' name='roll_DP2roll'
-                    value='/em rolls Dice Pool 2 w/ Specialization \n/r {(@{DPAtt2}+@{DPAbi2}+?{Pool Mod|0})d10s!}>?{Difficulty|6}f1'></button>
-            </div><br>
-
-            <input type="checkbox" name="attr_DP3Spec" class="DP3Spec" /><span></span>
-
-            <div class="DP3">
-                <select name="attr_DPAtt3" style="width:95px">
-                    <option value="0" selected></option>
-                    <option value="@{Strength}">Strength</option>
-                    <option value="@{Dexterity}">Dexterity</option>
-                    <option value="@{Stamina}">Stamina</option>
-                    <option value="@{Charisma}">Charisma</option>
-                    <option value="@{Manipulation}">Manipulation</option>
-                    <option value="@{Appearance}">Appearance</option>
-                    <option value="@{Intelligence}">Intelligence</option>
-                    <option value="@{Wits}">Wits</option>
-                    <option value="@{Perception}">Perception</option>
-                </select>
-
-                <select name="attr_DPAbi3" style="width:100px">
-                    <option value="0" selected></option>
-                    <option value="@{Alertness}">Alertness</option>
-                    <option value="@{Athletics}">Athletics</option>
-                    <option value="@{Brawl}">Brawl</option>
-                    <option value="@{Dodge}">Dodge</option>
-                    <option value="@{Empathy}">Empathy</option>
-                    <option value="@{Expression}">Expression</option>
-                    <option value="@{Intimidation}">Intimidation</option>
-                    <option value="@{Leadership}">Leadership</option>
-                    <option value="@{Streetwise}">Streetwise</option>
-                    <option value="@{Subterfuge}">Subterfuge</option>
-                    <option value="@{Animal_Ken}">Animal Ken</option>
-                    <option value="@{Craft}">Craft</option>
-                    <option value="@{Drive}">Drive</option>
-                    <option value="@{Etiquette}">Etiquette</option>
-                    <option value="@{Firearms}">Firearms</option>
-                    <option value="@{Melee}">Melee</option>
-                    <option value="@{Performance}">Performance</option>
-                    <option value="@{Security}">Security</option>
-                    <option value="@{Stealth}">Stealth</option>
-                    <option value="@{Survival}">Survival</option>
-                    <option value="@{Academics}">Academics</option>
-                    <option value="@{Computer}">Computer</option>
-                    <option value="@{Finance}">Finance</option>
-                    <option value="@{Investigation}">Investigation</option>
-                    <option value="@{Law}">Law</option>
-                    <option value="@{Linguistics}">Linguistics</option>
-                    <option value="@{Medicine}">Medicine</option>
-                    <option value="@{Occult}">Occult</option>
-                    <option value="@{Politics}">Politics</option>
-                    <option value="@{Science}">Science</option>
-                    <option value="@{Other1}">Other1</option>
-                    <option value="@{Other2}">Other2</option>
-                    <option value="@{Other3}">Other3</option>
-                    <option value="@{Other4}">Other4</option>
-                    <option value="@{Other5}">Other5</option>
-                    <option value="@{Other6}">Other6</option>
-                    <option value="@{Other7}">Other7</option>
-                    <option value="@{Other8}">Other8</option>
-                </select>
-
-                <button type='roll' name='roll_DP3roll'
-                    value='/em rolls Dice Pool 3\n/r {(@{DPAtt3}+@{DPAbi3}+?{Pool Mod|0})d10s}>?{Difficulty|6}f1'></button>
-            </div>
-
-            <div class="DP3wSpec">
-                <select name="attr_DPAtt3" style="width:95px">
-                    <option value="0" selected></option>
-                    <option value="@{Strength}">Strength</option>
-                    <option value="@{Dexterity}">Dexterity</option>
-                    <option value="@{Stamina}">Stamina</option>
-                    <option value="@{Charisma}">Charisma</option>
-                    <option value="@{Manipulation}">Manipulation</option>
-                    <option value="@{Appearance}">Appearance</option>
-                    <option value="@{Intelligence}">Intelligence</option>
-                    <option value="@{Wits}">Wits</option>
-                    <option value="@{Perception}">Perception</option>
-                </select>
-
-                <select name="attr_DPAbi3" style="width:100px">
-                    <option value="0" selected></option>
-                    <option value="@{Alertness}">Alertness</option>
-                    <option value="@{Athletics}">Athletics</option>
-                    <option value="@{Brawl}">Brawl</option>
-                    <option value="@{Dodge}">Dodge</option>
-                    <option value="@{Empathy}">Empathy</option>
-                    <option value="@{Expression}">Expression</option>
-                    <option value="@{Intimidation}">Intimidation</option>
-                    <option value="@{Leadership}">Leadership</option>
-                    <option value="@{Streetwise}">Streetwise</option>
-                    <option value="@{Subterfuge}">Subterfuge</option>
-                    <option value="@{Animal_Ken}">Animal Ken</option>
-                    <option value="@{Craft}">Craft</option>
-                    <option value="@{Drive}">Drive</option>
-                    <option value="@{Etiquette}">Etiquette</option>
-                    <option value="@{Firearms}">Firearms</option>
-                    <option value="@{Melee}">Melee</option>
-                    <option value="@{Performance}">Performance</option>
-                    <option value="@{Security}">Security</option>
-                    <option value="@{Stealth}">Stealth</option>
-                    <option value="@{Survival}">Survival</option>
-                    <option value="@{Academics}">Academics</option>
-                    <option value="@{Computer}">Computer</option>
-                    <option value="@{Finance}">Finance</option>
-                    <option value="@{Investigation}">Investigation</option>
-                    <option value="@{Law}">Law</option>
-                    <option value="@{Linguistics}">Linguistics</option>
-                    <option value="@{Medicine}">Medicine</option>
-                    <option value="@{Occult}">Occult</option>
-                    <option value="@{Politics}">Politics</option>
-                    <option value="@{Science}">Science</option>
-                    <option value="@{Other1}">Other1</option>
-                    <option value="@{Other2}">Other2</option>
-                    <option value="@{Other3}">Other3</option>
-                    <option value="@{Other4}">Other4</option>
-                    <option value="@{Other5}">Other5</option>
-                    <option value="@{Other6}">Other6</option>
-                    <option value="@{Other7}">Other7</option>
-                    <option value="@{Other8}">Other8</option>
-                </select>
-                <button type='roll' name='roll_DP3roll'
-                    value='/em rolls Dice Pool 3 w/ Specialization \n/r {(@{DPAtt3}+@{DPAbi3}+?{Pool Mod|0})d10s!}>?{Difficulty|6}f1'></button>
-            </div><br>
-
-            <input type="checkbox" name="attr_DP4Spec" class="DP4Spec" /><span></span>
-            <div class="DP4">
-                <select name="attr_DPAtt4" style="width:95px">
-                    <option value="0" selected></option>
-                    <option value="@{Strength}">Strength</option>
-                    <option value="@{Dexterity}">Dexterity</option>
-                    <option value="@{Stamina}">Stamina</option>
-                    <option value="@{Charisma}">Charisma</option>
-                    <option value="@{Manipulation}">Manipulation</option>
-                    <option value="@{Appearance}">Appearance</option>
-                    <option value="@{Intelligence}">Intelligence</option>
-                    <option value="@{Wits}">Wits</option>
-                    <option value="@{Perception}">Perception</option>
-                </select>
-
-                <select name="attr_DPAbi4" style="width:100px">
-                    <option value="0" selected></option>
-                    <option value="@{Alertness}">Alertness</option>
-                    <option value="@{Athletics}">Athletics</option>
-                    <option value="@{Brawl}">Brawl</option>
-                    <option value="@{Dodge}">Dodge</option>
-                    <option value="@{Empathy}">Empathy</option>
-                    <option value="@{Expression}">Expression</option>
-                    <option value="@{Intimidation}">Intimidation</option>
-                    <option value="@{Leadership}">Leadership</option>
-                    <option value="@{Streetwise}">Streetwise</option>
-                    <option value="@{Subterfuge}">Subterfuge</option>
-                    <option value="@{Animal_Ken}">Animal Ken</option>
-                    <option value="@{Craft}">Craft</option>
-                    <option value="@{Drive}">Drive</option>
-                    <option value="@{Etiquette}">Etiquette</option>
-                    <option value="@{Firearms}">Firearms</option>
-                    <option value="@{Melee}">Melee</option>
-                    <option value="@{Performance}">Performance</option>
-                    <option value="@{Security}">Security</option>
-                    <option value="@{Stealth}">Stealth</option>
-                    <option value="@{Survival}">Survival</option>
-                    <option value="@{Academics}">Academics</option>
-                    <option value="@{Computer}">Computer</option>
-                    <option value="@{Finance}">Finance</option>
-                    <option value="@{Investigation}">Investigation</option>
-                    <option value="@{Law}">Law</option>
-                    <option value="@{Linguistics}">Linguistics</option>
-                    <option value="@{Medicine}">Medicine</option>
-                    <option value="@{Occult}">Occult</option>
-                    <option value="@{Politics}">Politics</option>
-                    <option value="@{Science}">Science</option>
-                    <option value="@{Other1}">Other1</option>
-                    <option value="@{Other2}">Other2</option>
-                    <option value="@{Other3}">Other3</option>
-                    <option value="@{Other4}">Other4</option>
-                    <option value="@{Other5}">Other5</option>
-                    <option value="@{Other6}">Other6</option>
-                    <option value="@{Other7}">Other7</option>
-                    <option value="@{Other8}">Other8</option>
-                </select>
-                <button type='roll' name='roll_DP4roll'
-                    value='/em rolls Dice Pool 4 \n/r {(@{DPAtt4}+@{DPAbi4}+?{Pool Mod|0})d10s}>?{Difficulty|6}f1'></button>
-            </div>
-
-            <div class="DP4wSpec">
-                <select name="attr_DPAtt4" style="width:95px">
-                    <option value="0" selected></option>
-                    <option value="@{Strength}">Strength</option>
-                    <option value="@{Dexterity}">Dexterity</option>
-                    <option value="@{Stamina}">Stamina</option>
-                    <option value="@{Charisma}">Charisma</option>
-                    <option value="@{Manipulation}">Manipulation</option>
-                    <option value="@{Appearance}">Appearance</option>
-                    <option value="@{Intelligence}">Intelligence</option>
-                    <option value="@{Wits}">Wits</option>
-                    <option value="@{Perception}">Perception</option>
-                </select>
-
-                <select name="attr_DPAbi4" style="width:100px">
-                    <option value="0" selected></option>
-                    <option value="@{Alertness}">Alertness</option>
-                    <option value="@{Athletics}">Athletics</option>
-                    <option value="@{Brawl}">Brawl</option>
-                    <option value="@{Dodge}">Dodge</option>
-                    <option value="@{Empathy}">Empathy</option>
-                    <option value="@{Expression}">Expression</option>
-                    <option value="@{Intimidation}">Intimidation</option>
-                    <option value="@{Leadership}">Leadership</option>
-                    <option value="@{Streetwise}">Streetwise</option>
-                    <option value="@{Subterfuge}">Subterfuge</option>
-                    <option value="@{Animal_Ken}">Animal Ken</option>
-                    <option value="@{Craft}">Craft</option>
-                    <option value="@{Drive}">Drive</option>
-                    <option value="@{Etiquette}">Etiquette</option>
-                    <option value="@{Firearms}">Firearms</option>
-                    <option value="@{Melee}">Melee</option>
-                    <option value="@{Performance}">Performance</option>
-                    <option value="@{Security}">Security</option>
-                    <option value="@{Stealth}">Stealth</option>
-                    <option value="@{Survival}">Survival</option>
-                    <option value="@{Academics}">Academics</option>
-                    <option value="@{Computer}">Computer</option>
-                    <option value="@{Finance}">Finance</option>
-                    <option value="@{Investigation}">Investigation</option>
-                    <option value="@{Law}">Law</option>
-                    <option value="@{Linguistics}">Linguistics</option>
-                    <option value="@{Medicine}">Medicine</option>
-                    <option value="@{Occult}">Occult</option>
-                    <option value="@{Politics}">Politics</option>
-                    <option value="@{Science}">Science</option>
-                    <option value="@{Other1}">Other1</option>
-                    <option value="@{Other2}">Other2</option>
-                    <option value="@{Other3}">Other3</option>
-                    <option value="@{Other4}">Other4</option>
-                    <option value="@{Other5}">Other5</option>
-                    <option value="@{Other6}">Other6</option>
-                    <option value="@{Other7}">Other7</option>
-                    <option value="@{Other8}">Other8</option>
-                </select>
-
-                <button type='roll' name='roll_DP4roll'
-                    value='/em rolls Dice Pool 4 w/ Specialization \n/r {(@{DPAtt4}+@{DPAbi4}+?{Pool Mod|0})d10s!}>?{Difficulty|6}f1'></button>
-            </div><br>
-
-            <input type="checkbox" name="attr_DP5Spec" class="DP5Spec" /><span></span>
-            <div class="DP5">
-                <select name="attr_DPAtt5" style="width:95px">
-                    <option value="0" selected></option>
-                    <option value="@{Strength}">Strength</option>
-                    <option value="@{Dexterity}">Dexterity</option>
-                    <option value="@{Stamina}">Stamina</option>
-                    <option value="@{Charisma}">Charisma</option>
-                    <option value="@{Manipulation}">Manipulation</option>
-                    <option value="@{Appearance}">Appearance</option>
-                    <option value="@{Intelligence}">Intelligence</option>
-                    <option value="@{Wits}">Wits</option>
-                    <option value="@{Perception}">Perception</option>
-                </select>
-
-                <select name="attr_DPAbi5" style="width:100px">
-                    <option value="0" selected></option>
-                    <option value="@{Alertness}">Alertness</option>
-                    <option value="@{Athletics}">Athletics</option>
-                    <option value="@{Brawl}">Brawl</option>
-                    <option value="@{Dodge}">Dodge</option>
-                    <option value="@{Empathy}">Empathy</option>
-                    <option value="@{Expression}">Expression</option>
-                    <option value="@{Intimidation}">Intimidation</option>
-                    <option value="@{Leadership}">Leadership</option>
-                    <option value="@{Streetwise}">Streetwise</option>
-                    <option value="@{Subterfuge}">Subterfuge</option>
-                    <option value="@{Animal_Ken}">Animal Ken</option>
-                    <option value="@{Craft}">Craft</option>
-                    <option value="@{Drive}">Drive</option>
-                    <option value="@{Etiquette}">Etiquette</option>
-                    <option value="@{Firearms}">Firearms</option>
-                    <option value="@{Melee}">Melee</option>
-                    <option value="@{Performance}">Performance</option>
-                    <option value="@{Security}">Security</option>
-                    <option value="@{Stealth}">Stealth</option>
-                    <option value="@{Survival}">Survival</option>
-                    <option value="@{Academics}">Academics</option>
-                    <option value="@{Computer}">Computer</option>
-                    <option value="@{Finance}">Finance</option>
-                    <option value="@{Investigation}">Investigation</option>
-                    <option value="@{Law}">Law</option>
-                    <option value="@{Linguistics}">Linguistics</option>
-                    <option value="@{Medicine}">Medicine</option>
-                    <option value="@{Occult}">Occult</option>
-                    <option value="@{Politics}">Politics</option>
-                    <option value="@{Science}">Science</option>
-                    <option value="@{Other1}">Other1</option>
-                    <option value="@{Other2}">Other2</option>
-                    <option value="@{Other3}">Other3</option>
-                    <option value="@{Other4}">Other4</option>
-                    <option value="@{Other5}">Other5</option>
-                    <option value="@{Other6}">Other6</option>
-                    <option value="@{Other7}">Other7</option>
-                    <option value="@{Other8}">Other8</option>
-                </select>
-                <button type='roll' name='roll_DP5roll'
-                    value='/em rolls Dice Pool 5 \n/r {(@{DPAtt5}+@{DPAbi5}+?{Pool Mod|0})d10s}>?{Difficulty|6}f1'></button>
-            </div>
-
-            <div class="DP5wSpec">
-                <select name="attr_DPAtt5" style="width:95px">
-                    <option value="0" selected></option>
-                    <option value="@{Strength}">Strength</option>
-                    <option value="@{Dexterity}">Dexterity</option>
-                    <option value="@{Stamina}">Stamina</option>
-                    <option value="@{Charisma}">Charisma</option>
-                    <option value="@{Manipulation}">Manipulation</option>
-                    <option value="@{Appearance}">Appearance</option>
-                    <option value="@{Intelligence}">Intelligence</option>
-                    <option value="@{Wits}">Wits</option>
-                    <option value="@{Perception}">Perception</option>
-                </select>
-
-                <select name="attr_DPAbi5" style="width:100px">
-                    <option value="0" selected></option>
-                    <option value="@{Alertness}">Alertness</option>
-                    <option value="@{Athletics}">Athletics</option>
-                    <option value="@{Brawl}">Brawl</option>
-                    <option value="@{Dodge}">Dodge</option>
-                    <option value="@{Empathy}">Empathy</option>
-                    <option value="@{Expression}">Expression</option>
-                    <option value="@{Intimidation}">Intimidation</option>
-                    <option value="@{Leadership}">Leadership</option>
-                    <option value="@{Streetwise}">Streetwise</option>
-                    <option value="@{Subterfuge}">Subterfuge</option>
-                    <option value="@{Animal_Ken}">Animal Ken</option>
-                    <option value="@{Craft}">Craft</option>
-                    <option value="@{Drive}">Drive</option>
-                    <option value="@{Etiquette}">Etiquette</option>
-                    <option value="@{Firearms}">Firearms</option>
-                    <option value="@{Melee}">Melee</option>
-                    <option value="@{Performance}">Performance</option>
-                    <option value="@{Security}">Security</option>
-                    <option value="@{Stealth}">Stealth</option>
-                    <option value="@{Survival}">Survival</option>
-                    <option value="@{Academics}">Academics</option>
-                    <option value="@{Computer}">Computer</option>
-                    <option value="@{Finance}">Finance</option>
-                    <option value="@{Investigation}">Investigation</option>
-                    <option value="@{Law}">Law</option>
-                    <option value="@{Linguistics}">Linguistics</option>
-                    <option value="@{Medicine}">Medicine</option>
-                    <option value="@{Occult}">Occult</option>
-                    <option value="@{Politics}">Politics</option>
-                    <option value="@{Science}">Science</option>
-                    <option value="@{Other1}">Other1</option>
-                    <option value="@{Other2}">Other2</option>
-                    <option value="@{Other3}">Other3</option>
-                    <option value="@{Other4}">Other4</option>
-                    <option value="@{Other5}">Other5</option>
-                    <option value="@{Other6}">Other6</option>
-                    <option value="@{Other7}">Other7</option>
-                    <option value="@{Other8}">Other8</option>
-                </select>
-                <button type='roll' name='roll_DP5roll'
-                    value='/em rolls Dice Pool 5 w/ Specialization \n/r {(@{DPAtt5}+@{DPAbi5}+?{Pool Mod|0})d10s!}>?{Difficulty|6}f1'></button>
+            <div class="column" style="text-align: right;">
+                <div style="width: 100%;">
+                    <h3>Conhecimento</h3>
+                </div>
+                <div>
+                    <label>Acadêmico</label>
+                    <input matInput name="academicos" type="number" step="1">
+                </div>
+                <div>
+                    <label>Computador</label>
+                    <input matInput name="computador" type="number" step="1">
+                </div>
+                <div>
+                    <label>Finanças</label>
+                    <input matInput name="financas" type="number" step="1">
+                </div>
+                <div>
+                    <label>Investigação</label>
+                    <input matInput name="investigacao" type="number" step="1">
+                </div>
+                <div>
+                    <label>Lei</label>
+                    <input matInput name="lei" type="number" step="1">
+                </div>
+                <div>
+                    <label>Linguística</label>
+                    <input matInput name="linguistica" type="number" step="1">
+                </div>
+                <div>
+                    <label>Medicina</label>
+                    <input matInput name="medicina" type="number" step="1">
+                </div>
+                <div>
+                    <label>Ocultismo</label>
+                    <input matInput name="ocultismo" type="number" step="1">
+                </div>
+                <div>
+                    <label>Política</label>
+                    <input matInput name="politica" type="number" step="1">
+                </div>
+                <div>
+                    <label>Ciência</label>
+                    <input matInput name="ciencia" type="number" step="1">
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="column" style="width:270px">
-        <h3 style="text-align: center">Health</h3>
-        <div class="column" style="width:70px; margin-left:40px">
-            <h4 style="line-height:36px">Bruised</h4>
-            <h4 style="line-height:36px">Hurt</h4>
-            <h4 style="line-height:36px">Injured</h4>
-            <h4 style="line-height:36px">Wounded</h4>
-            <h4 style="line-height:36px">Mauled</h4>
-            <h4 style="line-height:36px">Crippled</h4>
-            <h4 style="line-height:36px">Incapacitated</h4>
+
+        <div class="conteudoAbas" id="conteudoAba4">
+            <div class="column" style="text-align: left;">
+                <div style="width: 100%;">
+                    <h3>Antecedentes</h3>
+                </div>
+                <div>
+                    <label id="antecedente01"></label>
+                    <input matInput name="antecedente01" placeholder="Antecedente" class="inputAntecedente">
+                    <input matInput type="number" name="nivel_antecedente01" placeholder="Nível" step="1">
+                </div>
+                <div>
+                    <label id="antecedente02"></label>
+                    <input matInput name="antecedente02" placeholder="Antecedente"class="inputAntecedente">
+                    <input matInput type="number" name="nivel_antecedente02" placeholder="Nível" step="1">
+                </div>
+                <div>
+                    <label id="antecedente03"></label>
+                    <input matInput name="antecedente03" placeholder="Antecedente"class="inputAntecedente">
+                    <input matInput type="number" name="nivel_antecedente03" placeholder="Nível" step="1">
+                </div>
+                <div>
+                    <label id="antecedente04"></label>
+                    <input matInput name="antecedente04" placeholder="Antecedente"class="inputAntecedente">
+                    <input matInput type="number" name="nivel_antecedente04" placeholder="Nível" step="1">
+                </div>
+                <div>
+                    <label id="antecedente05"></label>
+                    <input matInput name="antecedente05" placeholder="Antecedente"class="inputAntecedente">
+                    <input matInput type="number" name="nivel_antecedente05" placeholder="Nível" step="1">
+                </div>
+            </div>
+            <div class="column" style="text-align: center;">
+                <div style="width: 100%;">
+                    <h3>Disciplinas</h3>
+                </div>
+                <div>
+                    <mat-select placeholder="Disciplina 1">
+                        <mat-option></mat-option>
+                        <mat-option *ngFor="let disciplina of disciplinas" [value]="disciplina.value">
+                            {{disciplina.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                    <input matInput type="number" name="nivel_disciplina01" placeholder="Nível" step="1">
+                </div>
+                <div>
+                    <mat-select placeholder="Disciplina 2">
+                        <mat-option></mat-option>
+                        <mat-option *ngFor="let disciplina of disciplinas" [value]="disciplina.value">
+                            {{disciplina.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                    <input matInput type="number" name="nivel_disciplina02" placeholder="Nível" step="1">
+                </div>
+                <div>
+                    <mat-select placeholder="Disciplina 3">
+                        <mat-option></mat-option>
+                        <mat-option *ngFor="let disciplina of disciplinas" [value]="disciplina.value">
+                            {{disciplina.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                    <input matInput type="number" name="nivel_disciplina03" placeholder="Nível" step="1">
+                </div>
+                <div>
+                    <mat-select placeholder="Disciplina 4">
+                        <mat-option></mat-option>
+                        <mat-option *ngFor="let disciplina of disciplinas" [value]="disciplina.value">
+                            {{disciplina.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                    <input matInput type="number" name="nivel_disciplina04" placeholder="Nível" step="1">
+                </div>
+                <div>
+                    <mat-select placeholder="Disciplina 5">
+                        <mat-option></mat-option>
+                        <mat-option *ngFor="let disciplina of disciplinas" [value]="disciplina.value">
+                            {{disciplina.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                    <input matInput type="number" name="nivel_disciplina05" placeholder="Nível" step="1">
+                </div>
+            </div>
+
+            <div class="column" style="text-align: right;">
+                <div style="width: 100%;">
+                    <h3>Virtudes</h3>
+                </div>
+                <div>
+                    <label><small>Consciência <br> Convicção</small></label>
+                    <input matInput type="number" name="consciencia_conviccao" type="number" step="1">
+                </div>
+                <br>
+                <div>
+                    <label><small>Autocontrole <br> Instintos</small></label>
+                    <input matInput type="number" name="autocontrole_instinto" type="number" step="1">
+                </div>
+                <div>
+                    <label>Coragem</label>
+                    <input matInput type="number" name="coragem" type="number" step="1">
+                </div>
+            </div>
         </div>
-        <div class="column" style="width:110px" align="right">
 
-            <div class="sheet-row">
-                <select name="attr_Bruised">
-                    <option></option>
-                    <option value="Bashing">-</option>
-                    <option value="Leathal">/</option>
-                    <option value="Aggravated">X</option>
-                </select>
-            </div>
-            <div class="sheet-row">
-                <h4>-1&nbsp;&nbsp;&nbsp;&nbsp;</h4>
-                <select name="attr_Hurt">
-                    <option></option>
-                    <option value="Bashing">-</option>
-                    <option value="Leathal">/</option>
-                    <option value="Aggravated">X</option>
-                </select>
-            </div>
-            <div class="sheet-row">
-                <h4>-1&nbsp;&nbsp;&nbsp;&nbsp;</h4>
-                <select name="attr_Injured">
-                    <option></option>
-                    <option value="Bashing">-</option>
-                    <option value="Leathal">/</option>
-                    <option value="Aggravated">X</option>
-                </select>
+
+        <div class="conteudoAbas" id="conteudoAba5">
+            <div class="column" style="text-align: left;">
+                <div style="width: 100%;">
+                    <h3>Qualidades/Defeitos</h3>
+                </div>
+                <div>
+                    <textarea matInput placeholder="Qualidades/Defeitos" rows="6" name="qualidades"></textarea>
+                </div>
+                <div>
+                    <textarea matInput placeholder="Fraquezas do personagem" rows="2" name="fraqueza"></textarea>
+                </div>
             </div>
 
-            <div class="sheet-row">
-                <h4>-2&nbsp;&nbsp;&nbsp;&nbsp;</h4>
-                <select name="attr_Wounded">
-                    <option></option>
-                    <option value="Bashing">-</option>
-                    <option value="Leathal">/</option>
-                    <option value="Aggravated">X</option>
-                </select>
+            <div class="column" style="text-align: center;">
+                <div style="width: 100%;">
+                    <h3>Humanidade/Trilha</h3>
+                </div>
+                <div>
+                    <input matInput name="trilha" placeholder="Humanidade" id="inputTrilha">
+                    <br>
+                    <span></span> <input type="radio" name="attr_Other1" value="1" />
+                    <span></span> <input type="radio" name="attr_Other1" value="2" />
+                    <span></span> <input type="radio" name="attr_Other1" value="3" />
+                    <span></span> <input type="radio" name="attr_Other1" value="4" />
+                    <span></span> <input type="radio" name="attr_Other1" value="5" />
+                    <span></span> <input type="radio" name="attr_Other1" value="6" />
+                    <span></span> <input type="radio" name="attr_Other1" value="7" />
+                    <span></span> <input type="radio" name="attr_Other1" value="8" />
+                    <span></span> <input type="radio" name="attr_Other1" value="9" />
+                    <span></span> <input type="radio" name="attr_Other1" value="10" />
+                </div>
+
+                <h3>Força de Vontade</h3>
+                <div>
+                    <input type="radio" name="forca_vontade_nivel" value="1" />
+                    <span></span> <input type="radio" name="forca_vontade_nivel" value="2" />
+                    <span></span> <input type="radio" name="forca_vontade_nivel" value="3" />
+                    <span></span> <input type="radio" name="forca_vontade_nivel" value="4" />
+                    <span></span> <input type="radio" name="forca_vontade_nivel" value="5" checked="checked" />
+                    <span></span> <input type="radio" name="forca_vontade_nivel" value="6" />
+                    <span></span> <input type="radio" name="forca_vontade_nivel" value="7" />
+                    <span></span> <input type="radio" name="forca_vontade_nivel" value="8" />
+                    <span></span> <input type="radio" name="forca_vontade_nivel" value="9" />
+                    <span></span> <input type="radio" name="forca_vontade_nivel" value="10" />
+                </div>
+
+                <div>
+                    <mat-checkbox name="forca_vontade_atual" value="1"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="forca_vontade_atual" value="2"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="forca_vontade_atual" value="3"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="forca_vontade_atual" value="4"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="forca_vontade_atual" value="5"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="forca_vontade_atual" value="6"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="forca_vontade_atual" value="7"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="forca_vontade_atual" value="8"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="forca_vontade_atual" value="9"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="forca_vontade_atual" value="10"></mat-checkbox>
+                </div>
+
+                <h3>Pontos de Sangue</h3>
+                <div>
+                    <mat-checkbox name="pontos_sangue_atual" value="1" class=" used"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="pontos_sangue_atual" value="2" class=" used"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="pontos_sangue_atual" value="3" class=" used"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="pontos_sangue_atual" value="4" class=" used"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="pontos_sangue_atual" value="5" class=" used"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="pontos_sangue_atual" value="6" class=" used"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="pontos_sangue_atual" value="7" class=" used"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="pontos_sangue_atual" value="8" class=" used"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="pontos_sangue_atual" value="9" class=" used"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="pontos_sangue_atual" value="10" class=" used"></mat-checkbox>
+                    <span></span><br>
+
+                    <mat-checkbox name="pontos_sangue_atual" value="11" class=" used"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="pontos_sangue_atual" value="12" class=" used"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="pontos_sangue_atual" value="13" class=" used"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="pontos_sangue_atual" value="14" class=" used"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="pontos_sangue_atual" value="15" class=" used"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="pontos_sangue_atual" value="16" class=" used"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="pontos_sangue_atual" value="17" class=" used"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="pontos_sangue_atual" value="18" class=" used"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="pontos_sangue_atual" value="19" class=" used"></mat-checkbox>
+                    <span></span>
+                    <mat-checkbox name="pontos_sangue_atual" value="20" class=" used"></mat-checkbox>
+                    <span></span>
+
+                </div>
+
+                <div>
+                    <label>Experiência</label>
+                    <input matInput type="number" name="consciencia_conviccao" type="number" step="1">
+                </div>
             </div>
 
-            <div class="sheet-row">
-                <h4>-2&nbsp;&nbsp;&nbsp;&nbsp;</h4>
-                <select name="attr_Mauled">
-                    <option></option>
-                    <option value="Bashing">-</option>
-                    <option value="Leathal">/</option>
-                    <option value="Aggravated">X</option>
-                </select>
-            </div>
+            <div class="column" style="text-align: right;" id="vitalidade">
+                <div style="width: 100%;">
+                    <h3>Vitalidade</h3>
+                </div>
+                <div>
+                    <label>Escoriado</label>
+                    <select name="escoriado">
+                        <option></option>
+                        <option value="leve">-</option>
+                        <option value="letal">/</option>
+                        <option value="agravado">X</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Machucado</label>
+                    <select name="machucado">
+                        <option></option>
+                        <option value="leve">-</option>
+                        <option value="letal">/</option>
+                        <option value="agravado">X</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Ferido</label>
+                    <select name="ferido">
+                        <option></option>
+                        <option value="leve">-</option>
+                        <option value="letal">/</option>
+                        <option value="agravado">X</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Ferido Gravemente</label>
+                    <select name="ferido_gravemente">
+                        <option></option>
+                        <option value="leve">-</option>
+                        <option value="letal">/</option>
+                        <option value="agravado">X</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Espancado</label>
+                    <select name="espancado">
+                        <option></option>
+                        <option value="leve">-</option>
+                        <option value="letal">/</option>
+                        <option value="agravado">X</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Aleijado</label>
+                    <select name="aleijado">
+                        <option></option>
+                        <option value="leve">-</option>
+                        <option value="letal">/</option>
+                        <option value="agravado">X</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Incapacitado</label>
+                    <select name="incapacitado">
+                        <option></option>
+                        <option value="leve">-</option>
+                        <option value="letal">/</option>
+                        <option value="agravado">X</option>
+                    </select>
+                </div>
 
-            <div class="sheet-row">
-                <h4>-5&nbsp;&nbsp;&nbsp;&nbsp;</h4>
-                <select name="attr_Crippled">
-                    <option></option>
-                    <option value="Bashing">-</option>
-                    <option value="Leathal">/</option>
-                    <option value="Aggravated">X</option>
-                </select>
-            </div>
-
-            <div class="sheet-row">
-                <select name="attr_Incapacitated">
-                    <option></option>
-                    <option value="Bashing">-</option>
-                    <option value="Leathal">/</option>
-                    <option value="Aggravated">X</option>
-                </select>
             </div>
         </div>
-        <br>
-        <div class="sheet-row">
-            <h3 style="text-align: center">Experience</h3>
-        </div>
-        <div class="sheet-row" align="center">
-            <input type="text" name="attr_experience" style="width:245px" />
-        </div>
-        <br>
-        <h3 align="center">Notes</h3>
-        <textarea name="attr_notes" style="width:260px; height:120px"></textarea>
-        <br>
-        <h3 align="center">Flaws</h3>
-        <textarea name="attr_flaws" style="width:260px; height:50px"></textarea>
-    </div>
+
+
+
+        <mat-toolbar class="form-buttons">
+            <mat-toolbar-row>
+                <button mat-raised-button type="submit" color="accent">
+                    Salvar
+                </button>
+                <button mat-raised-button type="button" (click)="voltar(f)">
+                    Voltar
+                </button>
+            </mat-toolbar-row>
+        </mat-toolbar>
+    </form>
 </div>

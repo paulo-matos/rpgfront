@@ -8,6 +8,13 @@ import { AtributoService } from '../../atributo/atributo.service';
 import { HabilidadeService } from '../../habilidade/habilidade.service';
 import { DetalheService } from '../../detalhe/detalhe.service';
 
+//teste 1/2
+interface Disciplina {
+  value: string;
+  viewValue: string;
+}
+//fim teste 1/2
+
 @Component({
   selector: 'app-ficha-form',
   templateUrl: './ficha-form.component.html',
@@ -31,6 +38,22 @@ export class FichaFormComponent implements OnInit {
   atributos: any = [];
   habilidades: any = [];
   detalhes: any = [];
+  //teste 2/2
+  selectedValue: string;
+
+  disciplinas: Disciplina[] = [
+    {value: 'animalismo', viewValue: 'Animalismo'},
+    {value: 'auspicios', viewValue: 'Auspícios'},
+    {value: 'dominacao', viewValue: 'Dominação'},
+    {value: 'fortitude', viewValue: 'Fortitude'},
+    {value: 'metamorfose', viewValue: 'Metamorfose'},
+    {value: 'ofuscacao', viewValue: 'Ofuscação'},
+    {value: 'potencia', viewValue: 'Potência'},
+    {value: 'rapidez', viewValue: 'Rapidez'},
+    {value: 'presenca', viewValue: 'Presença'},
+    {value: 'taumaturgia', viewValue: 'Taumaturgia'}
+  ];
+  //fim teste 2/2
 
   async ngOnInit() {
     let params = this.actRoute.snapshot.params;

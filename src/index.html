@@ -151,6 +151,29 @@
     }
   </script>
 
+  <script>
+    function abaClick(aba,conteudo) {
+      var abaAtiva = document.getElementById(aba);
+      var conteudoAtivo = document.getElementById(conteudo);
+
+      //apagando tudo
+      document.getElementById("aba1").style.background = "lightgrey";
+      document.getElementById("aba2").style.background = "lightgrey";
+      document.getElementById("aba3").style.background = "lightgrey";
+      document.getElementById("aba4").style.background = "lightgrey";
+      document.getElementById("aba5").style.background = "lightgrey";
+      document.getElementById("conteudoAba1").style.display = "none";
+      document.getElementById("conteudoAba2").style.display = "none";
+      document.getElementById("conteudoAba3").style.display = "none";
+      document.getElementById("conteudoAba4").style.display = "none";
+      document.getElementById("conteudoAba5").style.display = "none";
+
+      //mostrando apenas o correto
+      abaAtiva.style.background = "white";
+      conteudoAtivo.style.display = "flex";
+    }
+  </script>
+
   <div class="modal fade show" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
     aria-hidden="false">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -181,9 +204,11 @@
       if (event.keyCode === 13) {
         event.preventDefault();
         document.getElementById("myBtn").click();
-        //logar();
       }
     });
+
+
+    
   </script>
 
 </body>

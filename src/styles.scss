@@ -93,3 +93,11 @@ section#content {
   display: flex;
   justify-content: space-around;
 }
+
+button:focus {
+  outline: none !important;
+}
+
+a {
+  text-decoration: none !important;
+}

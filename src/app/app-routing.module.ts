@@ -20,29 +20,29 @@ const routes: Routes = [
   { path: 'ficha/novo', component: FichaFormComponent },
   { path: 'ficha/:id', component: FichaFormComponent },
 
-  { path: 'atributo', component: AtributoListComponent },
-  { path: 'atributo/novo', component: AtributoFormComponent },
-  { path: 'atributo/:id', component: AtributoFormComponent },
+  // { path: 'atributo', component: AtributoListComponent },
+  // { path: 'atributo/novo', component: AtributoFormComponent },
+  // { path: 'atributo/:id', component: AtributoFormComponent },
 
-  { path: 'conhecimento', component: ConhecimentoListComponent },
-  { path: 'conhecimento/novo', component: ConhecimentoFormComponent },
-  { path: 'conhecimento/:id', component: ConhecimentoFormComponent },
+  // { path: 'conhecimento', component: ConhecimentoListComponent },
+  // { path: 'conhecimento/novo', component: ConhecimentoFormComponent },
+  // { path: 'conhecimento/:id', component: ConhecimentoFormComponent },
 
-  { path: 'detalhe', component: DetalheListComponent },
-  { path: 'detalhe/novo', component: DetalheFormComponent },
-  { path: 'detalhe/:id', component: DetalheFormComponent },
+  // { path: 'detalhe', component: DetalheListComponent },
+  // { path: 'detalhe/novo', component: DetalheFormComponent },
+  // { path: 'detalhe/:id', component: DetalheFormComponent },
 
-  { path: 'habilidade', component: HabilidadeListComponent },
-  { path: 'habilidade/novo', component: HabilidadeFormComponent },
-  { path: 'habilidade/:id', component: HabilidadeFormComponent },
+  { path: 'mapa', component: HabilidadeListComponent },
+  { path: 'mapa/novo', component: HabilidadeFormComponent },
+  { path: 'mapa/:id', component: HabilidadeFormComponent },
 
-  { path: 'pericia', component: PericiaListComponent },
-  { path: 'pericia/novo', component: PericiaFormComponent },
-  { path: 'pericia/:id', component: PericiaFormComponent },
+  { path: 'livros', component: PericiaListComponent },
+  { path: 'livros/novo', component: PericiaFormComponent },
+  { path: 'livros/:id', component: PericiaFormComponent }
 
-  { path: 'talento', component: TalentoListComponent },
-  { path: 'talento/novo', component: TalentoFormComponent },
-  { path: 'talento/:id', component: TalentoFormComponent }
+  // { path: 'talento', component: TalentoListComponent },
+  // { path: 'talento/novo', component: TalentoFormComponent },
+  // { path: 'talento/:id', component: TalentoFormComponent }
 ];
 
 @NgModule({

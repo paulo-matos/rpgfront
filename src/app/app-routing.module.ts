@@ -28,9 +28,9 @@ const routes: Routes = [
   // { path: 'conhecimento/novo', component: ConhecimentoFormComponent },
   // { path: 'conhecimento/:id', component: ConhecimentoFormComponent },
 
-  // { path: 'detalhe', component: DetalheListComponent },
-  // { path: 'detalhe/novo', component: DetalheFormComponent },
-  // { path: 'detalhe/:id', component: DetalheFormComponent },
+  { path: 'detalhe', component: DetalheListComponent },
+  { path: 'detalhe/novo', component: DetalheFormComponent },
+  { path: 'detalhe/:id', component: DetalheFormComponent },
 
   { path: 'mapa', component: HabilidadeListComponent },
   { path: 'mapa/novo', component: HabilidadeFormComponent },

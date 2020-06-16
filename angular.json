@@ -43,8 +43,17 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "src/assets/img/favicon.ico",
+              { "glob": "*.png",
+                "input": "src/assets/img",
+                "output": "/img/"
+
+              },
+              {
+                "glob": "mapa.html",
+                "input": "src/assets/",
+                "output": "/mapa/"
+              }
             ],
             "styles": [
               "src/theme.scss",

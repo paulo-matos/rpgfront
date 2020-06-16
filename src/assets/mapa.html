@@ -195,15 +195,15 @@
             //adicionando simbolos
             map.loadImage('/img/c_seth.png', function (error, image) {
                 if (error) throw error;
-                map.addImage('setita', image);
+                map.addImage('seth', image);
             });
             map.loadImage('/img/l_predio.png', function (error, image) {
                 if (error) throw error;
-                map.addImage('refugio', image);
+                map.addImage('predio', image);
             });
             map.loadImage('/img/l_sangue.png', function (error, image) {
                 if (error) throw error;
-                map.addImage('dominio', image);
+                map.addImage('sangue', image);
             });
 
             //adicionar os icones pra uma fonte 
@@ -284,9 +284,9 @@
                             'match',
                             ['get', 'title'],
                             'Elysium', 'camarilla',
-                            'Amon', 'setita',
-                            'Dominio', 'dominio',
-                            'Refugio', 'refugio',
+                            'Amon', 'seth',
+                            'Dominio', 'sangue',
+                            'Refugio', 'predio',
               /* other */ '#331311'
                         ],
                         "icon-size": 0.19

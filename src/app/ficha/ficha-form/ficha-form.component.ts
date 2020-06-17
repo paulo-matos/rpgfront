@@ -4,12 +4,16 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { ConfirmDlgComponent } from '../../ui/confirm-dlg/confirm-dlg.component';
 import { FichaService } from '../ficha.service';
-import { AtributoService } from '../../atributo/atributo.service';
-import { HabilidadeService } from '../../habilidade/habilidade.service';
-import { DetalheService } from '../../detalhe/detalhe.service';
+// import { AtributoService } from '../../atributo/atributo.service';
+// import { HabilidadeService } from '../../habilidade/habilidade.service';
+// import { DetalheService } from '../../detalhe/detalhe.service';
 
 //teste 1/2
 interface Disciplina {
+  value: string;
+  viewValue: string;
+}
+interface Vitalidade{
   value: string;
   viewValue: string;
 }
@@ -24,9 +28,9 @@ export class FichaFormComponent implements OnInit {
 
   constructor(
     private fichaSrv: FichaService,
-    private atributoSrv: AtributoService,
-    private habilidadeSrv: HabilidadeService,
-    private detalheSrv: DetalheService,
+    // private atributoSrv: AtributoService,
+    // private habilidadeSrv: HabilidadeService,
+    // private detalheSrv: DetalheService,
     private router: Router,
     private actRoute: ActivatedRoute,
     private dialog: MatDialog,
@@ -35,23 +39,30 @@ export class FichaFormComponent implements OnInit {
 
   title: string = 'Nova ficha';
   ficha: any = {};
-  atributos: any = [];
-  habilidades: any = [];
-  detalhes: any = [];
+  // atributos: any = [];
+  // habilidades: any = [];
+  // detalhes: any = [];
   //teste 2/2
   selectedValue: string;
 
   disciplinas: Disciplina[] = [
     {value: 'animalismo', viewValue: 'Animalismo'},
     {value: 'auspicios', viewValue: 'Auspícios'},
+    {value: 'demencia', viewValue: 'Demência'},
     {value: 'dominacao', viewValue: 'Dominação'},
     {value: 'fortitude', viewValue: 'Fortitude'},
     {value: 'metamorfose', viewValue: 'Metamorfose'},
     {value: 'ofuscacao', viewValue: 'Ofuscação'},
     {value: 'potencia', viewValue: 'Potência'},
-    {value: 'rapidez', viewValue: 'Rapidez'},
     {value: 'presenca', viewValue: 'Presença'},
+    {value: 'rapidez', viewValue: 'Rapidez'},
     {value: 'taumaturgia', viewValue: 'Taumaturgia'}
+  ];
+  vitalidades: Vitalidade[] = [
+    {value: '', viewValue: ''},
+    {value: '-', viewValue: '-'},
+    {value: '/', viewValue: '/'},
+    {value: 'X', viewValue: 'X'}
   ];
   //fim teste 2/2
 
@@ -69,14 +80,14 @@ export class FichaFormComponent implements OnInit {
     }
 
     // Entidades relacionadas
-    try{
-      this.atributos = await this.atributoSrv.listar();
-      this.habilidades = await this.habilidadeSrv.listar();
-      this.detalhes = await this.detalheSrv.listar();
-    }
-    catch(error) {
-      console.log(error);
-    }
+    // try{
+    //   this.atributos = await this.atributoSrv.listar();
+    //   this.habilidades = await this.habilidadeSrv.listar();
+    //   this.detalhes = await this.detalheSrv.listar();
+    // }
+    // catch(error) {
+    //   console.log(error);
+    // }
   }
 
   async salvar(form: NgForm) {

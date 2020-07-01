@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PericiaService } from '../pericia.service';
 import { ConfirmDlgComponent } from '../../ui/confirm-dlg/confirm-dlg.component';
 import { MatDialog, MatSnackBar } from '@angular/material';
+import { Overlay } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-pericia-list',
@@ -18,11 +19,57 @@ export class PericiaListComponent implements OnInit {
   ) { }
 
   pericias: any = []; // Vetor vazio
-  displayedColumns: string[] = ['identificador', 'conducao', 'arma_fogo', 'arma_branca', 'furtividade', 'editar', 'excluir'];
+  displayedColumns: string[] = ['titulo', 'url', 'editar', 'excluir'];
 
   async ngOnInit() {
     try {
       this.pericias = await this.periciaSrv.listar();
+
+      //populando os livros
+      var galeriaLivros = document.getElementById('galeriaLivros');
+      galeriaLivros.innerHTML = "";
+      var livroLink;
+      var livroImagem;
+      var textnode;
+      var livrosBack = this.pericias;
+      var livroContainer;
+      var livroOverlay;
+      var livroText;
+      // livrosSpan.id = 'nomeLivro';
+
+
+      for (let i = 0; i < livrosBack.length; i++) {
+        livroContainer = document.createElement("div");
+        livroContainer.className = "containerImg";
+        livroOverlay = document.createElement("div");
+        livroOverlay.className = "overlayLivro";
+        livroText = document.createElement("div");
+        livroText.className = "tituloText";
+        livroLink = document.createElement("a");
+        livroImagem = document.createElement("img");
+        livroImagem.className = "imagemLivro";
+
+        textnode = document.createTextNode(livrosBack[i].titulo);
+        livroText.appendChild(textnode);
+        livroOverlay.appendChild(livroText);
+
+        livroImagem.alt = livrosBack[i].titulo;
+        livroImagem.title = livrosBack[i].titulo;
+        livroText.add
+        livroLink.href = livrosBack[i].url;
+        livroLink.target = "_blank";
+        livroImagem.src = livrosBack[i].url + 'files/shot.jpg';
+        //livroImagem.style = "height: 300px; padding: 10px;";
+
+        // livrosSpan.appendChild(textnode);
+        // livroLink.appendChild(livrosSpan);
+        livroLink.appendChild(livroOverlay);
+        livroContainer.appendChild(livroImagem);
+        livroContainer.appendChild(livroLink);
+        galeriaLivros.appendChild(livroContainer);
+      }
+      //final populando os livros
+
     }
     catch (error) {
       console.error(error);
@@ -36,7 +83,7 @@ export class PericiaListComponent implements OnInit {
       // Exibição da caixa de diálogo de confirmação
       let dialogRef = this.dialog.open(ConfirmDlgComponent, {
         width: '50%',
-        data: { question: 'Deseja realmente excluir estas perícias?' }
+        data: { question: 'Deseja realmente excluir este livro?' }
       });
 
       // Captura do resultado da confirmação (true ou false)

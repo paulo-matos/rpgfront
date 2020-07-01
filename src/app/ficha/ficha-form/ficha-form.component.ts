@@ -8,6 +8,10 @@ import { FichaService } from '../ficha.service';
 // import { HabilidadeService } from '../../habilidade/habilidade.service';
 // import { DetalheService } from '../../detalhe/detalhe.service';
 
+//teste upload image
+import { HttpClient } from '@angular/common/http';
+import { environment as env } from '../../../environments/environment';
+
 //teste 1/2
 interface Disciplina {
   value: string;
@@ -34,7 +38,8 @@ export class FichaFormComponent implements OnInit {
     private router: Router,
     private actRoute: ActivatedRoute,
     private dialog: MatDialog,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private http: HttpClient
   ) { }
 
   title: string = 'Nova ficha';
@@ -90,7 +95,25 @@ export class FichaFormComponent implements OnInit {
     // }
   }
 
+  //funcao pra capturar upload
+  onSelectedFile(event){
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      const file2 = URL.createObjectURL(event.target.files[0]);
+      //this.http.get('uploadImg').setValue(file);
+      console.log(file + '\n' +file2);
+      return this.http.post(env.apiUri + 'images/image-upload', file).toPromise();
+    }
+  }
+  private endPoint : string = 'ficha';
+  novaImg(ficha: any) {
+    var arquivo = {ficha: ficha.image};
+    console.log (arquivo)
+    return this.http.post(env.apiUri + 'images/image-upload', arquivo).toPromise();
+  }
+
   async salvar(form: NgForm) {
+    await this.novaImg(this.ficha)
     if (form.valid) {
       try {
         let msg = 'Ficha criada com sucesso.';

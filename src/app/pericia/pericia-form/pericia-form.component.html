@@ -1,49 +1,41 @@
 <h1>{{ title }}</h1>
+<div class="responsiveTable">
+    
+</div>
 
 <form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
     <mat-form-field>
-        <input matInput placeholder="Identificador" [(ngModel)]="pericia.identificador" name="identificador">
+        <input matInput placeholder="Título do Livro" required [(ngModel)]="pericia.titulo" name="titulo">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Insira URL do fliphtml5" required [(ngModel)]="pericia.url" name="url">
     </mat-form-field>
 
-    <mat-form-field>
-        <input matInput placeholder="Empatia com Animais" required [(ngModel)]="pericia.empatia_animais" name="empatia_animais" type="number" step="1">
-    </mat-form-field>
 
-    <mat-form-field>
-        <input matInput placeholder="Ofícios" required [(ngModel)]="pericia.oficios" name="oficios" type="number" step="1">
-    </mat-form-field>
+        <ng-container matColumnDef="salvar">
+            <th mat-header-cell *matHeaderCellDef> Salvar </th>
+            <td mat-cell *matCellDef="let livro">
+                <a mat-raised-button color="accent" (click)="salvar(livro._id)">
+                    <mat-icon>save</mat-icon>
+                </a>
+            </td>
+        </ng-container>
 
-    <mat-form-field>
-        <input matInput placeholder="Condução" required [(ngModel)]="pericia.conducao" name="conducao" type="number" step="1">
-    </mat-form-field>
+        <ng-container matColumnDef="excluir">
+            <th mat-header-cell *matHeaderCellDef> Excluir </th>
+            <td mat-cell *matCellDef="let livro">
+                <button mat-raised-button color="warn" (click)="excluir(livro._id)">
+                    <mat-icon>delete_forever</mat-icon>
+                </button>
+            </td>
+        </ng-container>
 
-    <mat-form-field>
-        <input matInput placeholder="Etiqueta" required [(ngModel)]="pericia.etiqueta" name="etiqueta" type="number" step="1">
-    </mat-form-field>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-    <mat-form-field>
-        <input matInput placeholder="Arma de Fogo" required [(ngModel)]="pericia.arma_fogo" name="arma_fogo" type="number" step="1">
-    </mat-form-field>
-
-    <mat-form-field>
-        <input matInput placeholder="Arma Branca" required [(ngModel)]="pericia.arma_branca" name="arma_branca" type="number" step="1">
-    </mat-form-field>
-
-    <mat-form-field>
-        <input matInput placeholder="Performance" required [(ngModel)]="pericia.performance" name="performance" type="number" step="1">
-    </mat-form-field>
-
-    <mat-form-field>
-        <input matInput placeholder="Segurança" required [(ngModel)]="pericia.seguranca" name="seguranca" type="number" step="1">
-    </mat-form-field>
-
-    <mat-form-field>
-        <input matInput placeholder="Furtividade" required [(ngModel)]="pericia.furtividade" name="furtividade" type="number" step="1">
-    </mat-form-field>
-
-    <mat-form-field>
-        <input matInput placeholder="Sobrevivencia" required [(ngModel)]="pericia.sobrevivencia" name="sobrevivencia" type="number" step="1">
-    </mat-form-field>
+    <!-- <mat-form-field>
+        <input matInput placeholder="URL do livro" [(ngModel)]="pericia.url" name="url">
+    </mat-form-field> -->
 
     <mat-toolbar class="form-buttons">
         <mat-toolbar-row>

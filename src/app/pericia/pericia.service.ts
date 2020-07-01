@@ -11,7 +11,7 @@ export class PericiaService {
   constructor(private http: HttpClient) 
   { }
 
-  private endPoint : string = 'pericia';
+  private endPoint : string = 'livro';
 
   listar() {
     return this.http.get(env.apiUri + this.endPoint).toPromise();

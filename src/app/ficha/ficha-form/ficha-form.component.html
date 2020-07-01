@@ -169,6 +169,10 @@
                     <label>Clã:</label>
                     <input matInput placeholder="Ex: Brujah" required [(ngModel)]="ficha.cla" name="cla">
                 </div>
+                <div>
+                    <label>Upload Image</label>
+                    <input type="file" id="uploadImg" (change)="onSelectedFile($event)" [(ngModel)]="ficha.imagem" name="image"/>
+                </div>
             </div>
             <div class="column" style="text-align: right;">
                 <div>

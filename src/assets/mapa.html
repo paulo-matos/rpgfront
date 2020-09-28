@@ -142,6 +142,74 @@
 
 
     <script>
+        //adicionar os icones pra uma fonte 
+        var lugaresImportantes = [];
+        var imagensImportantes = [
+            'match',
+            ['get', 'title']
+        ];
+
+        function populateMap(result) {
+            for (let i = 0; i < result.length; i++) {
+                let obj = {
+                    "type": "Feature",
+                    "properties": {
+                        "title": result[i].titulo,
+                        "description":
+                            "<div><table cellpadding='7'><tr><td width='20%'><img src='/img/" + result[i].idIcone.url + "' width='90%'></td><td width='80%'><center><h1>" + result[i].titulo + "</h1><hr></center><h2>" + result[i].subtitulo + "</h2><h3>" + result[i].descricao + "</h3></td></tr></table></div>"
+                    },
+                    "place_name": result[i].titulo,
+                    "place_type": ["place"],
+                    "center": [result[i].coordenadaY, result[i].coordenadaX],
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [result[i].coordenadaY,
+                        result[i].coordenadaX]
+                    }
+                }
+                lugaresImportantes.push(obj);
+
+                imagensImportantes.push(result[i].titulo);
+                imagensImportantes.push(result[i].idIcone.nome);
+
+
+            }
+            imagensImportantes.push('#331311');
+        }
+
+        function populateIcones(resultIcones) {
+            for (let i = 0; i < resultIcones.length; i++) {
+                map.loadImage('/img/' + resultIcones[i].url, function (error, image) {
+                    if (error) throw error;
+                    map.addImage(resultIcones[i].nome, image);
+                });
+            }
+        }
+
+        async function getDadosMapa() {
+            var response = await fetch('https://rpgmestre-backend.herokuapp.com/mapa', {
+                method: 'GET'
+            });
+            var result = await response.json();
+            console.log(result);
+            populateMap(result);
+            console.log(imagensImportantes);
+        }
+
+        async function getIcones() {
+            var responseIcones = await fetch('https://rpgmestre-backend.herokuapp.com/icone', {
+                method: 'GET'
+            });
+            var resultIcones = await responseIcones.json();
+            console.log(resultIcones);
+            populateIcones(resultIcones);
+        }
+
+        getDadosMapa();
+        getIcones();
+
+
+
         mapboxgl.accessToken = 'pk.eyJ1IjoicGF1bG9tYXRvcyIsImEiOiJjanJ3Y2xkZW0wYmVmNDVvNHplMjZyd2RvIn0.kuLoh-U_PQNlP3OZtEKzZw';
 
 
@@ -193,21 +261,26 @@
             }, labelLayerId);
 
             //adicionando simbolos
-            map.loadImage('/img/c_seth.png', function (error, image) {
-                if (error) throw error;
-                map.addImage('seth', image);
-            });
-            map.loadImage('/img/l_predio.png', function (error, image) {
-                if (error) throw error;
-                map.addImage('predio', image);
-            });
-            map.loadImage('/img/l_sangue.png', function (error, image) {
-                if (error) throw error;
-                map.addImage('sangue', image);
-            });
+            // map.loadImage('/img/c_seth.png', function (error, image) {
+            //     if (error) throw error;
+            //     map.addImage('seth', image);
+            // });
+            // map.loadImage('/img/l_predio.png', function (error, image) {
+            //     if (error) throw error;
+            //     map.addImage('predio', image);
+            // });
+            // map.loadImage('/img/l_sangue.png', function (error, image) {
+            //     if (error) throw error;
+            //     map.addImage('sangue', image);
+            // });
+            // map.loadImage('/img/o_fogo.png', function (error, image) {
+            //     if (error) throw error;
+            //     map.addImage('fogo', image);
+            // });
 
-            //adicionar os icones pra uma fonte 
-            var lugaresImportantes = [{
+            /*
+            Conteúdo do array lugaresImportantes
+            {
                 "type": "Feature",
                 "properties": {
                     "title": "Elysium",
@@ -262,13 +335,15 @@
                     "coordinates": [-6.170019507408142,
                         53.263600618593514]
                 }
-            }];
+            }
+            
+            */
 
 
             map.loadImage('/img/g_camarilla.png', function (error, image) {
                 if (error) throw error;
 
-                map.addImage('camarilla', image);
+                //map.addImage('camarilla', image);
                 map.addLayer({
                     "id": "places",
                     "type": "symbol",
@@ -280,15 +355,7 @@
                         },
                     },
                     "layout": {
-                        "icon-image": [
-                            'match',
-                            ['get', 'title'],
-                            'Elysium', 'camarilla',
-                            'Amon', 'seth',
-                            'Dominio', 'sangue',
-                            'Refugio', 'predio',
-              /* other */ '#331311'
-                        ],
+                        "icon-image": imagensImportantes,
                         "icon-size": 0.19
                     },
                     'minzoom': 12,
@@ -347,12 +414,12 @@
 
 
         //Search Bar
-        map.addControl(new MapboxGeocoder({
-            accessToken: mapboxgl.accessToken,
-            placeholder: "Perdido, Neófito?",
-            marker: false,
-            id: 'barraPesquisa'
-        }));
+        // map.addControl(new MapboxGeocoder({
+        //     accessToken: mapboxgl.accessToken,
+        //     placeholder: "Perdido, Neófito?",
+        //     marker: false,
+        //     id: 'barraPesquisa'
+        // }));
 
 
     </script>

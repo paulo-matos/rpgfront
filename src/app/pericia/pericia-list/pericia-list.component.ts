@@ -11,7 +11,6 @@ import { Overlay } from '@angular/cdk/overlay';
 })
 export class PericiaListComponent implements OnInit {
 
-  /* PericiaService injetado como dependência */
   constructor(
     private periciaSrv: PericiaService,
     private dialog: MatDialog,

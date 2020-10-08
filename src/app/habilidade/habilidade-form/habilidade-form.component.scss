@@ -1,0 +1,43 @@
+#iconList {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+img#iconMarkerList{
+    height: -webkit-fill-available;
+}
+
+
+.mat-select {
+    width:150px;
+    display: flex;
+    outline: double;
+}
+
+.mat-select-panel:not([class*=mat-elevation-z]){
+    display: -webkit-inline-box;
+}
+
+.std-form{
+    display: flex;
+    justify-content: center;
+}
+
+mat-option{
+    width: 100px;
+    margin: auto;
+}
+
+.mat-select-panel-wrap{
+    display: flex !important;
+}
+
+#cdk-overlay-1 .cdk-overlay-pane{
+    left: 800px !important;
+    transform: 0px !important;
+    min-width: 0px !important;
+}
+
+table{
+    width: 90%;
+}

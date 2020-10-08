@@ -7,16 +7,11 @@ import { environment as env } from '../../environments/environment';
 })
 export class HabilidadeService {
 
-  /* INJEÇÃO DE DEPENDÊNCIA
-    O atributo privado http, do tipo HttpClient,
-    é criado pelo Angular e INJETADO como parâmetro
-    do construtor, ficando imediatamente disponível
-    para uso
-  */
+
   constructor(private http: HttpClient) 
   { }
 
-  private endPoint : string = 'habilidade';
+  private endPoint : string = 'mapa';
 
   listar() {
     return this.http.get(env.apiUri + this.endPoint).toPromise();

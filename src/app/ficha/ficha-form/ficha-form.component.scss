@@ -321,3 +321,38 @@ textarea {
 #inputTrilha {
   text-align: center !important;
 }
+
+/* Required input */
+
+/**
+ * style input elements that have a required
+ * attribute and a focus state
+ */
+input:required:focus {
+  border: 1px solid red;
+  outline: none;
+}
+input:required:after { 
+  content:"*";
+  border: 1px solid red !important;
+}
+
+/**
+ * style input elements that have a required
+ * attribute and a hover state
+ */
+input:required:hover {
+  opacity: 1;
+}
+
+input:required + label {
+  color: red;
+}
+
+.required label {
+  font-weight: bold;
+}
+.required label:after {
+  color: #e32 !important;
+  content: ' *';
+}

@@ -3,6 +3,7 @@ import { HabilidadeService } from '../habilidade.service';
 import { ConfirmDlgComponent } from '../../ui/confirm-dlg/confirm-dlg.component';
 import { MatDialog, MatSnackBar } from '@angular/material';
 
+
 @Component({
   selector: 'app-habilidade-list',
   templateUrl: './habilidade-list.component.html',
@@ -10,7 +11,6 @@ import { MatDialog, MatSnackBar } from '@angular/material';
 })
 export class HabilidadeListComponent implements OnInit {
 
-  /* HabilidadeService injetado como dependência */
   constructor(
     private habilidadeSrv: HabilidadeService,
     private dialog: MatDialog,
@@ -18,7 +18,7 @@ export class HabilidadeListComponent implements OnInit {
   ) { }
 
   habilidades: any = []; // Vetor vazio
-  displayedColumns: string[] = ['identificador', 'talentos', 'pericias', 'conhecimentos', 'editar', 'excluir'];
+  displayedColumns: string[] = ['titulo', 'subtitulo', 'idIcone.url', 'editar', 'excluir'];
 
   async ngOnInit() {
     try {
@@ -36,7 +36,7 @@ export class HabilidadeListComponent implements OnInit {
       // Exibição da caixa de diálogo de confirmação
       let dialogRef = this.dialog.open(ConfirmDlgComponent, {
         width: '50%',
-        data: { question: 'Deseja realmente excluir estas habilidades?' }
+        data: { question: 'Deseja realmente excluir este marcador?' }
       });
 
       // Captura do resultado da confirmação (true ou false)

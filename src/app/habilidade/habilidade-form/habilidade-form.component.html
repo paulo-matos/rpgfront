@@ -1,52 +1,69 @@
 <h1>{{ title }}</h1>
 
 <form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
-    <mat-form-field>
-        <input matInput placeholder="Identificador" [(ngModel)]="habilidade.identificador" name="identificador">
-    </mat-form-field>
+    <table>
+        <tr>
+            <td>
+                <mat-form-field>
+                    <input matInput placeholder="Título do Marcador" required [(ngModel)]="habilidade.titulo"
+                        name="titulo">
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field>
+                    <input matInput placeholder="Subtítulo (opcional)" [(ngModel)]="habilidade.subtitulo"
+                        name="subtitulo">
+                </mat-form-field>
+            </td>
+        </tr>
 
-    <!-- <mat-form-field>
-        <textarea matInput placeholder="Talentos (id)" [(ngModel)]="habilidade.talentos" rows="3" name="talentos"></textarea>
-    </mat-form-field> -->
-    <mat-form-field>
-        <mat-select placeholder="Talentos" [(ngModel)]="habilidade.talentos" name="talento">
-            <mat-option *ngFor="let talento of talentos" [value]="talento._id">
-                {{ talento.identificador }}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+        <tr>
+            <td>
+                <mat-form-field>
+                    <textarea matInput placeholder="Descrição do marcador" required [(ngModel)]="habilidade.descricao"
+                        rows="3" name="descricao"></textarea>
+                </mat-form-field>
+            </td>
+            <td>
+                <label>Ícone</label>
+                <mat-select placeholder="Ícone" required [(ngModel)]="habilidade.idIcone" name="idIcone"
+                    class="panelIconsSelect">
+                    <mat-option *ngFor="let icone of icones" [value]="icone.value">
+                        <div id="iconList"><img id="iconMarkerList" src="../img/{{icone.viewValue}}"></div>
+                    </mat-option>
+                </mat-select>
+            </td>
+        </tr>
+        <tr>
 
-    <!-- <mat-form-field>
-        <textarea matInput placeholder="Pericias (id)" [(ngModel)]="habilidade.pericias" rows="3" name="pericias"></textarea>
-    </mat-form-field> -->
-    <mat-form-field>
-        <mat-select placeholder="Pericias" [(ngModel)]="habilidade.pericias" name="pericia">
-            <mat-option *ngFor="let pericia of pericias" [value]="pericia._id">
-                {{ pericia.identificador }}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+            <td>
+                <mat-form-field>
+                    <input matInput placeholder="Latitude" required [(ngModel)]="habilidade.coordenadaY"
+                        name="coordenadaY">
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field>
+                    <input matInput placeholder="Longitude" required [(ngModel)]="habilidade.coordenadaX"
+                        name="coordenadaX">
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr></tr>
+        <tr>
+            
+                <mat-toolbar class="form-buttons">
+                    <mat-toolbar-row>
+                        <button mat-raised-button type="submit" color="accent">
+                            Salvar
+                        </button>
 
-    <!-- <mat-form-field>
-        <textarea matInput placeholder="Conhecimentos (id)" [(ngModel)]="habilidade.conhecimentos" rows="3" name="conhecimentos"></textarea>
-    </mat-form-field> -->
-    <mat-form-field>
-        <mat-select placeholder="Conhecimentos" [(ngModel)]="habilidade.conhecimentos" name="conhecimento">
-            <mat-option *ngFor="let conhecimento of conhecimentos" [value]="conhecimento._id">
-                {{ conhecimento.identificador }}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-
-    <mat-toolbar class="form-buttons">
-        <mat-toolbar-row>
-            <button mat-raised-button type="submit" color="accent">
-                Salvar
-            </button>
-            <button mat-raised-button type="button" (click)="voltar(f)">
-                Voltar
-            </button>
-        </mat-toolbar-row>
-    </mat-toolbar>
-
+                <button mat-raised-button type="button" (click)="voltar(f)">
+                    Voltar
+                </button>
+                </mat-toolbar-row>
+                </mat-toolbar>
+            
+        </tr>
+    </table>
 </form>

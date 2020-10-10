@@ -45,18 +45,22 @@
         #floating-logo {
             position: absolute;
             z-index: 4;
-            top: 10px;
-            left: 10px;
+            top: 15px;
+            left: 15px;
         }
 
         #floating-options {
             position: absolute;
             z-index: 4;
-            bottom: 10px;
-            left: 10px;
-            background-color: #540404;
+            bottom: 20px;
+            left: 15px;
+            background-color: #110320;
             border-radius: 15px;
             opacity: 50%;
+            padding: 2px;
+            box-shadow: 5px 10px 8px #000;
+            border-color: white;
+            border: 2px solid;
         }
 
 
@@ -426,11 +430,11 @@
                         coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
                     }
 
-                    var descriptionPopup = 
-                    "<div><table cellpadding='7'><tr><td colspan=”2″><center><h1> Posição </h1></center></td></tr>" +
-                    "<tr><td width='35%'><h3> Longitude </h3></td><td><h3>" + description.lng + "</h3></td></tr>" +
-                    "<tr><td width='35%'><h3> Latitude </h3></td><td><h3>" + description.lat + "</h3></td></tr>" +
-                    "</table></div>"
+                    var descriptionPopup =
+                        "<div><table cellpadding='7'><tr><td colspan=”2″><center><h1> Posição </h1></center></td></tr>" +
+                        "<tr><td width='35%'><h3> Longitude </h3></td><td><h3>" + description.lng + "</h3></td></tr>" +
+                        "<tr><td width='35%'><h3> Latitude </h3></td><td><h3>" + description.lat + "</h3></td></tr>" +
+                        "</table></div>"
 
                     new mapboxgl.Popup()
                         .setLngLat(coordinates)

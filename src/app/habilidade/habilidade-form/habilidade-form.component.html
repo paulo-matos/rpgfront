@@ -64,32 +64,32 @@
 
             <td>
                 <mat-form-field>
-                    <input matInput placeholder="Latitude" required [(ngModel)]="habilidade.coordenadaY"
+                    <input matInput placeholder="Longitude" required [(ngModel)]="habilidade.coordenadaY"
                         name="coordenadaY">
                 </mat-form-field>
             </td>
             <td>
                 <mat-form-field>
-                    <input matInput placeholder="Longitude" required [(ngModel)]="habilidade.coordenadaX"
+                    <input matInput placeholder="Latitude" required [(ngModel)]="habilidade.coordenadaX"
                         name="coordenadaX">
                 </mat-form-field>
             </td>
         </tr>
         <tr></tr>
         <tr>
+            <td colspan="2">
+                <mat-toolbar class="form-buttons">
+                    <mat-toolbar-row>
+                        <button mat-raised-button type="submit" color="accent">
+                            Salvar
+                        </button>
 
-            <mat-toolbar class="form-buttons">
-                <mat-toolbar-row>
-                    <button mat-raised-button type="submit" color="accent">
-                        Salvar
-                    </button>
-
-                    <button mat-raised-button type="button" (click)="voltar(f)">
-                        Voltar
-                    </button>
-                </mat-toolbar-row>
-            </mat-toolbar>
-
+                        <button mat-raised-button type="button" (click)="voltar(f)">
+                            Voltar
+                        </button>
+                    </mat-toolbar-row>
+                </mat-toolbar>
+            </td>
         </tr>
     </table>
 </form>

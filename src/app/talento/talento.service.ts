@@ -11,7 +11,7 @@ export class TalentoService {
   constructor(private http: HttpClient) 
   { }
 
-  private endPoint : string = 'talento';
+  private endPoint : string = 'icone';
 
   listar() {
     return this.http.get(env.apiUri + this.endPoint).toPromise();

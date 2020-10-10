@@ -25,13 +25,39 @@
                 </mat-form-field>
             </td>
             <td>
-                <label>Ícone</label>
+                <!-- <label>Ícone</label>
                 <mat-select placeholder="Ícone" required [(ngModel)]="habilidade.idIcone" name="idIcone"
                     class="panelIconsSelect">
                     <mat-option *ngFor="let icone of icones" [value]="icone.value">
                         <div id="iconList"><img id="iconMarkerList" src="../img/{{icone.viewValue}}"></div>
                     </mat-option>
-                </mat-select>
+                </mat-select> -->
+
+
+                <!-- <mat-form-field appearance="fill">
+                    <mat-label>Selecionar Ícone</mat-label>
+                    <mat-select required [(ngModel)]="selectedValue" name="idIcone" class="panelIconsSelect"
+                        [(value)]="habilidade.idIcone">
+                        <mat-option *ngFor="let icone of icones" [value]="icone.value">
+                            <div id="iconList"><img id="iconMarkerList" src="../img/{{icone.viewValue}}"></div>
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field> -->
+
+                <mat-form-field>
+                    <mat-select placeholder="Ícone" required [(ngModel)]="habilidade.idIcone" name="idIcone"
+                        class="panelIconsSelect">
+                        <mat-select-trigger *ngFor="let icone of icones">
+                            <div *ngIf="icone._id == habilidade.idIcone" id="iconList"><img id="iconMarkerList"
+                                    src="../img/{{icone.url}}"></div>
+                        </mat-select-trigger>
+                        <mat-option *ngFor="let icone of icones" [value]="icone._id">
+                            <div id="iconList"><img id="iconMarkerList" src="../img/{{icone.url}}"></div>
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+
             </td>
         </tr>
         <tr>
@@ -51,19 +77,19 @@
         </tr>
         <tr></tr>
         <tr>
-            
-                <mat-toolbar class="form-buttons">
-                    <mat-toolbar-row>
-                        <button mat-raised-button type="submit" color="accent">
-                            Salvar
-                        </button>
 
-                <button mat-raised-button type="button" (click)="voltar(f)">
-                    Voltar
-                </button>
+            <mat-toolbar class="form-buttons">
+                <mat-toolbar-row>
+                    <button mat-raised-button type="submit" color="accent">
+                        Salvar
+                    </button>
+
+                    <button mat-raised-button type="button" (click)="voltar(f)">
+                        Voltar
+                    </button>
                 </mat-toolbar-row>
-                </mat-toolbar>
-            
+            </mat-toolbar>
+
         </tr>
     </table>
 </form>

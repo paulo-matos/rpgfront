@@ -20,7 +20,7 @@
     #logoInicial {
       position: fixed;
       height: 350px;
-      top: 80px;
+      top: 20px;
     }
 
     #logoInicio {
@@ -53,7 +53,7 @@
 
     .label-float {
       position: relative;
-      padding-top: 13px;
+      padding-top: 20px;
     }
 
     .label-float input {
@@ -85,9 +85,9 @@
       transition: all .1s linear;
       -webkit-transition: all .1s linear;
       -moz-transition: all .1s linear;
-      /*background-color: white;*/
       padding: 5px;
       box-sizing: border-box;
+      color: #888888;
     }
 
     .label-float input:required:invalid+label {
@@ -105,13 +105,13 @@
     .label-float input:focus+label,
     .label-float input:not(:placeholder-shown)+label {
       font-size: 12px;
-      top: -18px;
-      color: #888888;
+      top: -5px;
+      color: #cccccc;
     }
 
     .input-login {
       width: 100%;
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: rgba(0, 0, 0, 0.3);
       border: none !important;
     }
 
@@ -134,6 +134,59 @@
       text-shadow: rgba(0, 0, 0, 0.30) 0 -1.25px 0;
       border-radius: 5px;
     }
+
+    #conteudoCadastro {
+      display: none;
+    }
+
+    #conteudoLogin {
+      display: block;
+    }
+
+    #abaLoginBtn {
+      background-color: rgba(14, 14, 14, 0.623);
+    }
+
+    #abaCadastroBtn {
+      background-color: rgba(0, 0, 0, 0.623);
+    }
+
+    .abasLogin {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      top: 10px;
+      margin-top: -50px;
+    }
+
+    .aba {
+      display: inline;
+    }
+
+    .aba>button {
+      float: left;
+      padding: 0.5em 1em;
+      background: lightgrey;
+      border-width: 0px;
+      border-style: solid;
+      border-color: #ccc #ccc #fff;
+      border-top-right-radius: 8px;
+      border-top-left-radius: 8px;
+      top: -10px;
+      color: #888888;
+    }
+
+    .aba:not(:target) button {
+      border-bottom: 0 none;
+    }
+
+    .modal-body {
+      padding-top: 0px;
+    }
+
+    .label-float input {
+      color: #ccc;
+    }
   </style>
 
   <script>
@@ -149,12 +202,32 @@
         document.getElementById("senhaLogin").value = '';
       }
     }
+
+    function cadastrar() {
+      senhaCad = document.getElementById("senhaCadastro").value;
+      emailCad = document.getElementById("emailCadastro").value;
+      telamodal = document.getElementById("modal-login");
+      if (senhaCad != '' && emailCad != '') {
+        //desaparece tela
+        alert('Cadastro enviado. Aguarde o e-mail de confirmação para acessar o sistema.');
+        document.getElementById("senhaCadastro").value = '';
+        document.getElementById("emailCadastro").value = '';
+        document.getElementById("senhaLogin").value = '';
+        document.getElementById("emailLogin").value = '';
+        trocaAbaLogin('abaLoginBtn', 'conteudoLogin');
+      } else {
+        alert('Preencha os campos corretamente');
+        document.getElementById("senhaCad").value = '';
+        document.getElementById("emailCad").value = '';
+      }
+    }
+
   </script>
 
   <script>
-    function abaClick(aba,conteudo) {
-      var abaAtiva = document.getElementById(aba);
-      var conteudoAtivo = document.getElementById(conteudo);
+    function abaClick(aba, conteudo) {
+      let abaAtiva = document.getElementById(aba);
+      let conteudoAtivo = document.getElementById(conteudo);
 
       //apagando tudo
       document.getElementById("aba1").style.background = "lightgrey";
@@ -172,44 +245,96 @@
       abaAtiva.style.background = "white";
       conteudoAtivo.style.display = "flex";
     }
+
+    function trocaAbaLogin(aba, conteudo) {
+      let abaAtiva = document.getElementById(aba);
+      let conteudoAtivo = document.getElementById(conteudo);
+
+      //apagando tudo
+      document.getElementById("abaLoginBtn").style.background = "rgba(0, 0, 0, 0.623)";
+      document.getElementById("abaCadastroBtn").style.background = "rgba(0, 0, 0, 0.623)";
+      document.getElementById("senhaCadastro").value = '';
+      document.getElementById("emailCadastro").value = '';
+      document.getElementById("senhaLogin").value = '';
+      document.getElementById("emailLogin").value = '';
+
+      document.getElementById("conteudoLogin").style.display = "none";
+      document.getElementById("conteudoCadastro").style.display = "none";
+
+      //mostrando apenas o correto
+      abaAtiva.style.background = "rgba(14, 14, 14, 0.623)";
+      conteudoAtivo.style.display = "block";
+
+    }
   </script>
 
   <div class="modal fade show" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
     aria-hidden="false">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
-        <div class="modal-body">
-          <div id="logoInicio">
-            <img src="logo.png" id="logoInicial">
+        <div id="logoInicio">
+          <img src="logo.png" id="logoInicial">
+        </div>
+
+        <!-- Menu de Abas -->
+        <div class="abaLogin">
+          <ul class="abasLogin">
+            <li class="aba" id="abaLogin-1">
+              <button id="abaLoginBtn" onclick="trocaAbaLogin('abaLoginBtn','conteudoLogin')">Login</button>
+            </li>
+            <li class="aba" id="abaLogin-2">
+              <button id="abaCadastroBtn" onclick="trocaAbaLogin('abaCadastroBtn','conteudoCadastro')">Cadastro</button>
+            </li>
+          </ul>
+          <div class="modal-body" id="conteudoLogin">
+            <div id="formLogin">
+              <fieldset>
+                <div class="label-float">
+                  <input class="input-login" id="emailLogin" placeholder="E-mail">
+                  <label>E-mail</label>
+                </div>
+                <div class="label-float">
+                  <input class="input-login" id="senhaLogin" type="password" placeholder="Digite sua senha">
+                  <label>Senha</label>
+                </div>
+                <br>
+              </fieldset>
+              <button class="btnLogin" id="myBtn" onclick="logar()" style="margin-top: 0px">Entrar</button>
+            </div>
           </div>
-          <div id="formLogin">
-            <fieldset>
-              <div class="label-float">
-                <input class="input-login" id="senhaLogin" type="password" placeholder="Digite sua senha" autofocus>
-                <label>Senha</label>
-              </div>
-              <br>
-            </fieldset>
+          <div class="modal-body" id="conteudoCadastro">
+            <div id="formCadastro">
+              <fieldset>
+                <div class="label-float">
+                  <input class="input-login" id="emailCadastro" placeholder="E-mail">
+                  <label>Seu E-mail</label>
+                </div>
+                <div class="label-float">
+                  <input class="input-login" id="senhaCadastro" type="password" placeholder="Digite sua senha">
+                  <label>Crie uma senha</label>
+                </div>
+                <br>
+              </fieldset>
+              <button class="btnLogin" id="myBtn" onclick="cadastrar()" style="margin-top: 0px">Cadastrar</button>
+            </div>
           </div>
-          <button class="btnLogin" id="myBtn" onclick="logar()" style="margin-top: 0px">Entrar</button>
         </div>
       </div>
     </div>
-  </div>
 
-  <script>
-    let camposenha = document.getElementById("senhaLogin");
+    <script>
+      let camposenha = document.getElementById("senhaLogin");
 
-    camposenha.addEventListener("keyup", function (event) {
-      if (event.keyCode === 13) {
-        event.preventDefault();
-        document.getElementById("myBtn").click();
-      }
-    });
+      camposenha.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+          event.preventDefault();
+          document.getElementById("myBtn").click();
+        }
+      });
 
 
-    
-  </script>
+
+    </script>
 
 </body>
 

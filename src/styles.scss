@@ -16,6 +16,10 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+#logout {
+  color: white !important;
+}
+
 #content {
   background-color: #e1e2e1;
   border-radius: 15px;
@@ -70,6 +74,10 @@ section#content {
 
 .add-new-toolbar mat-toolbar-row {
   padding: 0;
+}
+
+.mat-toolbar-row{
+  justify-content: space-between;
 }
 
 .add-new-toolbar a {

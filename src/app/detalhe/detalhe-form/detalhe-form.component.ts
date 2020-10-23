@@ -47,7 +47,7 @@ export class DetalheFormComponent implements OnInit {
           await this.detalheSrv.atualizar(this.detalhe);
         }
         else { // Criação de um novo detalhe
-          await this.detalheSrv.novo(this.detalhe);
+          //await this.detalheSrv.novo(this.detalhe);
         }
 
         this.snackBar.open(msg, 'Entendi', { duration: 3000 });
@@ -80,6 +80,107 @@ export class DetalheFormComponent implements OnInit {
     if (result) {
       this.router.navigate(['/detalhe']); // Retorna à listagem
     }
+  }
+
+  //inicio funcoes login
+  async logar(form: NgForm) {
+
+    if (form.valid) {
+      try {
+        let msg = 'Bem vindo, Mestre.';
+        console.log(this.detalhe.email);
+        console.log(this.detalhe.senha);
+
+        if (this.detalhe.email == 'paulo@gmail.com') { // comparar usuario e senha
+          if (this.detalhe.senha == 'escudodomestre') {
+            //await this.detalheSrv.atualizar(this.detalhe);
+            this.snackBar.open(msg, 'Ok', { duration: 3000 });
+            this.router.navigate(['/admin']);
+          } else {
+            msg = 'Senha incorreta';
+            this.snackBar.open(msg, 'Ok', { duration: 3000 });
+            this.router.navigate(['/login']);
+          }
+        }
+        else if (this.detalhe.email == 'jose@gmail.com') {
+          if (this.detalhe.senha == 'escudodomestre') {
+            this.snackBar.open(msg, 'Ok', { duration: 3000 });
+            this.router.navigate(['/ficha']);
+          } else {
+            msg = 'Senha incorreta';
+            this.snackBar.open(msg, 'Ok', { duration: 3000 });
+            this.router.navigate(['/login']);
+          }
+        } else {
+          msg = 'E-mail incorreto'
+          this.snackBar.open(msg, 'Ok', { duration: 3000 });
+          this.router.navigate(['/login']);
+        }
+      }
+      catch (error) {
+        console.log(error);
+        this.snackBar.open('ERRO: não foi possível logar.', 'Entendi',
+          { duration: 3000 });
+      }
+    }
+  }
+
+  async cadastrar(form: NgForm) {
+    if (form.valid) {
+      try {
+        let msg = 'Seu cadastro foi enviado. Aguarde e-mail de confirmação.';
+        if (this.detalhe.email == undefined || this.detalhe.senha == undefined) {
+          msg = 'Preencha os campos acima.';
+          this.snackBar.open(msg, 'Ok', { duration: 3000 });
+        }
+        else {
+          if (this.detalhe.email != '') { // comparar usuario e senha
+            if (this.detalhe.senha != '') {
+              //criado com sucesso, porém sem validação
+              await this.detalheSrv.novo(this.detalhe);
+              this.snackBar.open(msg, 'Ok', { duration: 3000 });
+              this.router.navigate(['/']);
+              this.ngOnInit();
+            } else {
+              msg = 'Digite uma senha';
+              this.snackBar.open(msg, 'Ok', { duration: 3000 });
+              this.router.navigate(['/login']);
+            }
+          } else { // email está incorreto
+            msg = 'Insira seu E-mail'
+            //await this.detalheSrv.novo(this.detalhe);
+            this.snackBar.open(msg, 'Ok', { duration: 3000 });
+            this.router.navigate(['/login']);
+          }
+        }
+      }
+      catch (error) {
+        console.log(error);
+        this.snackBar.open('ERRO: não foi possível criar seu cadastro.', 'Entendi',
+          { duration: 3000 });
+      }
+    }
+  }
+
+  async trocaAbaLogin(aba, conteudo) {
+    let abaAtiva = document.getElementById(aba);
+    let conteudoAtivo = document.getElementById(conteudo);
+
+    //apagando tudo
+    document.getElementById("abaLoginBtn").style.background = "rgba(0, 0, 0, 0.623)";
+    document.getElementById("abaCadastroBtn").style.background = "rgba(0, 0, 0, 0.623)";
+    // document.getElementById("senhaCadastro").value = '';
+    // document.getElementById("emailCadastro").value = '';
+    // document.getElementById("senhaLogin").value = '';
+    // document.getElementById("emailLogin").value = '';
+
+    document.getElementById("conteudoLogin").style.display = "none";
+    document.getElementById("conteudoCadastro").style.display = "none";
+
+    //mostrando apenas o correto
+    abaAtiva.style.background = "rgba(14, 14, 14, 0.623)";
+    conteudoAtivo.style.display = "block";
+
   }
 
 }

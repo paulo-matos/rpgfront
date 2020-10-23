@@ -20,6 +20,22 @@ body {
   color: white !important;
 }
 
+#iconExit {
+  vertical-align: middle;
+  padding-inline: 16px;
+}
+
+#logoutAround {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 2px;
+  padding-bottom: 5px;
+}
+
+#logoutAround:hover {
+  background: #0000000c;
+}
+
 #content {
   background-color: #e1e2e1;
   border-radius: 15px;
@@ -76,7 +92,7 @@ section#content {
   padding: 0;
 }
 
-.mat-toolbar-row{
+.mat-toolbar-row {
   justify-content: space-between;
 }
 
@@ -115,7 +131,7 @@ a {
 
 //pagina de livros (antiga pericias)
 #galeriaLivros {
-  padding:40px;
+  padding: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

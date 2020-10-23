@@ -28,9 +28,9 @@ const routes: Routes = [
   // { path: 'conhecimento/novo', component: ConhecimentoFormComponent },
   // { path: 'conhecimento/:id', component: ConhecimentoFormComponent },
 
-  { path: 'detalhe', component: DetalheListComponent },
-  { path: 'detalhe/novo', component: DetalheFormComponent },
-  { path: 'detalhe/:id', component: DetalheFormComponent },
+  { path: 'admin', component: DetalheListComponent },
+  { path: 'login', component: DetalheFormComponent },
+  // { path: 'admin/:id', component: DetalheFormComponent },
 
   { path: 'mapa', component: HabilidadeListComponent },
   { path: 'mapa/novo', component: HabilidadeFormComponent },
@@ -38,7 +38,13 @@ const routes: Routes = [
 
   { path: 'livros', component: PericiaListComponent },
   { path: 'livros/novo', component: PericiaFormComponent },
-  { path: 'livros/:id', component: PericiaFormComponent }
+  { path: 'livros/:id', component: PericiaFormComponent },
+
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  }
 
   // { path: 'talento', component: TalentoListComponent },
   // { path: 'talento/novo', component: TalentoFormComponent },

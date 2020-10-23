@@ -18,7 +18,8 @@ export class DetalheListComponent implements OnInit {
   ) { }
 
   detalhes: any = []; // Vetor vazio
-  displayedColumns: string[] = ['identificador', 'trilha_pts', 'forca_vontade_atual', 'pontos_sangue_atual', 'pontos_vida_atual', 'editar', 'excluir'];
+  detalhe: any = {}; // objeto vazio para atualização
+  displayedColumns: string[] = ['email', 'status', 'ativar', 'excluir'];
 
   async ngOnInit() {
     try {
@@ -36,7 +37,7 @@ export class DetalheListComponent implements OnInit {
       // Exibição da caixa de diálogo de confirmação
       let dialogRef = this.dialog.open(ConfirmDlgComponent, {
         width: '50%',
-        data: { question: 'Deseja realmente excluir estes detalhes?' }
+        data: { question: 'Deseja realmente excluir este usuário?' }
       });
 
       // Captura do resultado da confirmação (true ou false)
@@ -55,6 +56,36 @@ export class DetalheListComponent implements OnInit {
       console.log(erro);
       this.snackBar.open('ERRO: não foi possível excluir. Contate o suporte técnico',
         'Entendi', { duration: 3000 });
+    }
+  }
+
+  async atualizar(status: boolean, id: string) {
+    this.detalhe = await this.detalheSrv.obterUm(id);
+    console.log(status);
+    console.log(id);
+    console.log(this.detalhe);
+
+    try {
+      let msg = 'Usuário atualizado com sucesso.';
+
+      if (status == true) {
+        msg = 'Usuário desativado.';
+        this.detalhe.ativo = false;
+        await this.detalheSrv.atualizar(this.detalhe);
+      }
+      else {
+        msg = 'Usuário ativado.';
+        this.detalhe.ativo = true;
+        await this.detalheSrv.atualizar(this.detalhe);
+      }
+
+      this.snackBar.open(msg, 'Entendi', { duration: 3000 });
+      this.ngOnInit(); // Atualizar os dados
+    }
+    catch (error) {
+      console.log(error);
+      this.snackBar.open('ERRO: não foi possível salvar os dados.', 'Entendi',
+        { duration: 3000 });
     }
   }
 

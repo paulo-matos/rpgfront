@@ -16,7 +16,7 @@ export class DetalheService {
   constructor(private http: HttpClient) 
   { }
 
-  private endPoint : string = 'detalhe';
+  private endPoint : string = 'usuario';
 
   listar() {
     return this.http.get(env.apiUri + this.endPoint).toPromise();

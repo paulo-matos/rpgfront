@@ -1,67 +1,139 @@
-<!-- <h1>{{ title }}</h1>
+<!-- Login Page -->
+<!-- <script>
+    function logar() {
+        pass = document.getElementById("senhaLogin").value;
+        telamodal = document.getElementById("modal-login");
+        if (pass == 'escudodomestre') {
+            //desaparece tela
+            alert('Bem vindo');
+            telamodal.style.display = "none";
+        } else {
+            alert('Senha Incorreta');
+            document.getElementById("senhaLogin").value = '';
+        }
+    }
 
-<form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
-    <mat-form-field>
-        <input matInput placeholder="Identificador" [(ngModel)]="detalhe.identificador" name="identificador">
-    </mat-form-field>
+    function cadastrar() {
+        senhaCad = document.getElementById("senhaCadastro").value;
+        emailCad = document.getElementById("emailCadastro").value;
+        telamodal = document.getElementById("modal-login");
+        if (senhaCad != '' && emailCad != '') {
+            //desaparece tela
+            alert('Cadastro enviado. Aguarde o e-mail de confirmação para acessar o sistema.');
+            document.getElementById("senhaCadastro").value = '';
+            document.getElementById("emailCadastro").value = '';
+            document.getElementById("senhaLogin").value = '';
+            document.getElementById("emailLogin").value = '';
+            trocaAbaLogin('abaLoginBtn', 'conteudoLogin');
+        } else {
+            alert('Preencha os campos corretamente');
+            document.getElementById("senhaCad").value = '';
+            document.getElementById("emailCad").value = '';
+        }
+    }
 
-    <mat-form-field>
-        <textarea matInput placeholder="Qualidades" [(ngModel)]="detalhe.qualidades" rows="3" name="qualidades"></textarea>
-    </mat-form-field>
+    function trocaAbaLogin(aba, conteudo) {
+        let abaAtiva = document.getElementById(aba);
+        let conteudoAtivo = document.getElementById(conteudo);
 
-    <mat-form-field>
-        <textarea matInput placeholder="Defeitos" [(ngModel)]="detalhe.defeitos" rows="3" name="defeitos"></textarea>
-    </mat-form-field>
+        //apagando tudo
+        document.getElementById("abaLoginBtn").style.background = "rgba(0, 0, 0, 0.623)";
+        document.getElementById("abaCadastroBtn").style.background = "rgba(0, 0, 0, 0.623)";
+        document.getElementById("senhaCadastro").value = '';
+        document.getElementById("emailCadastro").value = '';
+        document.getElementById("senhaLogin").value = '';
+        document.getElementById("emailLogin").value = '';
 
-    <mat-form-field>
-        <input matInput placeholder="Trilha" required [(ngModel)]="detalhe.trilha" name="trilha">
-    </mat-form-field>
+        document.getElementById("conteudoLogin").style.display = "none";
+        document.getElementById("conteudoCadastro").style.display = "none";
 
-    <mat-form-field>
-        <input matInput placeholder="Pontos da trilha" required [(ngModel)]="detalhe.trilha_pts" name="trilha_pts" type="number" step="1">
-    </mat-form-field>
+        //mostrando apenas o correto
+        abaAtiva.style.background = "rgba(14, 14, 14, 0.623)";
+        conteudoAtivo.style.display = "block";
 
-    <mat-form-field>
-        <input matInput placeholder="Força de Vontade (nível)" required [(ngModel)]="detalhe.forca_vontade_nivel" name="forca_vontade_nivel" alt="Nível máximo da força de vontade do personagem" type="number" step="1">
-    </mat-form-field>
+    }
 
-    <mat-form-field>
-        <input matInput placeholder="Força de Vontade (atual)" [(ngModel)]="detalhe.forca_vontade_atual" name="forca_vontade_atual" alt="Nível atual da força de vontade do personagem" type="number" step="1">
-    </mat-form-field>
+    let camposenha = document.getElementById("senhaLogin");
 
-    <mat-form-field>
-        <input matInput placeholder="Pontos de Sangue (nível)" required [(ngModel)]="detalhe.pontos_sangue_total" name="pontos_sangue_total" alt="Nível máximo dos pontos de sangue" type="number" step="1">
-    </mat-form-field>
+    camposenha.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("myBtn").click();
+        }
+    });
 
-    <mat-form-field>
-        <input matInput placeholder="Pontos de Sangue (atual)" [(ngModel)]="detalhe.pontos_sangue_atual" name="pontos_sangue_atual" alt="Nível atual dos pontos de sangue" type="number" step="1">
-    </mat-form-field>
+</script> -->
 
-    <mat-form-field>
-        <input matInput placeholder="Pontos de Vida (nível)" required [(ngModel)]="detalhe.pontos_vida_total" name="pontos_vida_total" alt="Nível máximo dos pontos de vida" type="number" step="1">
-    </mat-form-field>
 
-    <mat-form-field>
-        <input matInput placeholder="Pontos de Vida (atual)" required [(ngModel)]="detalhe.pontos_vida_atual" name="pontos_vida_atual" alt="Nível atual dos pontos de vida" type="number" step="1">
-    </mat-form-field>
+<div class="modal fade show" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+    aria-hidden="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div id="logoInicio">
+                <img src="logo.png" id="logoInicial">
+            </div>
 
-    <mat-form-field>
-        <textarea matInput placeholder="Fraqueza" [(ngModel)]="detalhe.fraqueza" name="fraqueza" rows="2"></textarea>
-    </mat-form-field>
-
-    <mat-form-field>
-        <input matInput placeholder="Pontos de Experiência obtidos" [(ngModel)]="detalhe.pontos_experiencia" name="pontos_experiencia" type="number" step="1">
-    </mat-form-field>
-
-    <mat-toolbar class="form-buttons">
-        <mat-toolbar-row>
-            <button mat-raised-button type="submit" color="accent">
-                Salvar
-            </button>
-            <button mat-raised-button type="button" (click)="voltar(f)">
-                Voltar
-            </button>
-        </mat-toolbar-row>
-    </mat-toolbar>
-
-</form> -->
+            <!-- Menu de Abas -->
+            <div class="abaLogin">
+                <ul class="abasLogin">
+                    <li class="aba" id="abaLogin-1">
+                        <button id="abaLoginBtn" onclick="trocaAbaLogin('abaLoginBtn','conteudoLogin')">Login</button>
+                    </li>
+                    <li class="aba" id="abaLogin-2">
+                        <button id="abaCadastroBtn"
+                            onclick="trocaAbaLogin('abaCadastroBtn','conteudoCadastro')">Cadastro</button>
+                    </li>
+                </ul>
+                <div class="modal-body" id="conteudoLogin">
+                    <div id="formLogin">
+                        <form #f="ngForm">
+                            <fieldset>
+                                <div class="label-float">
+                                    <input class="input-login" id="emailLogin" [(ngModel)]="detalhe.email"
+                                        placeholder="E-mail" name="email">
+                                    <label>E-mail</label>
+                                </div>
+                                <div class="label-float">
+                                    <input class="input-login" id="senhaLogin" [(ngModel)]="detalhe.senha" type="password" placeholder="Digite sua senha" name="senha">
+                                    <label>Senha</label>
+                                </div>
+                                <br>
+                            </fieldset>
+                            <mat-toolbar class="form-buttons">
+                                <mat-toolbar-row>
+                                    <button class="btnLogin" id="myBtn1" (click)="logar(f)"
+                                        style="margin-top: 0px">Entrar</button>
+                                </mat-toolbar-row>
+                            </mat-toolbar>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-body" id="conteudoCadastro">
+                    <div id="formCadastro">
+                        <form #f="ngForm">
+                            <fieldset>
+                                <div class="label-float">
+                                    <input class="input-login" id="emailCadastro" [(ngModel)]="detalhe.email"
+                                        placeholder="E-mail" name="email">
+                                    <label>Seu E-mail</label>
+                                </div>
+                                <div class="label-float">
+                                    <input class="input-login" id="senhaCadastro" [(ngModel)]="detalhe.senha"
+                                        type="password" placeholder="Digite sua senha" name="senha">
+                                    <label>Crie uma senha</label>
+                                </div>
+                                <br>
+                            </fieldset>
+                            <mat-toolbar class="form-buttons">
+                                <mat-toolbar-row>
+                                    <button class="btnLogin" id="myBtn2" (click)="cadastrar(f)"
+                                        style="margin-top: 0px">Cadastrar</button>
+                                </mat-toolbar-row>
+                            </mat-toolbar>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

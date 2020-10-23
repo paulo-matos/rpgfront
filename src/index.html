@@ -189,40 +189,7 @@
     }
   </style>
 
-  <script>
-    function logar() {
-      pass = document.getElementById("senhaLogin").value;
-      telamodal = document.getElementById("modal-login");
-      if (pass == 'escudodomestre') {
-        //desaparece tela
-        alert('Bem vindo');
-        telamodal.style.display = "none";
-      } else {
-        alert('Senha Incorreta');
-        document.getElementById("senhaLogin").value = '';
-      }
-    }
 
-    function cadastrar() {
-      senhaCad = document.getElementById("senhaCadastro").value;
-      emailCad = document.getElementById("emailCadastro").value;
-      telamodal = document.getElementById("modal-login");
-      if (senhaCad != '' && emailCad != '') {
-        //desaparece tela
-        alert('Cadastro enviado. Aguarde o e-mail de confirmação para acessar o sistema.');
-        document.getElementById("senhaCadastro").value = '';
-        document.getElementById("emailCadastro").value = '';
-        document.getElementById("senhaLogin").value = '';
-        document.getElementById("emailLogin").value = '';
-        trocaAbaLogin('abaLoginBtn', 'conteudoLogin');
-      } else {
-        alert('Preencha os campos corretamente');
-        document.getElementById("senhaCad").value = '';
-        document.getElementById("emailCad").value = '';
-      }
-    }
-
-  </script>
 
   <script>
     function abaClick(aba, conteudo) {
@@ -268,73 +235,7 @@
     }
   </script>
 
-  <div class="modal fade show" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
-    aria-hidden="false">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div id="logoInicio">
-          <img src="logo.png" id="logoInicial">
-        </div>
-
-        <!-- Menu de Abas -->
-        <div class="abaLogin">
-          <ul class="abasLogin">
-            <li class="aba" id="abaLogin-1">
-              <button id="abaLoginBtn" onclick="trocaAbaLogin('abaLoginBtn','conteudoLogin')">Login</button>
-            </li>
-            <li class="aba" id="abaLogin-2">
-              <button id="abaCadastroBtn" onclick="trocaAbaLogin('abaCadastroBtn','conteudoCadastro')">Cadastro</button>
-            </li>
-          </ul>
-          <div class="modal-body" id="conteudoLogin">
-            <div id="formLogin">
-              <fieldset>
-                <div class="label-float">
-                  <input class="input-login" id="emailLogin" placeholder="E-mail">
-                  <label>E-mail</label>
-                </div>
-                <div class="label-float">
-                  <input class="input-login" id="senhaLogin" type="password" placeholder="Digite sua senha">
-                  <label>Senha</label>
-                </div>
-                <br>
-              </fieldset>
-              <button class="btnLogin" id="myBtn" onclick="logar()" style="margin-top: 0px">Entrar</button>
-            </div>
-          </div>
-          <div class="modal-body" id="conteudoCadastro">
-            <div id="formCadastro">
-              <fieldset>
-                <div class="label-float">
-                  <input class="input-login" id="emailCadastro" placeholder="E-mail">
-                  <label>Seu E-mail</label>
-                </div>
-                <div class="label-float">
-                  <input class="input-login" id="senhaCadastro" type="password" placeholder="Digite sua senha">
-                  <label>Crie uma senha</label>
-                </div>
-                <br>
-              </fieldset>
-              <button class="btnLogin" id="myBtn" onclick="cadastrar()" style="margin-top: 0px">Cadastrar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script>
-      let camposenha = document.getElementById("senhaLogin");
-
-      camposenha.addEventListener("keyup", function (event) {
-        if (event.keyCode === 13) {
-          event.preventDefault();
-          document.getElementById("myBtn").click();
-        }
-      });
-
-
-
-    </script>
+  
 
 </body>
 

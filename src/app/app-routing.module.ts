@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'ficha/novo', component: FichaFormComponent },
   { path: 'ficha/:id', component: FichaFormComponent },
 
-  // { path: 'atributo', component: AtributoListComponent },
+  { path: 'home', component: AtributoListComponent },
   // { path: 'atributo/novo', component: AtributoFormComponent },
   // { path: 'atributo/:id', component: AtributoFormComponent },
 
@@ -30,7 +30,6 @@ const routes: Routes = [
 
   { path: 'admin', component: DetalheListComponent },
   { path: 'login', component: DetalheFormComponent },
-  // { path: 'admin/:id', component: DetalheFormComponent },
 
   { path: 'mapa', component: HabilidadeListComponent },
   { path: 'mapa/novo', component: HabilidadeFormComponent },

@@ -1,0 +1,30 @@
+hr {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#containerHome{
+    font-family: inherit;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#welcome{
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 70px;
+}
+
+#tutorialRow{
+    width: 90%;
+    display: inline-flex;
+    justify-content: center;
+}
+
+#tutorialCard{
+    width: 430px;
+    padding: 15px;
+    margin: 15px;
+    overflow: hidden;
+}

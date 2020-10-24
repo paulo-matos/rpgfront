@@ -1,7 +1,14 @@
 <mat-toolbar color="primary" class="mat-elevation-z8">
-   <mat-toolbar-row>
-     <app-main-menu></app-main-menu>
-     <span>{{ appName }}</span>
-     <span id="logoutAround"><a href="/" onclick="window.location.reload(true);" id="logout"><mat-icon id="iconExit">exit_to_app</mat-icon></a></span>
-   </mat-toolbar-row>
+  <mat-toolbar-row>
+    <app-main-menu id="btnMenuLateral"></app-main-menu>
+    <span>
+      <a [routerLink]="['/home']" id="linkHome">{{ appName }}</a>
+    </span>
+    <span id="logoutAround">
+      <a href="/" onclick="window.location.reload(true);" id="logout">
+        <mat-icon id="iconExit">
+          exit_to_app
+        </mat-icon>
+      </a></span>
+  </mat-toolbar-row>
 </mat-toolbar>

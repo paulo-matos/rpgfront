@@ -1,66 +1,74 @@
-<h1>LISTA DE ATRIBUTOS</h1>
-
-<mat-toolbar class="add-new-toolbar">
-    <mat-toolbar-row>
-        <a mat-raised-button color="accent" [routerLink]="['/atributo/novo']">
-            <mat-icon>add_circle_outline</mat-icon>
-            Novos atributos
-        </a>
-    </mat-toolbar-row>
-</mat-toolbar>
-<div class="responsiveTable">
-<table mat-table [dataSource]="atributos" class="mat-elevation-z4">
-
-    <ng-container matColumnDef="fis_forca">
-        <th mat-header-cell *matHeaderCellDef> Força </th>
-        <td mat-cell *matCellDef="let atributo"> {{atributo.fis_forca}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="fis_destreza">
-        <th mat-header-cell *matHeaderCellDef> Destreza </th>
-        <td mat-cell *matCellDef="let atributo"> {{atributo.fis_destreza}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="identificador" sticky>
-        <th mat-header-cell *matHeaderCellDef> Identificador </th>
-        <td mat-cell *matCellDef="let atributo"> {{atributo.identificador}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="soc_aparencia">
-        <th mat-header-cell *matHeaderCellDef> Aparência </th>
-        <td mat-cell *matCellDef="let atributo"> {{atributo.soc_aparencia}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="men_percepcao">
-        <th mat-header-cell *matHeaderCellDef> Percepção </th>
-        <td mat-cell *matCellDef="let atributo"> {{atributo.men_percepcao}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="men_raciocinio">
-        <th mat-header-cell *matHeaderCellDef> Raciocínio </th>
-        <td mat-cell *matCellDef="let atributo"> {{atributo.men_raciocinio}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="editar">
-        <th mat-header-cell *matHeaderCellDef> Ver Todos </th>
-        <td mat-cell *matCellDef="let atributo">
-            <a mat-raised-button color="accent" [routerLink]="['/atributo', atributo._id]">
-                <mat-icon>visibility</mat-icon>
-            </a>
-        </td>
-    </ng-container>
-
-    <!-- Excluir Column -->
-    <ng-container matColumnDef="excluir">
-        <th mat-header-cell *matHeaderCellDef> Excluir </th>
-        <td mat-cell *matCellDef="let atributo">
-            <button mat-raised-button color="warn" (click)="excluir(atributo._id)">
-                <mat-icon>delete_forever</mat-icon>
-            </button>
-        </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+<div id="containerHome">
+    <div>
+        <div id="welcome">
+            <h1><strong>Bem vindo ao Escudo do Mestre!</strong></h1>
+        </div>
+        <div>
+            <p>Aqui você encontra diversas ferramentas para auxiliar sua partida de RPG presencial, focadas para o
+                sistema Vampiro: a Máscara - 3ª Edição.</p>
+            <p>Criado por Paulo Matos, aluno do curso de Análise e Desenvolvimento de Sistemas da Fatec Franca - Thomaz
+                Novelino, este sistema é o resultado de um Trabalho de Graduação.</p>
+        </div>
+        <div>
+            <hr>
+            <h3>Acesse as ferramentas pelo menu lateral no canto superior esquerdo!</h3>
+        </div>
+        <div>
+            <hr>
+            <h5>Encontre abaixo alguns tutoriais de como utilizar as ferramentas</h5>
+        </div>
+        <div id="tutorialRow">
+            <div id="tutorialCard">
+                <h3>Fichas</h3>
+                <p>As fichas de personagem permitem acesso rápido as informações de cada personagem sem necessidade de
+                    carregar papéis para todos os lados. Veja como utilizar no vídeo abaixo</p>
+                <iframe width="400px" height="225"
+                    src="https://www.youtube-nocookie.com/embed/gsHHY6SrCKM?rel=0&modestbranding=1&iv_load_policy=3&showinfo=0"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    sandbox="allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation"></iframe>
+            </div>
+            <div id="tutorialCard">
+                <h3>Livros</h3>
+                <p>Os livros da aventura são uma forma dinâmica de contar ou relembrar os jogadores uma parte escrita da
+                    aventura, permitindo diversas configurações, numa pré-visualização incrível. Veja como utilizar.</p>
+                <iframe width="400px" height="225"
+                    src="https://www.youtube-nocookie.com/embed/gsHHY6SrCKM?rel=0&modestbranding=1&iv_load_policy=3&showinfo=0"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    sandbox="allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation"></iframe>
+            </div>
+        </div>
+        <div id="tutorialRow">
+            <div id="tutorialCard">
+                <h3>Mapa</h3>
+                <p>O mapa da aventura é a tela que mais será visualizada pelos jogadores e recomendamos que seja exibida
+                    em
+                    uma tela externa, pois os ajudará a tomar decisões durante sua jornada. Veja como utilizar o mapa e
+                    adicionar marcadores no vídeo abaixo.</p>
+                <iframe width="400px" height="225"
+                    src="https://www.youtube-nocookie.com/embed/gsHHY6SrCKM?rel=0&modestbranding=1&iv_load_policy=3&showinfo=0"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    sandbox="allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation"></iframe>
+            </div>
+            <div id="tutorialCard">
+                <h3>Música</h3>
+                <p>Nenhuma partida de RPG está realmente completa sem efeitos sonoros, não é mesmo? Veja como utilizar
+                    esta
+                    ferramenta incrível que é o Tabletop Áudio no vídeo abaixo. E não tem problema se você não fala
+                    inglês,
+                    o vídeo auxilia até mesmo aqueles que não sabem que o book está on the table.</p>
+                <iframe width="400px" height="225"
+                    src="https://www.youtube-nocookie.com/embed/gsHHY6SrCKM?rel=0&modestbranding=1&iv_load_policy=3&showinfo=0"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    sandbox="allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation"></iframe>
+            </div>
+        </div>
+    </div>
 </div>

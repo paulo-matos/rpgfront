@@ -1,10 +1,11 @@
-<button mat-button [matMenuTriggerFor]="menu" #state="matMenuTrigger">
+<button mat-button [matMenuTriggerFor]="menu" #state="matMenuTrigger" class="btnMenuLateral">
    <mat-icon *ngIf="! state.menuOpen">menu</mat-icon>
    <mat-icon *ngIf="state.menuOpen">close</mat-icon>
 </button>
 <mat-menu #menu="matMenu">
   <a mat-menu-item [routerLink]="['/ficha']">Fichas</a>
-  <a mat-menu-item [routerLink]="['/mapa']">Mapa</a>
   <a mat-menu-item [routerLink]="['/livros']">Livros</a>
+  <a mat-menu-item [routerLink]="['/mapa']">Mapa</a>
   <a mat-menu-item href="https://tabletopaudio.com/" target="_blank">Música</a>
+  <a mat-menu-item [routerLink]="['/home']">Tutoriais</a>
 </mat-menu>

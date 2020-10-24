@@ -105,7 +105,7 @@ export class DetalheFormComponent implements OnInit {
         else if (this.detalhe.email == 'jose@gmail.com') {
           if (this.detalhe.senha == 'escudodomestre') {
             this.snackBar.open(msg, 'Ok', { duration: 3000 });
-            this.router.navigate(['/ficha']);
+            this.router.navigate(['/home']);
           } else {
             msg = 'Senha incorreta';
             this.snackBar.open(msg, 'Ok', { duration: 3000 });

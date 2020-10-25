@@ -29,6 +29,7 @@ export class DetalheListComponent implements OnInit {
       console.error(error);
     }
 
+    document.getElementById('btnMenuLateral').style.display = 'none';
   }
 
   async excluir(id: string) {
@@ -61,9 +62,6 @@ export class DetalheListComponent implements OnInit {
 
   async atualizar(status: boolean, id: string) {
     this.detalhe = await this.detalheSrv.obterUm(id);
-    console.log(status);
-    console.log(id);
-    console.log(this.detalhe);
 
     try {
       let msg = 'Usuário atualizado com sucesso.';

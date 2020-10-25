@@ -88,18 +88,16 @@ export class DetalheFormComponent implements OnInit {
     if (form.valid) {
       try {
         let msg = 'Bem vindo, Mestre.';
-        console.log(this.detalhe.email);
-        console.log(this.detalhe.senha);
 
         if (this.detalhe.email == 'paulo@gmail.com') { // comparar usuario e senha
           if (this.detalhe.senha == 'escudodomestre') {
-            //await this.detalheSrv.atualizar(this.detalhe);
             this.snackBar.open(msg, 'Ok', { duration: 3000 });
             this.router.navigate(['/admin']);
           } else {
             msg = 'Senha incorreta';
             this.snackBar.open(msg, 'Ok', { duration: 3000 });
-            this.router.navigate(['/login']);
+            //limpar campos
+            this.detalhe.senha = '';  
           }
         }
         else if (this.detalhe.email == 'jose@gmail.com') {
@@ -109,12 +107,15 @@ export class DetalheFormComponent implements OnInit {
           } else {
             msg = 'Senha incorreta';
             this.snackBar.open(msg, 'Ok', { duration: 3000 });
-            this.router.navigate(['/login']);
+            //limpar campos
+            this.detalhe.senha = '';
           }
         } else {
           msg = 'E-mail incorreto'
           this.snackBar.open(msg, 'Ok', { duration: 3000 });
-          this.router.navigate(['/login']);
+          //limpar campos
+          this.detalhe.email = '';
+          this.detalhe.senha = '';  
         }
       }
       catch (error) {
@@ -126,6 +127,7 @@ export class DetalheFormComponent implements OnInit {
   }
 
   async cadastrar(form: NgForm) {
+    let result;
     if (form.valid) {
       try {
         let msg = 'Seu cadastro foi enviado. Aguarde e-mail de confirmação.';
@@ -139,8 +141,9 @@ export class DetalheFormComponent implements OnInit {
               //criado com sucesso, porém sem validação
               await this.detalheSrv.novo(this.detalhe);
               this.snackBar.open(msg, 'Ok', { duration: 3000 });
-              this.router.navigate(['/']);
-              this.ngOnInit();
+              //limpar campos
+              this.detalhe.email = '';
+              this.detalhe.senha = '';              
             } else {
               msg = 'Digite uma senha';
               this.snackBar.open(msg, 'Ok', { duration: 3000 });

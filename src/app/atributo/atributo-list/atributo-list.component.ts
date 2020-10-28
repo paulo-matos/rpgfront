@@ -22,7 +22,7 @@ export class AtributoListComponent implements OnInit {
 
   async ngOnInit() {
     try {
-      this.atributos = await this.atributoSrv.listar();
+      //this.atributos = await this.atributoSrv.listar();
     }
     catch (error) {
       console.error(error);

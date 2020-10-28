@@ -17,7 +17,7 @@ interface Disciplina {
   value: string;
   viewValue: string;
 }
-interface Vitalidade{
+interface Vitalidade {
   value: string;
   viewValue: string;
 }
@@ -51,23 +51,22 @@ export class FichaFormComponent implements OnInit {
   selectedValue: string;
 
   disciplinas: Disciplina[] = [
-    {value: 'animalismo', viewValue: 'Animalismo'},
-    {value: 'auspicios', viewValue: 'Auspícios'},
-    {value: 'demencia', viewValue: 'Demência'},
-    {value: 'dominacao', viewValue: 'Dominação'},
-    {value: 'fortitude', viewValue: 'Fortitude'},
-    {value: 'metamorfose', viewValue: 'Metamorfose'},
-    {value: 'ofuscacao', viewValue: 'Ofuscação'},
-    {value: 'potencia', viewValue: 'Potência'},
-    {value: 'presenca', viewValue: 'Presença'},
-    {value: 'rapidez', viewValue: 'Rapidez'},
-    {value: 'taumaturgia', viewValue: 'Taumaturgia'}
+    { value: 'animalismo', viewValue: 'Animalismo' },
+    { value: 'auspicios', viewValue: 'Auspícios' },
+    { value: 'demencia', viewValue: 'Demência' },
+    { value: 'dominacao', viewValue: 'Dominação' },
+    { value: 'fortitude', viewValue: 'Fortitude' },
+    { value: 'metamorfose', viewValue: 'Metamorfose' },
+    { value: 'ofuscacao', viewValue: 'Ofuscação' },
+    { value: 'potencia', viewValue: 'Potência' },
+    { value: 'presenca', viewValue: 'Presença' },
+    { value: 'rapidez', viewValue: 'Rapidez' },
+    { value: 'taumaturgia', viewValue: 'Taumaturgia' }
   ];
   vitalidades: Vitalidade[] = [
-    {value: '', viewValue: ''},
-    {value: '-', viewValue: '-'},
-    {value: '/', viewValue: '/'},
-    {value: 'X', viewValue: 'X'}
+    { value: '-', viewValue: '-' },
+    { value: '/', viewValue: '/' },
+    { value: 'X', viewValue: 'X' }
   ];
   //fim teste 2/2
 
@@ -84,6 +83,12 @@ export class FichaFormComponent implements OnInit {
       }
     }
 
+    this.trilha('trilhaValue',this.ficha.trilha_pts);
+    this.trilha('forcaVontadeValue',this.ficha.forca_vontade_nivel);
+    this.trilha('forcaVontadeAtualValue',this.ficha.forca_vontade_atual);
+    this.trilha('pontosSangueAtualValue',this.ficha.pontos_sangue_atual);
+
+
     // Entidades relacionadas
     // try{
     //   this.atributos = await this.atributoSrv.listar();
@@ -93,6 +98,23 @@ export class FichaFormComponent implements OnInit {
     // catch(error) {
     //   console.log(error);
     // }
+  }
+
+  async trilha(name, field) {
+    // var trilhaRadio1 = document.getElementById('trilhaValue1');
+    //trilhaValue
+    //forcaVontadeValue
+    //forcaVontadeAtualValue
+    //pontosSangueAtualValue
+
+    if (this.ficha._id) {
+      for (let i = 0; i < field; i++) {
+        let field;
+        field = name + [i + 1];
+        let checkbox = document.getElementById(field) as HTMLInputElement;
+        checkbox.checked = true;
+      }
+    }
   }
 
   //funcao pra capturar upload
@@ -112,9 +134,42 @@ export class FichaFormComponent implements OnInit {
   //   return this.http.post(env.apiUri + 'images/image-upload', arquivo).toPromise();
   // }
 
+  async atualizaPontos(name,qtd){
+    let resultado = 0;
+    for (let i = 0; i < qtd; i++) {
+      let field = name + [i + 1];
+      let checkbox = document.getElementById(field) as HTMLInputElement;
+      if (checkbox.checked == true){
+        resultado += 1;
+      }
+    }
+    return resultado;
+  }
+
   async salvar(form: NgForm) {
     //await this.novaImg(this.ficha)
+    this.ficha.trilha_pts = await this.atualizaPontos('trilhaValue',10);
+    this.ficha.forca_vontade_nivel = await this.atualizaPontos('forcaVontadeValue',10);
+    this.ficha.forca_vontade_atual = await this.atualizaPontos('forcaVontadeAtualValue',10);
+    this.ficha.pontos_sangue_atual = await this.atualizaPontos('pontosSangueAtualValue',20);
+
+    
+    
+
+
+    // var pontosTrilha = 0;
+    // let name;
+
+    // for (let i = 0; i < 10; i++) {
+    //   name = 'trilhaValue' + [i + 1];
+    //   let checkbox = document.getElementById(name) as HTMLInputElement;
+    //   if (checkbox.checked == true){
+    //     pontosTrilha += 1;
+    //   }
+    // }
+    // this.ficha.trilha_pts = pontosTrilha;
     if (form.valid) {
+      //console.log(pontosTrilha + ' ' + this.ficha.trilha_pts)
       try {
         let msg = 'Ficha criada com sucesso.';
 
@@ -140,7 +195,7 @@ export class FichaFormComponent implements OnInit {
   async voltar(form: NgForm) {
 
     let result = true;
-    console.log(form);
+    
     // form.dirty = formulário "sujo", não salvo (via código)
     // form.touched = o conteúdo de algum campo foi alterado (via usuário)
     if (form.dirty && form.touched) {

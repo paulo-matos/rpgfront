@@ -95,7 +95,7 @@ button:focus {
   max-width: 25% !important;
 }
 
-#conteudoAba4 .column .inputAntecedente{
+#conteudoAba4 .column .inputAntecedente {
   text-align: left !important;
   max-width: 75% !important;
 }
@@ -122,6 +122,7 @@ textarea {
 
 #inputTrilha {
   text-align: center !important;
+  margin-bottom: 5px;
 }
 
 /* Required input */
@@ -134,8 +135,8 @@ input:required:focus {
   border: 1px solid red;
   outline: none;
 }
-input:required:after { 
-  content:"*";
+input:required:after {
+  content: "*";
   border: 1px solid red !important;
 }
 
@@ -156,5 +157,86 @@ input:required + label {
 }
 .required label:after {
   color: #e32 !important;
-  content: ' *';
+  content: " *";
+}
+
+.used {
+  border-radius: 15px;
+}
+
+//Checkboxes
+input[type="checkbox"].css-checkbox {
+  position: absolute;
+  z-index: -1000;
+  left: -1000px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+input[type="checkbox"].css-checkbox + label.css-label {
+  padding-left: 29px;
+  height: 24px;
+  display: inline-block;
+  line-height: 24px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  font-size: 24px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+input[type="checkbox"].css-checkbox:checked + label.css-label {
+  background-position: 0 -24px;
+}
+label.css-label {
+  background-image: url(http://csscheckbox.com/checkboxes/u/csscheckbox_9fd6d38a5406bb47fcea5bdd030065bb.png);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+//end check normal - begin check blue
+input[type="checkbox"].css-checkbox-blue {
+  position: absolute;
+  z-index: -1000;
+  left: -1000px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+input[type="checkbox"].css-checkbox-blue + label.css-label-blue {
+  padding-left: 29px;
+  height: 24px;
+  display: inline-block;
+  line-height: 24px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  font-size: 24px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+input[type="checkbox"].css-checkbox-blue:checked + label.css-label-blue {
+  background-position: 0 -24px;
+}
+label.css-label-blue {
+  background-image: url(http://csscheckbox.com/checkboxes/u/csscheckbox_ee9e70bc58d3e29d6f6536ec08f60305.png);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

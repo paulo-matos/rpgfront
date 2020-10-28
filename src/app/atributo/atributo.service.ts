@@ -11,7 +11,7 @@ export class AtributoService {
   constructor(private http: HttpClient) 
   { }
 
-  private endPoint : string = 'atributo';
+  private endPoint : string = 'usuario';
 
   listar() {
     return this.http.get(env.apiUri + this.endPoint).toPromise();

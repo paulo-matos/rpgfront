@@ -533,103 +533,76 @@
             </div>
 
             <div class="column" style="text-align: center;">
-                <div style="width: 100%;">
+                <div id="humanidade" style="width: 100%;">
                     <h3>Humanidade/Trilha</h3>
                 </div>
                 <div>
                     <input matInput [(ngModel)]="ficha.trilha" name="trilha" placeholder="Humanidade" id="inputTrilha">
                     <br>
-                    <span></span> <input type="radio" name="attr_Other1" value="1" />
-                    <span></span> <input type="radio" name="attr_Other1" value="2" />
-                    <span></span> <input type="radio" name="attr_Other1" value="3" />
-                    <span></span> <input type="radio" name="attr_Other1" value="4" />
-                    <span></span> <input type="radio" name="attr_Other1" value="5" />
-                    <span></span> <input type="radio" name="attr_Other1" value="6" />
-                    <span></span> <input type="radio" name="attr_Other1" value="7" />
-                    <span></span> <input type="radio" name="attr_Other1" value="8" />
-                    <span></span> <input type="radio" name="attr_Other1" value="9" />
-                    <span></span> <input type="radio" name="attr_Other1" value="10" />
+                    <input type="checkbox" name="trilhaRadio1" value="1" id="trilhaValue1" class="css-checkbox-blue"/><label for="trilhaValue1" class="css-label-blue"></label>
+                    <input type="checkbox" name="trilhaRadio2" value="2" id="trilhaValue2" class="css-checkbox-blue"/><label for="trilhaValue2" class="css-label-blue"></label>
+                    <input type="checkbox" name="trilhaRadio3" value="3" id="trilhaValue3" class="css-checkbox-blue"/><label for="trilhaValue3" class="css-label-blue"></label>
+                    <input type="checkbox" name="trilhaRadio4" value="4" id="trilhaValue4" class="css-checkbox-blue"/><label for="trilhaValue4" class="css-label-blue"></label>
+                    <input type="checkbox" name="trilhaRadio5" value="5" id="trilhaValue5" class="css-checkbox-blue"/><label for="trilhaValue5" class="css-label-blue"></label>
+                    <input type="checkbox" name="trilhaRadio6" value="6" id="trilhaValue6" class="css-checkbox-blue"/><label for="trilhaValue6" class="css-label-blue"></label>
+                    <input type="checkbox" name="trilhaRadio7" value="7" id="trilhaValue7" class="css-checkbox-blue"/><label for="trilhaValue7" class="css-label-blue"></label>
+                    <input type="checkbox" name="trilhaRadio8" value="8" id="trilhaValue8" class="css-checkbox-blue"/><label for="trilhaValue8" class="css-label-blue"></label>
+                    <input type="checkbox" name="trilhaRadio9" value="9" id="trilhaValue9" class="css-checkbox-blue"/><label for="trilhaValue9" class="css-label-blue"></label>
+                    <input type="checkbox" name="trilhaRadio10" value="10" id="trilhaValue10" class="css-checkbox-blue"/><label for="trilhaValue10" class="css-label-blue"></label>
                 </div>
 
                 <h3>Força de Vontade</h3>
                 <div>
-                    <input type="radio" name="forca_vontade_nivel" value="1" />
-                    <span></span> <input type="radio" name="forca_vontade_nivel" value="2" />
-                    <span></span> <input type="radio" name="forca_vontade_nivel" value="3" />
-                    <span></span> <input type="radio" name="forca_vontade_nivel" value="4" />
-                    <span></span> <input type="radio" name="forca_vontade_nivel" value="5" checked="checked" />
-                    <span></span> <input type="radio" name="forca_vontade_nivel" value="6" />
-                    <span></span> <input type="radio" name="forca_vontade_nivel" value="7" />
-                    <span></span> <input type="radio" name="forca_vontade_nivel" value="8" />
-                    <span></span> <input type="radio" name="forca_vontade_nivel" value="9" />
-                    <span></span> <input type="radio" name="forca_vontade_nivel" value="10" />
+                    <input type="checkbox" name="forca_vontade_nivel" value="1" id="forcaVontadeValue1" class="css-checkbox-blue"/><label for="forcaVontadeValue1" class="css-label-blue"></label>
+                    <input type="checkbox" name="forca_vontade_nivel" value="2" id="forcaVontadeValue2" class="css-checkbox-blue"/><label for="forcaVontadeValue2" class="css-label-blue"></label>
+                    <input type="checkbox" name="forca_vontade_nivel" value="3" id="forcaVontadeValue3" class="css-checkbox-blue"/><label for="forcaVontadeValue3" class="css-label-blue"></label>
+                    <input type="checkbox" name="forca_vontade_nivel" value="4" id="forcaVontadeValue4" class="css-checkbox-blue"/><label for="forcaVontadeValue4" class="css-label-blue"></label>
+                    <input type="checkbox" name="forca_vontade_nivel" value="5" id="forcaVontadeValue5" class="css-checkbox-blue"/><label for="forcaVontadeValue5" class="css-label-blue"></label>
+                    <input type="checkbox" name="forca_vontade_nivel" value="6" id="forcaVontadeValue6" class="css-checkbox-blue"/><label for="forcaVontadeValue6" class="css-label-blue"></label>
+                    <input type="checkbox" name="forca_vontade_nivel" value="7" id="forcaVontadeValue7" class="css-checkbox-blue"/><label for="forcaVontadeValue7" class="css-label-blue"></label>
+                    <input type="checkbox" name="forca_vontade_nivel" value="8" id="forcaVontadeValue8" class="css-checkbox-blue"/><label for="forcaVontadeValue8" class="css-label-blue"></label>
+                    <input type="checkbox" name="forca_vontade_nivel" value="9" id="forcaVontadeValue9" class="css-checkbox-blue"/><label for="forcaVontadeValue9" class="css-label-blue"></label>
+                    <input type="checkbox" name="forca_vontade_nivel" value="10" id="forcaVontadeValue10" class="css-checkbox-blue"/><label for="forcaVontadeValue10" class="css-label-blue"></label>
                 </div>
 
                 <div>
-                    <mat-checkbox name="forca_vontade_atual" value="1"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="forca_vontade_atual" value="2"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="forca_vontade_atual" value="3"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="forca_vontade_atual" value="4"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="forca_vontade_atual" value="5"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="forca_vontade_atual" value="6"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="forca_vontade_atual" value="7"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="forca_vontade_atual" value="8"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="forca_vontade_atual" value="9"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="forca_vontade_atual" value="10"></mat-checkbox>
+                    <input type="checkbox" name="forca_vontade_atual" value="1" id="forcaVontadeAtualValue1" class="css-checkbox" /><label for="forcaVontadeAtualValue1" class="css-label"></label>
+                    <input type="checkbox" name="forca_vontade_atual" value="2" id="forcaVontadeAtualValue2" class="css-checkbox" /><label for="forcaVontadeAtualValue2" class="css-label"></label>
+                    <input type="checkbox" name="forca_vontade_atual" value="3" id="forcaVontadeAtualValue3" class="css-checkbox" /><label for="forcaVontadeAtualValue3" class="css-label"></label>
+                    <input type="checkbox" name="forca_vontade_atual" value="4" id="forcaVontadeAtualValue4" class="css-checkbox" /><label for="forcaVontadeAtualValue4" class="css-label"></label>
+                    <input type="checkbox" name="forca_vontade_atual" value="5" id="forcaVontadeAtualValue5" class="css-checkbox" /><label for="forcaVontadeAtualValue5" class="css-label"></label>
+                    <input type="checkbox" name="forca_vontade_atual" value="6" id="forcaVontadeAtualValue6" class="css-checkbox" /><label for="forcaVontadeAtualValue6" class="css-label"></label>
+                    <input type="checkbox" name="forca_vontade_atual" value="7" id="forcaVontadeAtualValue7" class="css-checkbox" /><label for="forcaVontadeAtualValue7" class="css-label"></label>
+                    <input type="checkbox" name="forca_vontade_atual" value="8" id="forcaVontadeAtualValue8" class="css-checkbox" /><label for="forcaVontadeAtualValue8" class="css-label"></label>
+                    <input type="checkbox" name="forca_vontade_atual" value="9" id="forcaVontadeAtualValue9" class="css-checkbox" /><label for="forcaVontadeAtualValue9" class="css-label"></label>
+                    <input type="checkbox" name="forca_vontade_atual" value="10" id="forcaVontadeAtualValue10" class="css-checkbox" /><label for="forcaVontadeAtualValue10" class="css-label"></label>
                 </div>
 
                 <h3>Pontos de Sangue</h3>
                 <div>
-                    <mat-checkbox name="pontos_sangue_atual" value="1" class=" used"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="pontos_sangue_atual" value="2" class=" used"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="pontos_sangue_atual" value="3" class=" used"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="pontos_sangue_atual" value="4" class=" used"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="pontos_sangue_atual" value="5" class=" used"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="pontos_sangue_atual" value="6" class=" used"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="pontos_sangue_atual" value="7" class=" used"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="pontos_sangue_atual" value="8" class=" used"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="pontos_sangue_atual" value="9" class=" used"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="pontos_sangue_atual" value="10" class=" used"></mat-checkbox>
-                    <span></span><br>
+                    <input type="checkbox" name="pontos_sangue_atual1" value="1" id="pontosSangueAtualValue1" class="css-checkbox" /><label for="pontosSangueAtualValue1" class="css-label"></label>
+                    <input type="checkbox" name="pontos_sangue_atual2" value="2" id="pontosSangueAtualValue2" class="css-checkbox" /><label for="pontosSangueAtualValue2" class="css-label"></label>
+                    <input type="checkbox" name="pontos_sangue_atual3" value="3" id="pontosSangueAtualValue3" class="css-checkbox" /><label for="pontosSangueAtualValue3" class="css-label"></label>
+                    <input type="checkbox" name="pontos_sangue_atual4" value="4" id="pontosSangueAtualValue4" class="css-checkbox" /><label for="pontosSangueAtualValue4" class="css-label"></label>
+                    <input type="checkbox" name="pontos_sangue_atual5" value="5" id="pontosSangueAtualValue5" class="css-checkbox" /><label for="pontosSangueAtualValue5" class="css-label"></label>
+                    <input type="checkbox" name="pontos_sangue_atual6" value="6" id="pontosSangueAtualValue6" class="css-checkbox" /><label for="pontosSangueAtualValue6" class="css-label"></label>
+                    <input type="checkbox" name="pontos_sangue_atual7" value="7" id="pontosSangueAtualValue7" class="css-checkbox" /><label for="pontosSangueAtualValue7" class="css-label"></label>
+                    <input type="checkbox" name="pontos_sangue_atual8" value="8" id="pontosSangueAtualValue8" class="css-checkbox" /><label for="pontosSangueAtualValue8" class="css-label"></label>
+                    <input type="checkbox" name="pontos_sangue_atual9" value="9" id="pontosSangueAtualValue9" class="css-checkbox" /><label for="pontosSangueAtualValue9" class="css-label"></label>
+                    <input type="checkbox" name="pontos_sangue_atual10" value="10" id="pontosSangueAtualValue10" class="css-checkbox" /><label for="pontosSangueAtualValue10" class="css-label"></label>
+                    
+                    <br>
 
-                    <mat-checkbox name="pontos_sangue_atual" value="11" class=" used"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="pontos_sangue_atual" value="12" class=" used"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="pontos_sangue_atual" value="13" class=" used"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="pontos_sangue_atual" value="14" class=" used"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="pontos_sangue_atual" value="15" class=" used"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="pontos_sangue_atual" value="16" class=" used"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="pontos_sangue_atual" value="17" class=" used"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="pontos_sangue_atual" value="18" class=" used"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="pontos_sangue_atual" value="19" class=" used"></mat-checkbox>
-                    <span></span>
-                    <mat-checkbox name="pontos_sangue_atual" value="20" class=" used"></mat-checkbox>
-                    <span></span>
+                    <input type="checkbox" name="pontos_sangue_atual11" value="11" id="pontosSangueAtualValue11" class="css-checkbox" /><label for="pontosSangueAtualValue11" class="css-label"></label>
+                    <input type="checkbox" name="pontos_sangue_atual12" value="12" id="pontosSangueAtualValue12" class="css-checkbox" /><label for="pontosSangueAtualValue12" class="css-label"></label>
+                    <input type="checkbox" name="pontos_sangue_atual13" value="13" id="pontosSangueAtualValue13" class="css-checkbox" /><label for="pontosSangueAtualValue13" class="css-label"></label>
+                    <input type="checkbox" name="pontos_sangue_atual14" value="14" id="pontosSangueAtualValue14" class="css-checkbox" /><label for="pontosSangueAtualValue14" class="css-label"></label>
+                    <input type="checkbox" name="pontos_sangue_atual15" value="15" id="pontosSangueAtualValue15" class="css-checkbox" /><label for="pontosSangueAtualValue15" class="css-label"></label>
+                    <input type="checkbox" name="pontos_sangue_atual16" value="16" id="pontosSangueAtualValue16" class="css-checkbox" /><label for="pontosSangueAtualValue16" class="css-label"></label>
+                    <input type="checkbox" name="pontos_sangue_atual17" value="17" id="pontosSangueAtualValue17" class="css-checkbox" /><label for="pontosSangueAtualValue17" class="css-label"></label>
+                    <input type="checkbox" name="pontos_sangue_atual18" value="18" id="pontosSangueAtualValue18" class="css-checkbox" /><label for="pontosSangueAtualValue18" class="css-label"></label>
+                    <input type="checkbox" name="pontos_sangue_atual19" value="19" id="pontosSangueAtualValue19" class="css-checkbox" /><label for="pontosSangueAtualValue19" class="css-label"></label>
+                    <input type="checkbox" name="pontos_sangue_atual20" value="20" id="pontosSangueAtualValue20" class="css-checkbox" /><label for="pontosSangueAtualValue20" class="css-label"></label>
 
                 </div>
 
